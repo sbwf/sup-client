@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "69DCA9EE1AB0AB1000D6EE96"
-               BuildableName = "client.app"
+               BuildableName = "sup.app"
                BlueprintName = "sup"
                ReferencedContainer = "container:sup.xcodeproj">
             </BuildableReference>
@@ -29,7 +29,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "69DCAA071AB0AB1100D6EE96"
-               BuildableName = "clientTests.xctest"
+               BuildableName = "supTests.xctest"
                BlueprintName = "supTests"
                ReferencedContainer = "container:sup.xcodeproj">
             </BuildableReference>
@@ -47,7 +47,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "69DCAA071AB0AB1100D6EE96"
-               BuildableName = "clientTests.xctest"
+               BuildableName = "supTests.xctest"
                BlueprintName = "supTests"
                ReferencedContainer = "container:sup.xcodeproj">
             </BuildableReference>
@@ -57,7 +57,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "69DCA9EE1AB0AB1000D6EE96"
-            BuildableName = "client.app"
+            BuildableName = "sup.app"
             BlueprintName = "sup"
             ReferencedContainer = "container:sup.xcodeproj">
          </BuildableReference>
@@ -76,7 +76,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "69DCA9EE1AB0AB1000D6EE96"
-            BuildableName = "client.app"
+            BuildableName = "sup.app"
             BlueprintName = "sup"
             ReferencedContainer = "container:sup.xcodeproj">
          </BuildableReference>
@@ -94,7 +94,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "69DCA9EE1AB0AB1000D6EE96"
-            BuildableName = "client.app"
+            BuildableName = "sup.app"
             BlueprintName = "sup"
             ReferencedContainer = "container:sup.xcodeproj">
          </BuildableReference>

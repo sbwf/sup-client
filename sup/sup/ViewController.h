@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomCell.h"
 
-@interface ViewController : UIViewController
-@property (nonatomic, weak)IBOutlet UILabel *userName;
-
+@interface ViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@property IBOutlet UITableView *table;
+@property (nonatomic, retain)NSArray *data;
 @end
 

@@ -15,6 +15,7 @@
 @property (nonatomic, strong) NSString *location;
 
 +(UsersModel*)getSharedInstance;
+//-(NSDictionary*)getUser: (NSArray*) listOfUsers: (NSNumber*) userId;
 -(void)loadData;
 
 @end
