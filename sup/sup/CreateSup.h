@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface CreateSup : UIViewController
-
+-(void)post;
 @end

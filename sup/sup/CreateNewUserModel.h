@@ -11,4 +11,5 @@
 @interface CreateNewUserModel : NSObject
 +(CreateNewUserModel*)getSharedInstance;
 -(void)addUser;
+-(void)startObserving;
 @end

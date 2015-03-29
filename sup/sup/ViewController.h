@@ -12,5 +12,6 @@
 @interface ViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 @property IBOutlet UITableView *table;
 @property (nonatomic, retain)NSArray *data;
+@property IBOutlet UIButton *map;
 @end
 

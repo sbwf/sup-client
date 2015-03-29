@@ -10,6 +10,7 @@
 		697212891ABB748200AAF298 /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 697212871ABB748200AAF298 /* CustomCell.m */; };
 		6972128A1ABB748200AAF298 /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 697212881ABB748200AAF298 /* CustomCell.xib */; };
 		698A7C081ABFA15500CAA473 /* CreateNewUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 698A7C071ABFA15500CAA473 /* CreateNewUserModel.m */; };
+		69C5E9EE1AC86A4500BCB746 /* SignUp.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C5E9ED1AC86A4500BCB746 /* SignUp.m */; };
 		69D5B0361ABB8E23002ED2C9 /* CreateSup.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D5B0351ABB8E23002ED2C9 /* CreateSup.m */; };
 		69D5B0391ABB956C002ED2C9 /* SupPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D5B0381ABB956C002ED2C9 /* SupPost.m */; };
 		69DCA9F51AB0AB1000D6EE96 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 69DCA9F41AB0AB1000D6EE96 /* main.m */; };
@@ -38,6 +39,8 @@
 		697212881ABB748200AAF298 /* CustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
 		698A7C061ABFA15500CAA473 /* CreateNewUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateNewUserModel.h; sourceTree = "<group>"; };
 		698A7C071ABFA15500CAA473 /* CreateNewUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateNewUserModel.m; sourceTree = "<group>"; };
+		69C5E9EC1AC86A4500BCB746 /* SignUp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUp.h; sourceTree = "<group>"; };
+		69C5E9ED1AC86A4500BCB746 /* SignUp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUp.m; sourceTree = "<group>"; };
 		69D5B0341ABB8E23002ED2C9 /* CreateSup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateSup.h; sourceTree = "<group>"; };
 		69D5B0351ABB8E23002ED2C9 /* CreateSup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateSup.m; sourceTree = "<group>"; };
 		69D5B0371ABB956C002ED2C9 /* SupPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupPost.h; sourceTree = "<group>"; };
@@ -107,6 +110,8 @@
 				69D5B0351ABB8E23002ED2C9 /* CreateSup.m */,
 				69DCA9F91AB0AB1000D6EE96 /* ViewController.h */,
 				69DCA9FA1AB0AB1000D6EE96 /* ViewController.m */,
+				69C5E9EC1AC86A4500BCB746 /* SignUp.h */,
+				69C5E9ED1AC86A4500BCB746 /* SignUp.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -280,6 +285,7 @@
 				69DCAA1A1AB0AB7B00D6EE96 /* UsersModel.m in Sources */,
 				697212891ABB748200AAF298 /* CustomCell.m in Sources */,
 				69DCA9F51AB0AB1000D6EE96 /* main.m in Sources */,
+				69C5E9EE1AC86A4500BCB746 /* SignUp.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -21,7 +21,6 @@
     [[UsersModel getSharedInstance] addObserver:self forKeyPath:@"users" options:0 context:NULL];
     [[UsersModel getSharedInstance] loadData];
     //[[SupPost getSharedInstance] post];
-    [[CreateNewUserModel getSharedInstance] addUser];
     // Do any additional setup after loading the view, typically from a nib.
 }
 

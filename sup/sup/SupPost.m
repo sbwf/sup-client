@@ -19,26 +19,28 @@
 
 -(void)post{
     NSURL *url = [NSURL URLWithString:@"http://localhost:3000/status/"];
-    NSMutableURLRequest *rq = [[NSMutableURLRequest alloc]initWithURL:url];
-    //NSMutableURLRequest *rq = [NSMutableURLRequest requestWithURL:url];
-    NSString *name = @"Sam";
-    
-    [rq setHTTPMethod:@"POST"];
-    [rq setValue:@"applciation/json" forHTTPHeaderField:@"Content-type"];
-    [rq setValue:[NSString stringWithFormat:@"%lu", (unsigned long)[name length]] forHTTPHeaderField:@"Content-length"];
-    [rq setHTTPBody:[name dataUsingEncoding:NSUTF8StringEncoding]];
-    [[NSURLConnection alloc]initWithRequest:rq delegate:self];
-    
-    /*
-    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
-    NSData *jsonData = [@"{ \"foo\": 1337 }" dataUsingEncoding:NSUTF8StringEncoding];
-    NSLog(@"JSON DATA: %@", jsonData);
-    [rq setHTTPBody:jsonData];
-    [rq setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    [rq setValue:[NSString stringWithFormat:@"%ld", (long)[jsonData length]] forHTTPHeaderField:@"Content-Length"];
-    [NSURLConnection sendAsynchronousRequest:rq queue:queue completionHandler:^(NSURLResponse *rsp, NSData *data, NSError*err){
-        NSLog(@"POST SENT!");
-    }];
-     */
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url];
+    NSDictionary *statusToAdd = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:399], @"owner", [NSNumber numberWithInt:89], @"Id", @"44.9392 , 93.1680", @"loc", [NSNumber numberWithInt:14], @"time", nil];
+    NSLog(@"Status: %@", statusToAdd);
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:statusToAdd options:NSJSONWritingPrettyPrinted error:NULL];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-type"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [request setHTTPBody:jsonData];
+    [NSURLConnection sendAsynchronousRequest:request
+                                       queue:[NSOperationQueue mainQueue]
+                           completionHandler:^(NSURLResponse *response,
+                                               NSData *data, NSError *connectionError)
+     {
+         if (data.length > 0 && connectionError == nil)
+         {
+             
+             NSString *info = [NSJSONSerialization JSONObjectWithData:data
+                                                              options:0
+                                                                error:NULL];
+             NSLog(@"hi");
+             NSLog(@"Post Status Message: %@", info);
+         }
+     }];
 }
 @end
