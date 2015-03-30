@@ -20,7 +20,7 @@
     // Create a GMSCameraPosition that tells the map to display the
     // coordinate -33.86,151.20 at zoom level 6.
     [[SupPost getSharedInstance] addObserver:self forKeyPath:@"supPosts" options:0 context:NULL];
-    [[SupPost getSharedInstance] post];
+    [[SupPost getSharedInstance] loadStatuses];
     // Do any additional setup after loading the view.
 }
 
@@ -34,8 +34,8 @@
         NSLog(@"Observing for 'supPosts'");
         NSLog(@"SupPosts: %@", [SupPost getSharedInstance].supPosts);
         posts = [[NSArray alloc]initWithArray:[SupPost getSharedInstance].supPosts];
-        GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:44.934310
-                                                                longitude:-93.167929
+        GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:44.934207
+                                                                longitude:-93.167494
                                                                      zoom:16];
         mapView_ = [GMSMapView mapWithFrame:CGRectZero camera:camera];
         mapView_.myLocationEnabled = YES;

@@ -107,6 +107,8 @@
 
 -(IBAction)signedUp:(id)sender{
     [self addUser];
+    confirmSignUp =[[UIAlertView alloc]initWithTitle:@"Congratulations" message:@"You are now signed up!" delegate:self cancelButtonTitle:@"Ok"otherButtonTitles:nil];
+    [confirmSignUp show];
 }
 /*
 #pragma mark - Navigation

@@ -11,5 +11,5 @@
 @interface SupPost : NSObject
 @property (nonatomic, strong) NSArray *supPosts;
 +(SupPost*)getSharedInstance;
--(void)post;
+-(void)loadStatuses;
 @end

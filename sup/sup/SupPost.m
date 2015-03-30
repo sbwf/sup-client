@@ -17,7 +17,7 @@
     return instance;
 }
 
--(void)post{
+-(void)loadStatuses{
     NSURL *url = [NSURL URLWithString:@"http://localhost:3000/status/"];
     NSLog(@"IN SUP POST");
     NSURLRequest *request = [NSURLRequest requestWithURL:url];

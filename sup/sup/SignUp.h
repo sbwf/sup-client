@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SignUp : UIViewController<UITextFieldDelegate>
+@interface SignUp : UIViewController<UITextFieldDelegate>{
+    UIAlertView *confirmSignUp;
+}
 
 @property (nonatomic, strong)NSString *name;
 @property (nonatomic, strong)NSString *email;
