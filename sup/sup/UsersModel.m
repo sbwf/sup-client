@@ -19,17 +19,6 @@ static UsersModel *instance;
     return instance;
 }
 
-/*
--(NSDictionary*)getUser:(NSArray *)listOfUsers :(NSNumber*) userId{
-    for (NSDictionary *user in listOfUsers){
-        if (userId == [user objectForKey: @"user_id"]){
-            return user;
-        }
-    }
-    return NULL;
-    
-}
- */
 
 -(void)loadData{
     //Using tutorial: https://spring.io/guides/gs/consuming-rest-ios/

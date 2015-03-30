@@ -20,10 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *signUp;
 
 +(SignUp*)getSharedInstance;
--(NSString *) getName;
--(NSString *) getEmail;
--
-(void)addUser;
+-(void)addUser;
 -(IBAction)signedUp:(id)sender;
 
 @end

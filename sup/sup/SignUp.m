@@ -19,7 +19,6 @@
     [super viewDidLoad];
     _nameField.tag = 1;
     _emailField.tag = 2;
-    //[[CreateNewUserModel getSharedInstance] startObserving];
     // Do any additional setup after loading the view.
 }
 + (SignUp*)getSharedInstance{
@@ -44,14 +43,11 @@
 }
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     if (textField.tag == 1) {
-        NSLog(@"textFieldShouldReturn1: %@", textField.text);
         self.name = textField.text;
-        NSLog(@"Name: %@", self.name);
         UITextField *passwordTextField = (UITextField *)[self.view viewWithTag:2];
         [passwordTextField becomeFirstResponder];
     }
     else {
-        NSLog(@"textFieldShouldReturn2: %@", textField.text);
         self.email = [[NSString alloc]initWithString:textField.text];
         [textField resignFirstResponder];
     }
@@ -65,7 +61,6 @@
 
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardDidHideNotification object:nil];
-    
     [self.view endEditing:YES];
     return YES;
 }
@@ -78,12 +73,10 @@
     NSDictionary *userToAdd = [NSDictionary dictionaryWithObjectsAndKeys:self.email, @"email", self.name, @"name", [NSNumber numberWithInt:r], @"id", nil];
     NSLog(@"%@", userToAdd);
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:userToAdd options:NSJSONWritingPrettyPrinted error:NULL];
-    NSLog(@"Data: %@", jsonData);
     [req setHTTPMethod:@"POST"];
     [req setValue:@"application/json" forHTTPHeaderField:@"Content-type"];
     [req setValue:@"application/json" forHTTPHeaderField:@"Accept"];
     [req setHTTPBody:jsonData];
-    
     [NSURLConnection sendAsynchronousRequest:req
                                        queue:[NSOperationQueue mainQueue]
                            completionHandler:^(NSURLResponse *response,
@@ -110,13 +103,6 @@
 -(void)keyboardDidHide:(NSNotification *)notification
 {
    
-}
--(NSString *) getName{
-    NSLog(@"Name returned should be %@", name2);
-    return name2;
-}
--(NSString *) getEmail{
-    return self.email;
 }
 
 -(IBAction)signedUp:(id)sender{

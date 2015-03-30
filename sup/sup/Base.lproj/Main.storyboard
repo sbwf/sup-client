@@ -29,6 +29,9 @@
                                 <state key="normal" title="Map">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="8Z7-ON-hGB" kind="modal" id="fRX-mF-hi3"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -109,10 +112,10 @@
             </objects>
             <point key="canvasLocation" x="545" y="688"/>
         </scene>
-        <!--View Controller-->
+        <!--Create Sup-->
         <scene sceneID="22f-bv-LMj">
             <objects>
-                <viewController id="8Z7-ON-hGB" sceneMemberID="viewController">
+                <viewController id="8Z7-ON-hGB" customClass="CreateSup" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XNE-y2-giS"/>
                         <viewControllerLayoutGuide type="bottom" id="Vhz-LP-f7d"/>
@@ -126,14 +129,20 @@
                                 <state key="normal" title="Post">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="postedSup:" destination="8Z7-ON-hGB" eventType="touchUpInside" id="YFw-LB-TZj"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="postButton" destination="SDf-zp-C6h" id="VP7-ww-zeU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VL7-0J-me0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1102" y="2"/>
+            <point key="canvasLocation" x="1002" y="-6"/>
         </scene>
     </scenes>
 </document>

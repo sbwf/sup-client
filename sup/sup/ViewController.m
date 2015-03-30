@@ -20,7 +20,6 @@
     [super viewDidLoad];
     [[UsersModel getSharedInstance] addObserver:self forKeyPath:@"users" options:0 context:NULL];
     [[UsersModel getSharedInstance] loadData];
-    //[[SupPost getSharedInstance] post];
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -50,9 +49,8 @@
 }
 
 -(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    //if we want something to happen when we click on cells
 }
-
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
     if ([keyPath isEqualToString:@"users"]){

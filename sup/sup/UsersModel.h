@@ -11,8 +11,6 @@
 @interface UsersModel : NSObject{
 }
 @property (nonatomic,strong) NSArray *users;
-@property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) NSString *location;
 
 +(UsersModel*)getSharedInstance;
 //-(NSDictionary*)getUser: (NSArray*) listOfUsers: (NSNumber*) userId;

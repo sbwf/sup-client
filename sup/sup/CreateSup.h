@@ -10,4 +10,7 @@
 
 @interface CreateSup : UIViewController
 -(void)post;
+@property (nonatomic, weak)IBOutlet UIButton *postButton;
+-(IBAction)postedSup:(id)sender;
+
 @end

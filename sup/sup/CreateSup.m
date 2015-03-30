@@ -27,7 +27,7 @@
 -(void)post{
     NSURL *url = [NSURL URLWithString:@"http://localhost:3000/status/"];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url];
-    NSDictionary *statusToAdd = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:399], @"owner", [NSNumber numberWithInt:89], @"Id", @"44.9392 , 93.1680", @"loc", [NSNumber numberWithInt:14], @"time", nil];
+    NSDictionary *statusToAdd = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:399], @"owner", [NSNumber numberWithInt:89], @"Id", [NSNumber numberWithFloat:44.9392], @"loc", [NSNumber numberWithInt:14], @"time", nil];
     NSLog(@"Status: %@", statusToAdd);
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:statusToAdd options:NSJSONWritingPrettyPrinted error:NULL];
     [request setHTTPMethod:@"POST"];
@@ -49,6 +49,10 @@
              NSLog(@"Post Status Message: %@", info);
          }
      }];
+}
+
+-(IBAction)postedSup:(id)sender{
+    [self post];
 }
 /*
 #pragma mark - Navigation
