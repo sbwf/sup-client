@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface SupPost : NSObject
+@property (nonatomic, strong) NSArray *supPosts;
 +(SupPost*)getSharedInstance;
 -(void)post;
 @end

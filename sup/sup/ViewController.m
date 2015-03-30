@@ -59,7 +59,6 @@
         data = [[NSArray alloc]initWithArray:[UsersModel getSharedInstance].users];
         [table reloadData];
     }
-    
 }
 
 - (void)didReceiveMemoryWarning {

@@ -9,9 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface SignUp : UIViewController<UITextFieldDelegate>
-{
-    NSString *name2;
-}
+
 @property (nonatomic, strong)NSString *name;
 @property (nonatomic, strong)NSString *email;
 @property (weak, nonatomic) IBOutlet UITextField *nameField;

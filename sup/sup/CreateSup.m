@@ -7,13 +7,12 @@
 //
 
 #import "CreateSup.h"
-
+#import <GoogleMaps/GoogleMaps.h>
 @interface CreateSup ()
 
 @end
 
 @implementation CreateSup
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -27,7 +26,7 @@
 -(void)post{
     NSURL *url = [NSURL URLWithString:@"http://localhost:3000/status/"];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url];
-    NSDictionary *statusToAdd = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:399], @"owner", [NSNumber numberWithInt:89], @"Id", [NSNumber numberWithFloat:44.9392], @"loc", [NSNumber numberWithInt:14], @"time", nil];
+    NSDictionary *statusToAdd = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:399], @"owner", [NSNumber numberWithInt:89], @"Id", [NSNumber numberWithFloat:44.934310], @"latitude", [NSNumber numberWithFloat:-93.167929], @"longitude", [NSNumber numberWithInt:14], @"time", nil];
     NSLog(@"Status: %@", statusToAdd);
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:statusToAdd options:NSJSONWritingPrettyPrinted error:NULL];
     [request setHTTPMethod:@"POST"];
