@@ -17,9 +17,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     _nameField.tag = 1;
     _emailField.tag = 2;
-    // Do any additional setup after loading the view.
 }
 + (SignUp*)getSharedInstance{
     static SignUp *instance;
@@ -66,37 +66,8 @@
 }
 
 
--(void)addUser{
-    int r = arc4random_uniform(10000000);
-    NSURL *url = [NSURL URLWithString:@"http://localhost:3000/users/"];
-    NSMutableURLRequest *req = [[NSMutableURLRequest alloc]initWithURL:url];
-    NSDictionary *userToAdd = [NSDictionary dictionaryWithObjectsAndKeys:self.email, @"email", self.name, @"name", [NSNumber numberWithInt:r], @"id", nil];
-    NSLog(@"%@", userToAdd);
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:userToAdd options:NSJSONWritingPrettyPrinted error:NULL];
-    [req setHTTPMethod:@"POST"];
-    [req setValue:@"application/json" forHTTPHeaderField:@"Content-type"];
-    [req setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-    [req setHTTPBody:jsonData];
-    [NSURLConnection sendAsynchronousRequest:req
-                                       queue:[NSOperationQueue mainQueue]
-                           completionHandler:^(NSURLResponse *response,
-                                               NSData *data, NSError *connectionError)
-     {
-         if (data.length > 0 && connectionError == nil)
-         {
-             
-             NSString *info = [NSJSONSerialization JSONObjectWithData:data
-                                                              options:0
-                                                                error:NULL];
-             NSLog(@"Post User Message: %@", info);
-         }
-     }];
-}
-
 - (void)keyboardDidShow:(NSNotification *)notification
 {
-    // Assign new frame to your view
-    //[self.view setFrame:CGRectMake(0,-110,320,460)]; //here taken -20 for example i.e. your view will be scrolled to -20. change its value according to your requirement.
     
 }
 
@@ -106,7 +77,8 @@
 }
 
 -(IBAction)signedUp:(id)sender{
-    [self addUser];
+    int r = arc4random_uniform(10000000);
+    [[CreateNewUserModel getSharedInstance] addUser:self.name :self.email : [NSNumber numberWithInt:r]];
     confirmSignUp =[[UIAlertView alloc]initWithTitle:@"Congratulations" message:@"You are now signed up!" delegate:self cancelButtonTitle:@"Ok"otherButtonTitles:nil];
     [confirmSignUp show];
 }

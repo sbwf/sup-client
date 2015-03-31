@@ -10,5 +10,5 @@
 
 @interface CreateNewUserModel : NSObject
 +(CreateNewUserModel*)getSharedInstance;
--(void)addUser;
+-(void)addUser: (NSString*) name : (NSString*) email : (NSNumber*) user_id;
 @end

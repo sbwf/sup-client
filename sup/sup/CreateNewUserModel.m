@@ -18,10 +18,11 @@
 }
 
 
--(void)addUser{
+-(void)addUser: (NSString*) name : (NSString*) email : (NSNumber*) user_id
+{
     NSURL *url = [NSURL URLWithString:@"http://localhost:3000/users/"];
     NSMutableURLRequest *req = [[NSMutableURLRequest alloc]initWithURL:url];
-    NSDictionary *userToAdd = [NSDictionary dictionaryWithObjectsAndKeys:@"Sam.finegold@aol.com", @"email", @"Sam", @"name", [NSNumber numberWithInt:1], @"id", nil];
+    NSDictionary *userToAdd = [NSDictionary dictionaryWithObjectsAndKeys:email, @"email", name, @"name", user_id, @"id", nil];
     NSLog(@"%@", userToAdd);
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:userToAdd options:NSJSONWritingPrettyPrinted error:NULL];
     [req setHTTPMethod:@"POST"];
@@ -44,5 +45,6 @@
          }
      }];
 }
+
 
 @end
