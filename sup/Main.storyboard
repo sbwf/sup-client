@@ -145,10 +145,10 @@
             </objects>
             <point key="canvasLocation" x="1002" y="-6"/>
         </scene>
-        <!--Map-->
+        <!--Map View Controller-->
         <scene sceneID="gDz-TG-s5H">
             <objects>
-                <viewController id="CVY-u6-z1y" customClass="Map" sceneMemberID="viewController">
+                <viewController id="CVY-u6-z1y" customClass="MapViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eL7-fn-zfG"/>
                         <viewControllerLayoutGuide type="bottom" id="SfC-Ni-8nq"/>

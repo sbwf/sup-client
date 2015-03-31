@@ -6,15 +6,15 @@
 //  Copyright (c) 2015 Sam Finegold. All rights reserved.
 //
 
-#import "Map.h"
+#import "MapViewController.h"
 #import "SupPostManager.h"
 #import "UsersModel.h"
 #import <GoogleMaps/GoogleMaps.h>
-@interface Map ()
+@interface MapViewController ()
 
 @end
 
-@implementation Map
+@implementation MapViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

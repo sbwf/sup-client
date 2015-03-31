@@ -34,7 +34,7 @@
 		69EC199A1AC8E4FA003AD53C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69EC198F1AC8E4FA003AD53C /* SystemConfiguration.framework */; };
 		69EC199C1AC8E553003AD53C /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69EC199B1AC8E553003AD53C /* GoogleMaps.framework */; };
 		69EC199E1AC8E5A2003AD53C /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 69EC199D1AC8E5A2003AD53C /* GoogleMaps.bundle */; };
-		69EC19A11AC8E7B0003AD53C /* Map.m in Sources */ = {isa = PBXBuildFile; fileRef = 69EC19A01AC8E7B0003AD53C /* Map.m */; };
+		69EC19A11AC8E7B0003AD53C /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69EC19A01AC8E7B0003AD53C /* MapViewController.m */; };
 		69EC19A31AC8F74A003AD53C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69EC19A21AC8F74A003AD53C /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -88,8 +88,8 @@
 		69EC198F1AC8E4FA003AD53C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		69EC199B1AC8E553003AD53C /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
 		69EC199D1AC8E5A2003AD53C /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
-		69EC199F1AC8E7B0003AD53C /* Map.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Map.h; sourceTree = "<group>"; };
-		69EC19A01AC8E7B0003AD53C /* Map.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Map.m; sourceTree = "<group>"; };
+		69EC199F1AC8E7B0003AD53C /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		69EC19A01AC8E7B0003AD53C /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		69EC19A21AC8F74A003AD53C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -163,8 +163,8 @@
 				69DCA9FA1AB0AB1000D6EE96 /* UserTable.m */,
 				69C5E9EC1AC86A4500BCB746 /* SignUp.h */,
 				69C5E9ED1AC86A4500BCB746 /* SignUp.m */,
-				69EC199F1AC8E7B0003AD53C /* Map.h */,
-				69EC19A01AC8E7B0003AD53C /* Map.m */,
+				69EC199F1AC8E7B0003AD53C /* MapViewController.h */,
+				69EC19A01AC8E7B0003AD53C /* MapViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -360,7 +360,7 @@
 				69DCA9FB1AB0AB1000D6EE96 /* UserTable.m in Sources */,
 				69DCA9F81AB0AB1000D6EE96 /* AppDelegate.m in Sources */,
 				69DCAA1A1AB0AB7B00D6EE96 /* UsersModel.m in Sources */,
-				69EC19A11AC8E7B0003AD53C /* Map.m in Sources */,
+				69EC19A11AC8E7B0003AD53C /* MapViewController.m in Sources */,
 				697212891ABB748200AAF298 /* CustomCell.m in Sources */,
 				69DCA9F51AB0AB1000D6EE96 /* main.m in Sources */,
 				69C5E9EE1AC86A4500BCB746 /* SignUp.m in Sources */,
