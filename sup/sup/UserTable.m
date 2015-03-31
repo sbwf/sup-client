@@ -8,7 +8,7 @@
 
 #import "UserTable.h"
 #import "UsersModel.h"
-#import "SupPost.h"
+#import "SupPostManager.h"
 #import "CreateNewUserModel.h"
 @interface UserTable ()
 

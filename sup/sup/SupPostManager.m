@@ -6,14 +6,14 @@
 //  Copyright (c) 2015 Sam Finegold. All rights reserved.
 //
 
-#import "SupPost.h"
+#import "SupPostManager.h"
 
-@implementation SupPost
+@implementation SupPostManager
 
-+ (SupPost*)getSharedInstance{
-    static SupPost *instance;
++ (SupPostManager*)getSharedInstance{
+    static SupPostManager *instance;
     if (instance == nil)
-        instance = [[SupPost alloc] init];
+        instance = [[SupPostManager alloc] init];
     return instance;
 }
 

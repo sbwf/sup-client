@@ -8,7 +8,7 @@
 
 #import "CreateSup.h"
 #import <GoogleMaps/GoogleMaps.h>
-#import "SupPost.h"
+#import "SupPostManager.h"
 @interface CreateSup ()
 
 @end
@@ -16,7 +16,7 @@
 @implementation CreateSup
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[SupPost getSharedInstance] addObserver:self forKeyPath:@"users" options:0 context:NULL];
+    [[SupPostManager getSharedInstance] addObserver:self forKeyPath:@"users" options:0 context:NULL];
     // Do any additional setup after loading the view.
 }
 

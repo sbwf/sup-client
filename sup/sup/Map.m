@@ -7,7 +7,7 @@
 //
 
 #import "Map.h"
-#import "SupPost.h"
+#import "SupPostManager.h"
 #import "UsersModel.h"
 #import <GoogleMaps/GoogleMaps.h>
 @interface Map ()
@@ -20,8 +20,8 @@
     [super viewDidLoad];
     // Create a GMSCameraPosition that tells the map to display the
     // coordinate -33.86,151.20 at zoom level 6.
-    [[SupPost getSharedInstance] addObserver:self forKeyPath:@"supPosts" options:0 context:NULL];
-    [[SupPost getSharedInstance] loadStatuses];
+    [[SupPostManager getSharedInstance] addObserver:self forKeyPath:@"supPosts" options:0 context:NULL];
+    [[SupPostManager getSharedInstance] loadStatuses];
     
     _mapView.myLocationEnabled = YES;
     _mapView.camera = [GMSCameraPosition cameraWithLatitude:44.934207
@@ -38,11 +38,11 @@
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
     if ([keyPath isEqualToString:@"supPosts"]){
         NSLog(@"Observing for 'supPosts'");
-        NSLog(@"SupPosts: %@", [SupPost getSharedInstance].supPosts);
+        NSLog(@"SupPosts: %@", [SupPostManager getSharedInstance].supPosts);
 
         // TODO remove existing markers
        
-        for (NSDictionary* status in [SupPost getSharedInstance].supPosts){
+        for (NSDictionary* status in [SupPostManager getSharedInstance].supPosts){
             //NSLog(@"Location: %@", [status objectForKey:@"latitude"]);
             [self addMarker:[status valueForKey:@"latitude"] :[status valueForKey:@"longitude"] : [status valueForKey:@"owner_id"]];
         }

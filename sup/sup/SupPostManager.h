@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SupPost : NSObject
+@interface SupPostManager : NSObject
 @property (nonatomic, strong) NSArray *supPosts;
-+(SupPost*)getSharedInstance;
++(SupPostManager*)getSharedInstance;
 -(void)loadStatuses;
 @end
