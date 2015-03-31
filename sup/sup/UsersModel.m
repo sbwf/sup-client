@@ -40,6 +40,7 @@ static UsersModel *instance;
                                                                error:NULL];
              self.users = [[NSArray alloc]init];
              self.users = info;
+             
          }
      }];
 }

@@ -19,7 +19,7 @@
 
 -(void)loadStatuses{
     NSURL *url = [NSURL URLWithString:@"http://localhost:3000/status/"];
-    NSLog(@"IN SUP POST");
+    NSLog(@"In 'loadStatuses'");
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [NSURLConnection sendAsynchronousRequest:request
                                        queue:[NSOperationQueue mainQueue]

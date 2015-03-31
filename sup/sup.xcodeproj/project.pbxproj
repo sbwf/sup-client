@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6951C3D51ACB2BC700F3875C /* get_users.json in Resources */ = {isa = PBXBuildFile; fileRef = 6951C3D41ACB2BC700F3875C /* get_users.json */; };
 		697212891ABB748200AAF298 /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 697212871ABB748200AAF298 /* CustomCell.m */; };
 		6972128A1ABB748200AAF298 /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 697212881ABB748200AAF298 /* CustomCell.xib */; };
 		698A7C081ABFA15500CAA473 /* CreateNewUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 698A7C071ABFA15500CAA473 /* CreateNewUserModel.m */; };
@@ -15,7 +16,7 @@
 		69D5B0391ABB956C002ED2C9 /* SupPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D5B0381ABB956C002ED2C9 /* SupPost.m */; };
 		69DCA9F51AB0AB1000D6EE96 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 69DCA9F41AB0AB1000D6EE96 /* main.m */; };
 		69DCA9F81AB0AB1000D6EE96 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 69DCA9F71AB0AB1000D6EE96 /* AppDelegate.m */; };
-		69DCA9FB1AB0AB1000D6EE96 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69DCA9FA1AB0AB1000D6EE96 /* ViewController.m */; };
+		69DCA9FB1AB0AB1000D6EE96 /* UserTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 69DCA9FA1AB0AB1000D6EE96 /* UserTable.m */; };
 		69DCAA001AB0AB1000D6EE96 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69DCA9FF1AB0AB1000D6EE96 /* Images.xcassets */; };
 		69DCAA031AB0AB1000D6EE96 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69DCAA011AB0AB1000D6EE96 /* LaunchScreen.xib */; };
 		69DCAA0F1AB0AB1100D6EE96 /* supTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 69DCAA0E1AB0AB1100D6EE96 /* supTests.m */; };
@@ -48,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6951C3D41ACB2BC700F3875C /* get_users.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = get_users.json; sourceTree = "<group>"; };
 		697212861ABB748200AAF298 /* CustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCell.h; sourceTree = "<group>"; };
 		697212871ABB748200AAF298 /* CustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCell.m; sourceTree = "<group>"; };
 		697212881ABB748200AAF298 /* CustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
@@ -64,8 +66,8 @@
 		69DCA9F41AB0AB1000D6EE96 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		69DCA9F61AB0AB1000D6EE96 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		69DCA9F71AB0AB1000D6EE96 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		69DCA9F91AB0AB1000D6EE96 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		69DCA9FA1AB0AB1000D6EE96 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		69DCA9F91AB0AB1000D6EE96 /* UserTable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserTable.h; sourceTree = "<group>"; };
+		69DCA9FA1AB0AB1000D6EE96 /* UserTable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserTable.m; sourceTree = "<group>"; };
 		69DCA9FF1AB0AB1000D6EE96 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		69DCAA021AB0AB1000D6EE96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		69DCAA081AB0AB1100D6EE96 /* supTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = supTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,6 +123,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6951C3D31ACB2B9400F3875C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6951C3D41ACB2BC700F3875C /* get_users.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		69D5B03A1ABB9573002ED2C9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -149,8 +159,8 @@
 			children = (
 				69D5B0341ABB8E23002ED2C9 /* CreateSup.h */,
 				69D5B0351ABB8E23002ED2C9 /* CreateSup.m */,
-				69DCA9F91AB0AB1000D6EE96 /* ViewController.h */,
-				69DCA9FA1AB0AB1000D6EE96 /* ViewController.m */,
+				69DCA9F91AB0AB1000D6EE96 /* UserTable.h */,
+				69DCA9FA1AB0AB1000D6EE96 /* UserTable.m */,
 				69C5E9EC1AC86A4500BCB746 /* SignUp.h */,
 				69C5E9ED1AC86A4500BCB746 /* SignUp.m */,
 				69EC199F1AC8E7B0003AD53C /* Map.h */,
@@ -189,6 +199,7 @@
 				69EC19A21AC8F74A003AD53C /* Main.storyboard */,
 				69DCA9FF1AB0AB1000D6EE96 /* Images.xcassets */,
 				69DCAA011AB0AB1000D6EE96 /* LaunchScreen.xib */,
+				6951C3D31ACB2B9400F3875C /* Resources */,
 				69DCA9F21AB0AB1000D6EE96 /* Supporting Files */,
 			);
 			path = sup;
@@ -325,6 +336,7 @@
 				6972128A1ABB748200AAF298 /* CustomCell.xib in Resources */,
 				69DCAA001AB0AB1000D6EE96 /* Images.xcassets in Resources */,
 				69EC199E1AC8E5A2003AD53C /* GoogleMaps.bundle in Resources */,
+				6951C3D51ACB2BC700F3875C /* get_users.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,7 +357,7 @@
 				698A7C081ABFA15500CAA473 /* CreateNewUserModel.m in Sources */,
 				69D5B0361ABB8E23002ED2C9 /* CreateSup.m in Sources */,
 				69D5B0391ABB956C002ED2C9 /* SupPost.m in Sources */,
-				69DCA9FB1AB0AB1000D6EE96 /* ViewController.m in Sources */,
+				69DCA9FB1AB0AB1000D6EE96 /* UserTable.m in Sources */,
 				69DCA9F81AB0AB1000D6EE96 /* AppDelegate.m in Sources */,
 				69DCAA1A1AB0AB7B00D6EE96 /* UsersModel.m in Sources */,
 				69EC19A11AC8E7B0003AD53C /* Map.m in Sources */,

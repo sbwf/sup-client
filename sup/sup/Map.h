@@ -10,7 +10,7 @@
 #import <GoogleMaps/GoogleMaps.h>
 @interface Map : UIViewController
 {
-    GMSMapView *mapView_;
 }
+@property (weak, nonatomic) IBOutlet GMSMapView *mapView;
 @property (nonatomic, retain)NSArray *posts;
 @end

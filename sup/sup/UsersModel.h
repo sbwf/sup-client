@@ -13,7 +13,6 @@
 @property (nonatomic,strong) NSArray *users;
 
 +(UsersModel*)getSharedInstance;
-//-(NSDictionary*)getUser: (NSArray*) listOfUsers: (NSNumber*) userId;
 -(void)loadData;
 
 @end

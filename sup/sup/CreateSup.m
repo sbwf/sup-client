@@ -8,6 +8,7 @@
 
 #import "CreateSup.h"
 #import <GoogleMaps/GoogleMaps.h>
+#import "SupPost.h"
 @interface CreateSup ()
 
 @end
@@ -15,6 +16,7 @@
 @implementation CreateSup
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[SupPost getSharedInstance] addObserver:self forKeyPath:@"users" options:0 context:NULL];
     // Do any additional setup after loading the view.
 }
 
@@ -28,7 +30,7 @@
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url];
     //Dupre: 44.941099, -93.167876
     //Broiler 44.934105, -93.167368
-    NSDictionary *statusToAdd = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:399], @"owner", [NSNumber numberWithInt:89], @"Id", [NSNumber numberWithFloat:44.941099], @"latitude", [NSNumber numberWithFloat: -93.167876], @"longitude", [NSNumber numberWithInt:14], @"time", nil];
+    NSDictionary *statusToAdd = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:5524716], @"owner", [NSNumber numberWithInt:89], @"Id", [NSNumber numberWithFloat:44.934105], @"latitude", [NSNumber numberWithFloat: -93.167368], @"longitude", [NSNumber numberWithInt:14], @"time", nil];
     NSLog(@"Status: %@", statusToAdd);
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:statusToAdd options:NSJSONWritingPrettyPrinted error:NULL];
     [request setHTTPMethod:@"POST"];
@@ -48,6 +50,7 @@
                                                                 error:NULL];
              NSLog(@"hi");
              NSLog(@"Post Status Message: %@", info);
+             [self performSegueWithIdentifier:@"postToMap" sender:self];
          }
      }];
 }

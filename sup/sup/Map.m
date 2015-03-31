@@ -8,19 +8,25 @@
 
 #import "Map.h"
 #import "SupPost.h"
+#import "UsersModel.h"
 #import <GoogleMaps/GoogleMaps.h>
 @interface Map ()
 
 @end
 
 @implementation Map
-@synthesize posts;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Create a GMSCameraPosition that tells the map to display the
     // coordinate -33.86,151.20 at zoom level 6.
     [[SupPost getSharedInstance] addObserver:self forKeyPath:@"supPosts" options:0 context:NULL];
     [[SupPost getSharedInstance] loadStatuses];
+    
+    _mapView.myLocationEnabled = YES;
+    _mapView.camera = [GMSCameraPosition cameraWithLatitude:44.934207
+                                                  longitude:-93.167494
+                                                       zoom:16];
     // Do any additional setup after loading the view.
 }
 
@@ -33,26 +39,21 @@
     if ([keyPath isEqualToString:@"supPosts"]){
         NSLog(@"Observing for 'supPosts'");
         NSLog(@"SupPosts: %@", [SupPost getSharedInstance].supPosts);
-        posts = [[NSArray alloc]initWithArray:[SupPost getSharedInstance].supPosts];
-        GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:44.934207
-                                                                longitude:-93.167494
-                                                                     zoom:16];
-        mapView_ = [GMSMapView mapWithFrame:CGRectZero camera:camera];
-        mapView_.myLocationEnabled = YES;
-        self.view = mapView_;
 
-        for (NSDictionary* status in posts){
+        // TODO remove existing markers
+       
+        for (NSDictionary* status in [SupPost getSharedInstance].supPosts){
             //NSLog(@"Location: %@", [status objectForKey:@"latitude"]);
-            [self addMarker:[status valueForKey:@"latitude"] :[status valueForKey:@"longitude"]];
+            [self addMarker:[status valueForKey:@"latitude"] :[status valueForKey:@"longitude"] : [status valueForKey:@"owner_id"]];
         }
     
     }
 }
--(void)addMarker:(id)lat :(id)lng{
+-(void)addMarker:(id)lat :(id)lng :(NSNumber*)owner_Id{
     GMSMarker *marker = [[GMSMarker alloc] init];
     marker.position = CLLocationCoordinate2DMake([lat floatValue], [lng floatValue]);
-    marker.title = @"Sup";
-    marker.map = mapView_;
+    marker.title = @"SUP";
+    marker.map = _mapView;
 }
 
 /*
