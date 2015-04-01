@@ -10,8 +10,8 @@
 #import <GoogleMaps/GoogleMaps.h>
 @interface CreateSup : UIViewController
 
--(void)post;
 @property (nonatomic, weak)IBOutlet UIButton *postButton;
 -(IBAction)postedSup:(id)sender;
++ (CreateSup*)getSharedInstance;
 
 @end

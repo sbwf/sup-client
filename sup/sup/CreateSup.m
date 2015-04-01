@@ -17,46 +17,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[SupPostManager getSharedInstance] addObserver:self forKeyPath:@"users" options:0 context:NULL];
-    // Do any additional setup after loading the view.
+    [[SupPostManager getSharedInstance] addObserver:self forKeyPath:@"postedSup" options:0 context:NULL];
 }
 
++ (CreateSup*)getSharedInstance{
+    static CreateSup *instance;
+    if (instance == nil)
+        instance = [[CreateSup alloc] init];
+    return instance;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
--(void)post{
-    NSURL *url = [NSURL URLWithString:@"http://localhost:3000/status/"];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url];
-    //Dupre: 44.941099, -93.167876
-    //Broiler 44.934105, -93.167368
-    NSDictionary *statusToAdd = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:5524716], @"owner", [NSNumber numberWithInt:89], @"Id", [NSNumber numberWithFloat:44.934105], @"latitude", [NSNumber numberWithFloat: -93.167368], @"longitude", [NSNumber numberWithInt:14], @"time", nil];
-    NSLog(@"Status: %@", statusToAdd);
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:statusToAdd options:NSJSONWritingPrettyPrinted error:NULL];
-    [request setHTTPMethod:@"POST"];
-    [request setValue:@"application/json" forHTTPHeaderField:@"Content-type"];
-    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-    [request setHTTPBody:jsonData];
-    [NSURLConnection sendAsynchronousRequest:request
-                                       queue:[NSOperationQueue mainQueue]
-                           completionHandler:^(NSURLResponse *response,
-                                               NSData *data, NSError *connectionError)
-     {
-         if (data.length > 0 && connectionError == nil)
-         {
-             
-             NSString *info = [NSJSONSerialization JSONObjectWithData:data
-                                                              options:0
-                                                                error:NULL];
-             NSLog(@"hi");
-             NSLog(@"Post Status Message: %@", info);
-             [self performSegueWithIdentifier:@"postToMap" sender:self];
-         }
-     }];
 }
 
 -(IBAction)postedSup:(id)sender{
-    [self post];
+    [[SupPostManager getSharedInstance] postStatus];
+}
+
+
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
+    if ([keyPath boolValue] == true){
+        [self performSegueWithIdentifier:@"postToMap" sender:self];
+    }
 }
 /*
 #pragma mark - Navigation

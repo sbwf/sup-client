@@ -13,4 +13,6 @@
 }
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
 @property (nonatomic, retain)NSArray *posts;
+
+-(void)addMarker:(id)lat :(id)lng :(NSNumber*)owner_Id;
 @end

@@ -18,8 +18,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Create a GMSCameraPosition that tells the map to display the
-    // coordinate -33.86,151.20 at zoom level 6.
     [[SupPostManager getSharedInstance] addObserver:self forKeyPath:@"supPosts" options:0 context:NULL];
     [[SupPostManager getSharedInstance] loadStatuses];
     
@@ -39,14 +37,13 @@
     if ([keyPath isEqualToString:@"supPosts"]){
         NSLog(@"Observing for 'supPosts'");
         NSLog(@"SupPosts: %@", [SupPostManager getSharedInstance].supPosts);
-
-        // TODO remove existing markers
-       
+            
+        // TODO: remove existing markers
+            
+            
         for (NSDictionary* status in [SupPostManager getSharedInstance].supPosts){
-            //NSLog(@"Location: %@", [status objectForKey:@"latitude"]);
             [self addMarker:[status valueForKey:@"latitude"] :[status valueForKey:@"longitude"] : [status valueForKey:@"owner_id"]];
         }
-    
     }
 }
 -(void)addMarker:(id)lat :(id)lng :(NSNumber*)owner_Id{
