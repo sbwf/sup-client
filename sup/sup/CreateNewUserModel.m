@@ -22,9 +22,16 @@
 {
     NSURL *url = [NSURL URLWithString:@"http://localhost:3000/users/"];
     NSMutableURLRequest *req = [[NSMutableURLRequest alloc]initWithURL:url];
-    NSDictionary *userToAdd = [NSDictionary dictionaryWithObjectsAndKeys:email, @"email", name, @"name", user_id, @"id", nil];
-    NSLog(@"%@", userToAdd);
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:userToAdd options:NSJSONWritingPrettyPrinted error:NULL];
+    
+    NSDictionary *userToAdd =@{
+      @"email" : email,
+      @"name" : name,
+      @"id" : user_id
+      };
+    
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:userToAdd
+                                                       options:NSJSONWritingPrettyPrinted error:NULL];
+    
     [req setHTTPMethod:@"POST"];
     [req setValue:@"application/json" forHTTPHeaderField:@"Content-type"];
     [req setValue:@"application/json" forHTTPHeaderField:@"Accept"];

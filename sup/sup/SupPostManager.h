@@ -7,11 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <CoreLocation/CoreLocation.h>
 @interface SupPostManager : NSObject
+
 @property (nonatomic, strong) NSArray *supPosts;
-@property (nonatomic) BOOL *postedSup;
+
+
 +(SupPostManager*)getSharedInstance;
 -(void)loadStatuses;
--(void)postStatus;
+-(void)postStatus: (CLLocation*) userLocation;
 @end

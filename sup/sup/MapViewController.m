@@ -22,22 +22,37 @@
     [[SupPostManager getSharedInstance] loadStatuses];
     
     _mapView.myLocationEnabled = YES;
-    _mapView.camera = [GMSCameraPosition cameraWithLatitude:44.934207
-                                                  longitude:-93.167494
-                                                       zoom:16];
+    [self.mapView addObserver:self forKeyPath:@"myLocation" options:NSKeyValueObservingOptionNew context:nil];
+    NSLog(@"Latitude %f@", self.mapView.myLocation.coordinate.latitude);
+    NSLog(@"Latitude %f@", self.mapView.myLocation.coordinate.longitude);
     // Do any additional setup after loading the view.
 }
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
-    if ([keyPath isEqualToString:@"supPosts"]){
+    if([keyPath isEqualToString:@"myLocation"]){
+        _mapView.myLocationEnabled = YES;
+        _myLocation = [[CLLocation alloc]
+            initWithLatitude: self.mapView.myLocation.coordinate.latitude
+                   longitude: self.mapView.myLocation.coordinate.longitude];
+        
+        _mapView.camera = [GMSCameraPosition cameraWithLatitude:self.mapView.myLocation.coordinate.latitude
+                                                      longitude:self.mapView.myLocation.coordinate.longitude
+                                                           zoom:16];
+        
+        NSLog(@"Latitude %f@", self.mapView.myLocation.coordinate.latitude);
+        NSLog(@"Latitude %f@", self.mapView.myLocation.coordinate.longitude);
+
+    }
+    
+    if ([keyPath isEqualToString:@"supPosts"] && ![SupPostManager getSharedInstance].supPosts && ![SupPostManager getSharedInstance].supPosts.count){
         NSLog(@"Observing for 'supPosts'");
         NSLog(@"SupPosts: %@", [SupPostManager getSharedInstance].supPosts);
-            
+        
+        
         // TODO: remove existing markers
             
             
@@ -46,6 +61,15 @@
         }
     }
 }
+-(void)postStatus{
+    //TODO: What if location is null/off
+    [[SupPostManager getSharedInstance] postStatus:_myLocation];
+}
+
+-(IBAction)postButtonClicked:(id)sender{
+    [self postStatus];
+}
+
 -(void)addMarker:(id)lat :(id)lng :(NSNumber*)owner_Id{
     GMSMarker *marker = [[GMSMarker alloc] init];
     marker.position = CLLocationCoordinate2DMake([lat floatValue], [lng floatValue]);

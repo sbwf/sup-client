@@ -7,8 +7,7 @@
 //
 
 #import "SupPostManager.h"
-#import "CreateSup.h"
-@implementation SupPostManager
+    @implementation SupPostManager
 
 + (SupPostManager*)getSharedInstance{
     static SupPostManager *instance;
@@ -38,19 +37,27 @@
      }];
 }
 
--(void)postStatus{
-    _postedSup = false;
+-(void)postStatus: (CLLocation*) userLocation{    
     NSURL *url = [NSURL URLWithString:@"http://localhost:3000/status/"];
+    
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url];
-    //Dupre: 44.941099, -93.167876
-    //Broiler 44.934105, -93.167368
-    NSDictionary *statusToAdd = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:5524716], @"owner", [NSNumber numberWithInt:89], @"Id", [NSNumber numberWithFloat:44.934105], @"latitude", [NSNumber numberWithFloat: -93.167368], @"longitude", [NSNumber numberWithInt:14], @"time", nil];
-    NSLog(@"Status: %@", statusToAdd);
+    
+    //TODO: ask scott about captialized Id
+    NSDictionary *statusToAdd = @{
+        @"owner": @(5524716),
+        @"Id" : @(89),
+        @"latitude" : @(userLocation.coordinate.latitude),
+        @"longitude" : @(userLocation.coordinate.longitude),
+        @"time" : @(14)
+    };
+    
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:statusToAdd options:NSJSONWritingPrettyPrinted error:NULL];
+    
     [request setHTTPMethod:@"POST"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-type"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
     [request setHTTPBody:jsonData];
+    
     [NSURLConnection sendAsynchronousRequest:request
                                        queue:[NSOperationQueue mainQueue]
                            completionHandler:^(NSURLResponse *response,
@@ -58,13 +65,11 @@
      {
          if (data.length > 0 && connectionError == nil)
          {
-             
+             //What happens when it doesn't succeed...we're assuming it's going to succeed. if succeeds, add
              NSString *info = [NSJSONSerialization JSONObjectWithData:data
                                                               options:0
                                                                 error:NULL];
-             NSLog(@"hi");
              NSLog(@"Post Status Message: %@", info);
-             _postedSup = true;
          }
      }];
 }

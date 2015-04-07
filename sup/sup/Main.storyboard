@@ -130,8 +130,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="postedSup:" destination="8Z7-ON-hGB" eventType="touchUpInside" id="YFw-LB-TZj"/>
-                                    <segue destination="CVY-u6-z1y" kind="modal" identifier="postToMap" id="Jeb-J6-Igo"/>
+                                    <segue destination="CVY-u6-z1y" kind="modal" id="cHa-fL-9m4"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -157,10 +156,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lEI-eh-JG9" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lEI-eh-JG9" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="20" width="600" height="540"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sXw-MJ-zqp">
+                                <rect key="frame" x="63" y="570" width="129" height="30"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Post a SUP">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="postButtonClicked:" destination="CVY-u6-z1y" eventType="touchUpInside" id="XMU-Sr-vrV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -170,8 +179,10 @@
                             <constraint firstAttribute="trailing" secondItem="lEI-eh-JG9" secondAttribute="trailing" id="uTY-fT-hki"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="snD-jP-ZXO"/>
                     <connections>
                         <outlet property="mapView" destination="lEI-eh-JG9" id="van-0z-lEj"/>
+                        <outlet property="postButton" destination="sXw-MJ-zqp" id="2UD-BS-MYG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="smD-qs-XEP" userLabel="First Responder" sceneMemberID="firstResponder"/>
