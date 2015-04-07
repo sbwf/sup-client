@@ -46,10 +46,10 @@
             </objects>
             <point key="canvasLocation" x="366" y="-6"/>
         </scene>
-        <!--Sign Up-->
+        <!--Sign Up View Controller-->
         <scene sceneID="oUt-8v-QoM">
             <objects>
-                <viewController id="UXX-Vh-BV9" customClass="SignUp" sceneMemberID="viewController">
+                <viewController id="UXX-Vh-BV9" customClass="SignUpViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2h3-yq-aTF"/>
                         <viewControllerLayoutGuide type="bottom" id="Wb8-ge-lnP"/>

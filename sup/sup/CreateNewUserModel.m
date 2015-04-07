@@ -7,7 +7,7 @@
 //
 
 #import "CreateNewUserModel.h"
-#import "SignUp.h"
+#import "SignUpViewController.h"
 @implementation CreateNewUserModel
 
 + (CreateNewUserModel*)getSharedInstance{

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SignUp : UIViewController<UITextFieldDelegate>{
+@interface SignUpViewController : UIViewController<UITextFieldDelegate>{
     UIAlertView *confirmSignUp;
 }
 
@@ -19,7 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *table;
 @property (weak, nonatomic) IBOutlet UIButton *signUp;
 
-+(SignUp*)getSharedInstance;
++(SignUpViewController*)getSharedInstance;
 -(IBAction)signedUp:(id)sender;
 
 @end

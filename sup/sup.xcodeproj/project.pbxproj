@@ -11,7 +11,7 @@
 		697212891ABB748200AAF298 /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 697212871ABB748200AAF298 /* CustomCell.m */; };
 		6972128A1ABB748200AAF298 /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 697212881ABB748200AAF298 /* CustomCell.xib */; };
 		698A7C081ABFA15500CAA473 /* CreateNewUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 698A7C071ABFA15500CAA473 /* CreateNewUserModel.m */; };
-		69C5E9EE1AC86A4500BCB746 /* SignUp.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C5E9ED1AC86A4500BCB746 /* SignUp.m */; };
+		69C5E9EE1AC86A4500BCB746 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C5E9ED1AC86A4500BCB746 /* SignUpViewController.m */; };
 		69D5B0391ABB956C002ED2C9 /* SupPostManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D5B0381ABB956C002ED2C9 /* SupPostManager.m */; };
 		69DCA9F51AB0AB1000D6EE96 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 69DCA9F41AB0AB1000D6EE96 /* main.m */; };
 		69DCA9F81AB0AB1000D6EE96 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 69DCA9F71AB0AB1000D6EE96 /* AppDelegate.m */; };
@@ -54,8 +54,8 @@
 		697212881ABB748200AAF298 /* CustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
 		698A7C061ABFA15500CAA473 /* CreateNewUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateNewUserModel.h; sourceTree = "<group>"; };
 		698A7C071ABFA15500CAA473 /* CreateNewUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateNewUserModel.m; sourceTree = "<group>"; };
-		69C5E9EC1AC86A4500BCB746 /* SignUp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUp.h; sourceTree = "<group>"; };
-		69C5E9ED1AC86A4500BCB746 /* SignUp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUp.m; sourceTree = "<group>"; };
+		69C5E9EC1AC86A4500BCB746 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
+		69C5E9ED1AC86A4500BCB746 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		69D5B0371ABB956C002ED2C9 /* SupPostManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupPostManager.h; sourceTree = "<group>"; };
 		69D5B0381ABB956C002ED2C9 /* SupPostManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SupPostManager.m; sourceTree = "<group>"; };
 		69DCA9EF1AB0AB1000D6EE96 /* sup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sup.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -156,8 +156,8 @@
 			children = (
 				69DCA9F91AB0AB1000D6EE96 /* UserTable.h */,
 				69DCA9FA1AB0AB1000D6EE96 /* UserTable.m */,
-				69C5E9EC1AC86A4500BCB746 /* SignUp.h */,
-				69C5E9ED1AC86A4500BCB746 /* SignUp.m */,
+				69C5E9EC1AC86A4500BCB746 /* SignUpViewController.h */,
+				69C5E9ED1AC86A4500BCB746 /* SignUpViewController.m */,
 				69EC199F1AC8E7B0003AD53C /* MapViewController.h */,
 				69EC19A01AC8E7B0003AD53C /* MapViewController.m */,
 			);
@@ -357,7 +357,7 @@
 				69EC19A11AC8E7B0003AD53C /* MapViewController.m in Sources */,
 				697212891ABB748200AAF298 /* CustomCell.m in Sources */,
 				69DCA9F51AB0AB1000D6EE96 /* main.m in Sources */,
-				69C5E9EE1AC86A4500BCB746 /* SignUp.m in Sources */,
+				69C5E9EE1AC86A4500BCB746 /* SignUpViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,14 +6,14 @@
 //  Copyright (c) 2015 Sam Finegold. All rights reserved.
 //
 
-#import "SignUp.h"
+#import "SignUpViewController.h"
 #import "CreateNewUserModel.h"
 #include <stdlib.h>
-@interface SignUp ()
+@interface SignUpViewController ()
 
 @end
 
-@implementation SignUp
+@implementation SignUpViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -21,10 +21,10 @@
     _nameField.tag = 1;
     _emailField.tag = 2;
 }
-+ (SignUp*)getSharedInstance{
-    static SignUp *instance;
++ (SignUpViewController*)getSharedInstance{
+    static SignUpViewController *instance;
     if (instance == nil)
-        instance = [[SignUp alloc] init];
+        instance = [[SignUpViewController alloc] init];
     return instance;
 }
 - (void)didReceiveMemoryWarning {
