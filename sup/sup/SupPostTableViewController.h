@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CustomCell.h"
 
-@interface UserTable : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface SupPostTableViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 @property IBOutlet UITableView *table;
 @property (nonatomic, retain)NSArray *data;
 @property IBOutlet UIButton *map;

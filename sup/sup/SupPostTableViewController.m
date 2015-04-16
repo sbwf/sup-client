@@ -6,15 +6,15 @@
 //  Copyright (c) 2015 Sam Finegold. All rights reserved.
 //
 
-#import "UserTable.h"
+#import "SupPostTableViewController.h"
 #import "UsersModel.h"
 #import "SupPostManager.h"
 #import "CreateNewUserModel.h"
-@interface UserTable ()
+@interface SupPostTableViewController ()
 
 @end
 
-@implementation UserTable
+@implementation SupPostTableViewController
 @synthesize data, table;
 - (void)viewDidLoad {
     [super viewDidLoad];
