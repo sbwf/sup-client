@@ -10,8 +10,8 @@
 
 @interface CustomCell : UITableViewCell
 
-@property (nonatomic, weak)IBOutlet UILabel *name;
-@property (nonatomic, weak)IBOutlet UILabel *email;
-@property (nonatomic, weak)IBOutlet UILabel *userId;
+@property (nonatomic, weak)IBOutlet UILabel *owner;
+@property (nonatomic, weak)IBOutlet UILabel *time;
+@property (nonatomic, weak)IBOutlet UILabel *latitude;
 
 @end

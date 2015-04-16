@@ -18,16 +18,20 @@
 @synthesize data, table;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[UsersModel getSharedInstance] addObserver:self forKeyPath:@"users" options:0 context:NULL];
-    [[UsersModel getSharedInstance] loadData];
+    //[[UsersModel getSharedInstance] addObserver:self forKeyPath:@"users" options:0 context:NULL];
+    //[[UsersModel getSharedInstance] loadData];
+    
+    [[SupPostManager getSharedInstance] addObserver:self forKeyPath:@"supPosts" options:0 context:NULL];
+    [[SupPostManager getSharedInstance] loadStatuses];
 }
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
-    if ([keyPath isEqualToString:@"users"]){
-        NSLog(@"Observing for 'users'");
-        NSLog(@"Users: %@", [UsersModel getSharedInstance].users);
-        data = [[NSArray alloc]initWithArray:[UsersModel getSharedInstance].users];
+    if ([keyPath isEqualToString:@"supPosts"]){
+        NSLog(@"here");
+        data = [[NSArray alloc]initWithArray:[SupPostManager getSharedInstance].supPosts];
+        NSLog(@"SupPosts: %@", data);
         [table reloadData];
+        NSLog(@"after reload data");
     }
 }
 
@@ -46,9 +50,10 @@
         cell = [nib objectAtIndex:0];
     }
     
-    cell.name.text = [NSString stringWithFormat:@"Name: %@", [[data objectAtIndex:indexPath.row] objectForKey:@"name"]];
-    cell.email.text = [NSString stringWithFormat:@"Email: %@", [[data objectAtIndex:indexPath.row] objectForKey:@"email"]];
-    cell.userId.text = [[[data objectAtIndex:indexPath.row] objectForKey:@"user_id"] stringValue];
+    cell.owner.text = [NSString stringWithFormat:@"Owner: %@", [[data objectAtIndex:indexPath.row] objectForKey:@"owner"]];
+    cell.time.text = [NSString stringWithFormat:@"Time: %@", [[data objectAtIndex:indexPath.row] objectForKey:@"time"]];
+    cell.latitude.text = [[[data objectAtIndex:indexPath.row] objectForKey:@"latitude"] stringValue];
+    NSLog(@"after setting cell labels");
     return cell;
 }
 

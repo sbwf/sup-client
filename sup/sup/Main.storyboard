@@ -29,8 +29,8 @@
                                 <rect key="frame" x="0.0" y="58" width="600" height="542"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="Kgi-0x-iga"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="LdW-cD-cHd"/>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="Lyh-hc-pTz"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="SU3-xW-LbO"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -39,7 +39,7 @@
                     <navigationItem key="navigationItem" id="EUR-oY-3cv"/>
                     <connections>
                         <outlet property="map" destination="xzB-s7-kdT" id="Ps3-58-oos"/>
-                        <outlet property="table" destination="AEG-qs-ZJn" id="pJX-Td-xrv"/>
+                        <outlet property="table" destination="AEG-qs-ZJn" id="8Uj-bQ-gMC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -80,7 +80,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="modal" id="Dcc-k5-3XY"/>
+                                    <segue destination="BYZ-38-t0r" kind="modal" id="Vke-TQ-9ec"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome to SUP!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wYV-i7-yw7">
@@ -105,7 +105,7 @@
                         <outlet property="emailField" destination="k8p-5u-f5c" id="QuZ-qp-bqg"/>
                         <outlet property="nameField" destination="Vpr-QP-ZMD" id="yJR-vv-L3z"/>
                         <outlet property="signUp" destination="vOc-6i-B5d" id="tzw-Vs-x5c"/>
-                        <outlet property="table" destination="5C5-M5-JWi" id="B7S-bQ-zaO"/>
+                        <outlet property="table" destination="5C5-M5-JWi" id="wJC-uF-mai"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xEh-Zy-LSK" userLabel="First Responder" sceneMemberID="firstResponder"/>
