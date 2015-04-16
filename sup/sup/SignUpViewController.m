@@ -21,12 +21,14 @@
     _nameField.tag = 1;
     _emailField.tag = 2;
 }
+
 + (SignUpViewController*)getSharedInstance{
     static SignUpViewController *instance;
     if (instance == nil)
         instance = [[SignUpViewController alloc] init];
     return instance;
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -78,8 +80,15 @@
 
 -(IBAction)signedUp:(id)sender{
     int r = arc4random_uniform(10000000);
-    [[CreateNewUserModel getSharedInstance] addUser:self.name :self.email : [NSNumber numberWithInt:r]];
-    confirmSignUp =[[UIAlertView alloc]initWithTitle:@"Congratulations" message:@"You are now signed up!" delegate:self cancelButtonTitle:@"Ok"otherButtonTitles:nil];
+    
+    [[CreateNewUserModel getSharedInstance] addUser:self.name :self.email : @(r)];
+    
+    confirmSignUp =[[UIAlertView alloc]initWithTitle:@"Congratulations"
+                                             message:@"You are now signed up!"
+                                            delegate:self
+                                            cancelButtonTitle:@"Ok"
+                                            otherButtonTitles:nil];
+    
     [confirmSignUp show];
 }
 /*

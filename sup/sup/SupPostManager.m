@@ -37,7 +37,8 @@
      }];
 }
 
--(void)postStatus: (CLLocation*) userLocation{    
+-(void)postStatus: (CLLocation*) userLocation{
+    NSLog(@"in post status");
     NSURL *url = [NSURL URLWithString:@"http://localhost:3000/status/"];
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url];
@@ -69,7 +70,14 @@
              NSString *info = [NSJSONSerialization JSONObjectWithData:data
                                                               options:0
                                                                 error:NULL];
-             NSLog(@"Post Status Message: %@", info);
+             confirmPost =[[UIAlertView alloc]initWithTitle:@"Post Success"
+                                                      message:@"You've posted a SUP!"
+                                                     delegate:self
+                                            cancelButtonTitle:@"Ok"
+                                            otherButtonTitles:nil];
+             
+             [confirmPost show];
+             //TODO: notification for when it's done
          }
      }];
 }

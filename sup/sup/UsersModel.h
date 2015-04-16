@@ -11,8 +11,11 @@
 @interface UsersModel : NSObject{
 }
 @property (nonatomic,strong) NSArray *users;
+@property (nonatomic, strong) NSArray *usersFriends;
 
 +(UsersModel*)getSharedInstance;
 -(void)loadData;
+-(void)getFriendsOfUser;
+-(void)addFriend;
 
 @end

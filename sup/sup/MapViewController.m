@@ -44,7 +44,7 @@
                                                            zoom:16];
         
         NSLog(@"Latitude %f@", self.mapView.myLocation.coordinate.latitude);
-        NSLog(@"Latitude %f@", self.mapView.myLocation.coordinate.longitude);
+        NSLog(@"Longitude %f@", self.mapView.myLocation.coordinate.longitude);
 
     }
     
@@ -66,7 +66,7 @@
     [[SupPostManager getSharedInstance] postStatus:_myLocation];
 }
 
--(IBAction)postButtonClicked:(id)sender{
+-(IBAction)postButtonClicked{
     [self postStatus];
 }
 

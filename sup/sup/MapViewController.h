@@ -14,11 +14,12 @@
 }
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
 @property (nonatomic)CLLocation *myLocation;
-@property (weak,nonatomic) IBOutlet UIButton *postButton;
+@property (weak, nonatomic) IBOutlet UIButton *postButton;
+@property (weak, nonatomic) IBOutlet UIButton *postButton2;
 @property (nonatomic, retain)NSArray *posts;
 
 -(void)postStatus;
 -(void)addMarker:(id)lat :(id)lng :(NSNumber*)owner_Id;
--(IBAction)postButtonClicked:(id)sender;
+-(IBAction)postButtonClicked;
 
 @end

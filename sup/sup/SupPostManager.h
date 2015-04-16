@@ -8,10 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
-@interface SupPostManager : NSObject
+#import <UIKit/UIKit.h>
+@interface SupPostManager : NSObject{
+    UIAlertView *confirmPost;
+}
 
 @property (nonatomic, strong) NSArray *supPosts;
-
 
 +(SupPostManager*)getSharedInstance;
 -(void)loadStatuses;

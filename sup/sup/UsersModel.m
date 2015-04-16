@@ -45,4 +45,30 @@ static UsersModel *instance;
      }];
 }
 
+-(void)getFriendsOfUser{
+    NSURL *url = [NSURL URLWithString:@"http://localhost:3000/users/:id/friends"];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    [NSURLConnection sendAsynchronousRequest:request
+                                       queue:[NSOperationQueue mainQueue]
+                           completionHandler:^(NSURLResponse *response,
+                                               NSData *data, NSError *connectionError)
+     {
+         if (data.length > 0 && connectionError == nil)
+         {
+             
+             NSArray *info = [NSJSONSerialization JSONObjectWithData:data
+                                                             options:0
+                                                               error:NULL];
+             self.usersFriends = [[NSArray alloc]init];
+             self.usersFriends = info;
+             
+         }
+     }];
+}
+
+-(void)addFriend{
+    NSURL *url = [NSURL URLWithString:@"http://localhost:3000/users/:id/friends"];
+
+}
+
 @end
