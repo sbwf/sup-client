@@ -12,6 +12,8 @@
 		6972128A1ABB748200AAF298 /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 697212881ABB748200AAF298 /* CustomCell.xib */; };
 		698A7C081ABFA15500CAA473 /* CreateNewUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 698A7C071ABFA15500CAA473 /* CreateNewUserModel.m */; };
 		699917DC1ADB07D400EA2C2C /* FriendManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 699917DB1ADB07D400EA2C2C /* FriendManager.m */; };
+		69B1F5661ADF43F600207BCD /* FriendsHubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B1F5651ADF43F600207BCD /* FriendsHubViewController.m */; };
+		69B1F5691ADF46BC00207BCD /* SupPostDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B1F5681ADF46BC00207BCD /* SupPostDetailsViewController.m */; };
 		69C5E9EE1AC86A4500BCB746 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C5E9ED1AC86A4500BCB746 /* SignUpViewController.m */; };
 		69D5B0391ABB956C002ED2C9 /* SupPostManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D5B0381ABB956C002ED2C9 /* SupPostManager.m */; };
 		69DCA9F51AB0AB1000D6EE96 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 69DCA9F41AB0AB1000D6EE96 /* main.m */; };
@@ -57,6 +59,10 @@
 		698A7C071ABFA15500CAA473 /* CreateNewUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateNewUserModel.m; sourceTree = "<group>"; };
 		699917DA1ADB07D400EA2C2C /* FriendManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendManager.h; sourceTree = "<group>"; };
 		699917DB1ADB07D400EA2C2C /* FriendManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendManager.m; sourceTree = "<group>"; };
+		69B1F5641ADF43F600207BCD /* FriendsHubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsHubViewController.h; sourceTree = "<group>"; };
+		69B1F5651ADF43F600207BCD /* FriendsHubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsHubViewController.m; sourceTree = "<group>"; };
+		69B1F5671ADF46BC00207BCD /* SupPostDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupPostDetailsViewController.h; sourceTree = "<group>"; };
+		69B1F5681ADF46BC00207BCD /* SupPostDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SupPostDetailsViewController.m; sourceTree = "<group>"; };
 		69C5E9EC1AC86A4500BCB746 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		69C5E9ED1AC86A4500BCB746 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		69D5B0371ABB956C002ED2C9 /* SupPostManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupPostManager.h; sourceTree = "<group>"; };
@@ -165,6 +171,10 @@
 				69C5E9ED1AC86A4500BCB746 /* SignUpViewController.m */,
 				69EC199F1AC8E7B0003AD53C /* MapViewController.h */,
 				69EC19A01AC8E7B0003AD53C /* MapViewController.m */,
+				69B1F5641ADF43F600207BCD /* FriendsHubViewController.h */,
+				69B1F5651ADF43F600207BCD /* FriendsHubViewController.m */,
+				69B1F5671ADF46BC00207BCD /* SupPostDetailsViewController.h */,
+				69B1F5681ADF46BC00207BCD /* SupPostDetailsViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -354,10 +364,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69B1F5691ADF46BC00207BCD /* SupPostDetailsViewController.m in Sources */,
 				698A7C081ABFA15500CAA473 /* CreateNewUserModel.m in Sources */,
 				69D5B0391ABB956C002ED2C9 /* SupPostManager.m in Sources */,
 				69DCA9FB1AB0AB1000D6EE96 /* SupPostTableViewController.m in Sources */,
 				699917DC1ADB07D400EA2C2C /* FriendManager.m in Sources */,
+				69B1F5661ADF43F600207BCD /* FriendsHubViewController.m in Sources */,
 				69DCA9F81AB0AB1000D6EE96 /* AppDelegate.m in Sources */,
 				69DCAA1A1AB0AB7B00D6EE96 /* UsersModel.m in Sources */,
 				69EC19A11AC8E7B0003AD53C /* MapViewController.m in Sources */,

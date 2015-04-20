@@ -16,6 +16,8 @@
 @property (nonatomic)CLLocation *myLocation;
 @property (weak, nonatomic) IBOutlet UIButton *postButton;
 @property (weak, nonatomic) IBOutlet UIButton *postButton2;
+@property (weak, nonatomic) IBOutlet UIButton *switchToListView;
+
 @property (nonatomic, retain)NSArray *posts;
 
 -(void)postStatus;

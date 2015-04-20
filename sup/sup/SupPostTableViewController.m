@@ -50,9 +50,12 @@
         cell = [nib objectAtIndex:0];
     }
     
-    cell.owner.text = [NSString stringWithFormat:@"Owner: %@", [[data objectAtIndex:indexPath.row] objectForKey:@"owner"]];
+    NSLog(@"%@",[NSString stringWithFormat:@"Owner: %@", [[[data objectAtIndex:indexPath.row] objectForKey:@"owner"] stringValue]]);
+    cell.owner.text = [NSString stringWithFormat:@"Owner: %@", [[[data objectAtIndex:indexPath.row] objectForKey:@"owner"] stringValue]];
     cell.time.text = [NSString stringWithFormat:@"Time: %@", [[data objectAtIndex:indexPath.row] objectForKey:@"time"]];
-    cell.latitude.text = [[[data objectAtIndex:indexPath.row] objectForKey:@"latitude"] stringValue];
+    cell.latitude.text = [NSString stringWithFormat:@"Latitude: %@", [[[data objectAtIndex:indexPath.row] objectForKey:@"latitude"] stringValue]];
+    
+    [[[data objectAtIndex:indexPath.row] objectForKey:@"latitude"] stringValue];
     NSLog(@"after setting cell labels");
     return cell;
 }

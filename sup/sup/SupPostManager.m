@@ -45,7 +45,7 @@
     
     //TODO: ask scott about captialized Id
     NSDictionary *statusToAdd = @{
-        @"owner": @(5524716),
+        @"Owner": @(1),
         @"Id" : @(89),
         @"latitude" : @(userLocation.coordinate.latitude),
         @"longitude" : @(userLocation.coordinate.longitude),
