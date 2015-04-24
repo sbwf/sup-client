@@ -14,7 +14,7 @@
 - Sign In Page
   - with Phone # not email
 - Deallocating views in ios
-- 
+  - right now views are just pushed on top of each other
 
 ### Design Needs **(not necessary)**:
 - Choose color scheme
