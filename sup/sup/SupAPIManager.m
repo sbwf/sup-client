@@ -28,11 +28,13 @@
          if (data.length > 0 && connectionError == nil)
          {
              
-             NSArray *info = [NSJSONSerialization JSONObjectWithData:data
+             NSDictionary *info = [NSJSONSerialization JSONObjectWithData:data
                                                              options:0
                                                                error:NULL];
-             self.supPosts = [[NSArray alloc]init];
-             self.supPosts = info;
+             self.statuses = [[NSDictionary alloc]init];
+             self.statuses = info;
+             NSLog(@"Got Statuses");
+             NSLog(@"Statuses: %@", self.statuses);
          }
      }];
 }

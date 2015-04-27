@@ -52,15 +52,15 @@
 
     }
     
-    if ([keyPath isEqualToString:@"supPosts"] && ![SupAPIManager getSharedInstance].supPosts && ![SupAPIManager getSharedInstance].supPosts.count){
+    if ([keyPath isEqualToString:@"statuses"] && ![SupAPIManager getSharedInstance].statuses && ![SupAPIManager getSharedInstance].statuses.count){
         NSLog(@"Observing for 'supPosts'");
-        NSLog(@"SupPosts: %@", [SupAPIManager getSharedInstance].supPosts);
+        NSLog(@"SupPosts: %@", [SupAPIManager getSharedInstance].statuses);
         
         
         // TODO: remove existing markers
             
             
-        for (NSDictionary* status in [SupAPIManager getSharedInstance].supPosts){
+        for (NSDictionary* status in [SupAPIManager getSharedInstance].statuses){
             [self addMarker:[status valueForKey:@"latitude"] :[status valueForKey:@"longitude"] : [status valueForKey:@"owner_id"]];
         }
     }

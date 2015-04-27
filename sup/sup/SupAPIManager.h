@@ -13,7 +13,7 @@
     UIAlertView *confirmPost;
 }
 
-@property (nonatomic, strong) NSArray *supPosts;
+@property (nonatomic, strong) NSDictionary *statuses;
 
 +(SupAPIManager*)getSharedInstance;
 

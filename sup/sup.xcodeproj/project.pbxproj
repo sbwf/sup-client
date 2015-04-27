@@ -17,7 +17,7 @@
 		69D5B0391ABB956C002ED2C9 /* SupAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D5B0381ABB956C002ED2C9 /* SupAPIManager.m */; };
 		69DCA9F51AB0AB1000D6EE96 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 69DCA9F41AB0AB1000D6EE96 /* main.m */; };
 		69DCA9F81AB0AB1000D6EE96 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 69DCA9F71AB0AB1000D6EE96 /* AppDelegate.m */; };
-		69DCA9FB1AB0AB1000D6EE96 /* SupPostTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69DCA9FA1AB0AB1000D6EE96 /* SupPostTableViewController.m */; };
+		69DCA9FB1AB0AB1000D6EE96 /* StatusTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69DCA9FA1AB0AB1000D6EE96 /* StatusTableViewController.m */; };
 		69DCAA001AB0AB1000D6EE96 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69DCA9FF1AB0AB1000D6EE96 /* Images.xcassets */; };
 		69DCAA031AB0AB1000D6EE96 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69DCAA011AB0AB1000D6EE96 /* LaunchScreen.xib */; };
 		69DCAA0F1AB0AB1100D6EE96 /* supTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 69DCAA0E1AB0AB1100D6EE96 /* supTests.m */; };
@@ -69,8 +69,8 @@
 		69DCA9F41AB0AB1000D6EE96 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		69DCA9F61AB0AB1000D6EE96 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		69DCA9F71AB0AB1000D6EE96 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		69DCA9F91AB0AB1000D6EE96 /* SupPostTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SupPostTableViewController.h; sourceTree = "<group>"; };
-		69DCA9FA1AB0AB1000D6EE96 /* SupPostTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SupPostTableViewController.m; sourceTree = "<group>"; };
+		69DCA9F91AB0AB1000D6EE96 /* StatusTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StatusTableViewController.h; sourceTree = "<group>"; };
+		69DCA9FA1AB0AB1000D6EE96 /* StatusTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatusTableViewController.m; sourceTree = "<group>"; };
 		69DCA9FF1AB0AB1000D6EE96 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		69DCAA021AB0AB1000D6EE96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		69DCAA081AB0AB1100D6EE96 /* supTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = supTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -160,8 +160,8 @@
 		69D5B03D1ABB95B4002ED2C9 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				69DCA9F91AB0AB1000D6EE96 /* SupPostTableViewController.h */,
-				69DCA9FA1AB0AB1000D6EE96 /* SupPostTableViewController.m */,
+				69DCA9F91AB0AB1000D6EE96 /* StatusTableViewController.h */,
+				69DCA9FA1AB0AB1000D6EE96 /* StatusTableViewController.m */,
 				69C5E9EC1AC86A4500BCB746 /* SignUpViewController.h */,
 				69C5E9ED1AC86A4500BCB746 /* SignUpViewController.m */,
 				69EC199F1AC8E7B0003AD53C /* MapViewController.h */,
@@ -361,7 +361,7 @@
 			files = (
 				69B1F5691ADF46BC00207BCD /* SupPostDetailsViewController.m in Sources */,
 				69D5B0391ABB956C002ED2C9 /* SupAPIManager.m in Sources */,
-				69DCA9FB1AB0AB1000D6EE96 /* SupPostTableViewController.m in Sources */,
+				69DCA9FB1AB0AB1000D6EE96 /* StatusTableViewController.m in Sources */,
 				699917DC1ADB07D400EA2C2C /* FriendManager.m in Sources */,
 				69B1F5661ADF43F600207BCD /* FriendsHubViewController.m in Sources */,
 				69DCA9F81AB0AB1000D6EE96 /* AppDelegate.m in Sources */,

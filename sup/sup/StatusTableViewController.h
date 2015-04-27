@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "CustomCell.h"
 
-@interface SupPostTableViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface StatusTableViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 @property IBOutlet UITableView *table;
-@property (nonatomic, retain)NSArray *data;
+@property (nonatomic, retain)NSDictionary *data;
+@property (nonatomic, retain)NSArray *status;
 @property IBOutlet UIButton *map;
 @end
 

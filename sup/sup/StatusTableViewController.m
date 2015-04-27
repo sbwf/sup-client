@@ -6,28 +6,28 @@
 //  Copyright (c) 2015 Sam Finegold. All rights reserved.
 //
 
-#import "SupPostTableViewController.h"
+#import "StatusTableViewController.h"
 #import "UsersModel.h"
 #import "SupAPIManager.h"
-@interface SupPostTableViewController ()
+@interface StatusTableViewController ()
 
 @end
 
-@implementation SupPostTableViewController
-@synthesize data, table;
+@implementation StatusTableViewController
+@synthesize data, table, status;
 - (void)viewDidLoad {
     [super viewDidLoad];
     //[[UsersModel getSharedInstance] addObserver:self forKeyPath:@"users" options:0 context:NULL];
     //[[UsersModel getSharedInstance] loadData];
     
-    [[SupAPIManager getSharedInstance] addObserver:self forKeyPath:@"supPosts" options:0 context:NULL];
+    [[SupAPIManager getSharedInstance] addObserver:self forKeyPath:@"statuses" options:0 context:NULL];
     [[SupAPIManager getSharedInstance] loadStatuses];
 }
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
-    if ([keyPath isEqualToString:@"supPosts"]){
+    if ([keyPath isEqualToString:@"statuses"]){
         NSLog(@"here");
-        data = [[NSArray alloc]initWithArray:[SupAPIManager getSharedInstance].supPosts];
+        data = [[NSDictionary alloc]initWithDictionary:[SupAPIManager getSharedInstance].statuses];
         NSLog(@"SupPosts: %@", data);
         [table reloadData];
         NSLog(@"after reload data");
@@ -41,6 +41,7 @@
     return data.count;
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"In cell for row at index path");
     static NSString *CellId = @"CustomCell";
     CustomCell *cell = (CustomCell*) [tableView dequeueReusableCellWithIdentifier:CellId];
     
@@ -48,13 +49,14 @@
         NSArray *nib = [[NSBundle mainBundle]loadNibNamed:CellId owner:self options:nil];
         cell = [nib objectAtIndex:0];
     }
+    status = [[NSArray alloc]initWithArray:[data objectForKey:@"statuses"]];
+    NSLog(@"HERE: %@", status);
+    NSLog(@"%@",[NSString stringWithFormat:@"Owner: %@", [[[status objectAtIndex:indexPath.row] objectForKey:@"owner"] stringValue]]);
+    cell.owner.text = [NSString stringWithFormat:@"Owner: %@", [[[status objectAtIndex:indexPath.row] objectForKey:@"owner"] stringValue]];
+    cell.time.text = [NSString stringWithFormat:@"Time: %@", [[status objectAtIndex:indexPath.row] objectForKey:@"time"]];
+    cell.latitude.text = [NSString stringWithFormat:@"Latitude: %@", [[[status objectAtIndex:indexPath.row] objectForKey:@"latitude"] stringValue]];
     
-    NSLog(@"%@",[NSString stringWithFormat:@"Owner: %@", [[[data objectAtIndex:indexPath.row] objectForKey:@"owner"] stringValue]]);
-    cell.owner.text = [NSString stringWithFormat:@"Owner: %@", [[[data objectAtIndex:indexPath.row] objectForKey:@"owner"] stringValue]];
-    cell.time.text = [NSString stringWithFormat:@"Time: %@", [[data objectAtIndex:indexPath.row] objectForKey:@"time"]];
-    cell.latitude.text = [NSString stringWithFormat:@"Latitude: %@", [[[data objectAtIndex:indexPath.row] objectForKey:@"latitude"] stringValue]];
-    
-    [[[data objectAtIndex:indexPath.row] objectForKey:@"latitude"] stringValue];
+    [[[status objectAtIndex:indexPath.row] objectForKey:@"latitude"] stringValue];
     NSLog(@"after setting cell labels");
     return cell;
 }
