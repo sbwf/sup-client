@@ -7,7 +7,7 @@
 //
 
 #import "SignUpViewController.h"
-#import "CreateNewUserModel.h"
+#import "SupAPIManager.h"
 #include <stdlib.h>
 @interface SignUpViewController ()
 
@@ -81,7 +81,7 @@
 -(IBAction)signedUp:(id)sender{
     int r = arc4random_uniform(10000000);
     
-    [[CreateNewUserModel getSharedInstance] addUser:self.name :self.email : @(r)];
+    [[SupAPIManager getSharedInstance] addUser:self.name :self.email : @(r)];
     
     confirmSignUp =[[UIAlertView alloc]initWithTitle:@"Congratulations"
                                              message:@"You are now signed up!"

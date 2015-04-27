@@ -9,7 +9,6 @@
 #import "SupPostTableViewController.h"
 #import "UsersModel.h"
 #import "SupAPIManager.h"
-#import "CreateNewUserModel.h"
 @interface SupPostTableViewController ()
 
 @end

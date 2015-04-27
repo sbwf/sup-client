@@ -82,4 +82,42 @@
      }];
 }
 
+-(void)addUser: (NSString*) name : (NSString*) email : (NSNumber*) user_id
+{
+    NSURL *url = [NSURL URLWithString:@"http://localhost:3000/users/"];
+    NSMutableURLRequest *req = [[NSMutableURLRequest alloc]initWithURL:url];
+    
+    NSDictionary *userToAdd =@{
+                               @"user" :
+                                   @{
+                                       @"email" : email,
+                                       @"name" : name,
+                                       @"id" : user_id
+                                       }
+                               };
+    
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:userToAdd
+                                                       options:NSJSONWritingPrettyPrinted error:NULL];
+    
+    [req setHTTPMethod:@"POST"];
+    [req setValue:@"application/json" forHTTPHeaderField:@"Content-type"];
+    [req setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [req setHTTPBody:jsonData];
+    
+    [NSURLConnection sendAsynchronousRequest:req
+                                       queue:[NSOperationQueue mainQueue]
+                           completionHandler:^(NSURLResponse *response,
+                                               NSData *data, NSError *connectionError)
+     {
+         if (data.length > 0 && connectionError == nil)
+         {
+             
+             NSString *info = [NSJSONSerialization JSONObjectWithData:data
+                                                              options:0
+                                                                error:NULL];
+             NSLog(@"Message: %@", info);
+         }
+     }];
+}
+
 @end

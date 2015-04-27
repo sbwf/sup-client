@@ -16,6 +16,8 @@
 @property (nonatomic, strong) NSArray *supPosts;
 
 +(SupAPIManager*)getSharedInstance;
+
+-(void)addUser: (NSString*) name : (NSString*) email : (NSNumber*) user_id;
 -(void)loadStatuses;
 -(void)postStatus: (CLLocation*) userLocation;
 @end
