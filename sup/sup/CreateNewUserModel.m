@@ -24,10 +24,13 @@
     NSMutableURLRequest *req = [[NSMutableURLRequest alloc]initWithURL:url];
     
     NSDictionary *userToAdd =@{
+    @"user" :
+    @{
       @"email" : email,
       @"name" : name,
       @"id" : user_id
-      };
+      }
+    };
     
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:userToAdd
                                                        options:NSJSONWritingPrettyPrinted error:NULL];

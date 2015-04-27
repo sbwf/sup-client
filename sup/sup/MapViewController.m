@@ -9,6 +9,7 @@
 #import "MapViewController.h"
 #import "SupPostManager.h"
 #import "UsersModel.h"
+#import "SupPostDetailsViewController.h"
 #import <GoogleMaps/GoogleMaps.h>
 @interface MapViewController ()
 
@@ -20,6 +21,9 @@
     [super viewDidLoad];
     [[SupPostManager getSharedInstance] addObserver:self forKeyPath:@"supPosts" options:0 context:NULL];
     [[SupPostManager getSharedInstance] loadStatuses];
+    
+    [[SupPostDetailsViewController getSharedInstance] addObserver:self forKeyPath:@"time" options:0 context:NULL];
+    [[SupPostDetailsViewController getSharedInstance] addObserver:self forKeyPath:@"status" options:0 context:NULL];
     
     _mapView.myLocationEnabled = YES;
     [self.mapView addObserver:self forKeyPath:@"myLocation" options:NSKeyValueObservingOptionNew context:nil];
@@ -60,9 +64,16 @@
             [self addMarker:[status valueForKey:@"latitude"] :[status valueForKey:@"longitude"] : [status valueForKey:@"owner_id"]];
         }
     }
+    
+    if ([keyPath isEqualToString:@"time"]){
+        
+    }
+    if ([keyPath isEqualToString:@"status"]){
+        
+    }
 }
 -(void)postStatus{
-    //TODO: What if location is null/off
+    //TODO: What if location is null/off. indicate un/successful post
     [[SupPostManager getSharedInstance] postStatus:_myLocation];
 }
 

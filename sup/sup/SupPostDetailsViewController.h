@@ -13,4 +13,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *status;
 @property (weak, nonatomic) IBOutlet UITextField *time;
 
++(SupPostDetailsViewController*)getSharedInstance;
+
 @end

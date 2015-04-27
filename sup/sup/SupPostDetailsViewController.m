@@ -19,6 +19,13 @@
     // Do any additional setup after loading the view.
 }
 
++ (SupPostDetailsViewController*)getSharedInstance{
+    static SupPostDetailsViewController *instance;
+    if (instance == nil)
+        instance = [[SupPostDetailsViewController alloc] init];
+    return instance;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
