@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SupPostDetailsViewController : UIViewController<UITextFieldDelegate>
+@interface NewStatusDetailViewController : UIViewController<UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *status;
 @property (weak, nonatomic) IBOutlet UITextField *time;
 
-+(SupPostDetailsViewController*)getSharedInstance;
++(NewStatusDetailViewController*)getSharedInstance;
 
 @end

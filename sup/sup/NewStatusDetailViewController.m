@@ -6,23 +6,23 @@
 //  Copyright (c) 2015 Sam Finegold. All rights reserved.
 //
 
-#import "SupPostDetailsViewController.h"
+#import "NewStatusDetailViewController.h"
 
-@interface SupPostDetailsViewController ()
+@interface NewStatusDetailViewController ()
 
 @end
 
-@implementation SupPostDetailsViewController
+@implementation NewStatusDetailViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
 
-+ (SupPostDetailsViewController*)getSharedInstance{
-    static SupPostDetailsViewController *instance;
++ (NewStatusDetailViewController*)getSharedInstance{
+    static NewStatusDetailViewController *instance;
     if (instance == nil)
-        instance = [[SupPostDetailsViewController alloc] init];
+        instance = [[NewStatusDetailViewController alloc] init];
     return instance;
 }
 

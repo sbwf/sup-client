@@ -9,7 +9,7 @@
 #import "MapViewController.h"
 #import "SupAPIManager.h"
 #import "UsersModel.h"
-#import "SupPostDetailsViewController.h"
+#import "NewStatusDetailViewController.h"
 #import <GoogleMaps/GoogleMaps.h>
 @interface MapViewController ()
 
@@ -22,8 +22,8 @@
     [[SupAPIManager getSharedInstance] addObserver:self forKeyPath:@"supPosts" options:0 context:NULL];
     [[SupAPIManager getSharedInstance] loadStatuses];
     
-    [[SupPostDetailsViewController getSharedInstance] addObserver:self forKeyPath:@"time" options:0 context:NULL];
-    [[SupPostDetailsViewController getSharedInstance] addObserver:self forKeyPath:@"status" options:0 context:NULL];
+    [[NewStatusDetailViewController getSharedInstance] addObserver:self forKeyPath:@"time" options:0 context:NULL];
+    [[NewStatusDetailViewController getSharedInstance] addObserver:self forKeyPath:@"status" options:0 context:NULL];
     
     _mapView.myLocationEnabled = YES;
     [self.mapView addObserver:self forKeyPath:@"myLocation" options:NSKeyValueObservingOptionNew context:nil];
