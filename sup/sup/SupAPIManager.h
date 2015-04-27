@@ -9,13 +9,13 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 #import <UIKit/UIKit.h>
-@interface SupPostManager : NSObject{
+@interface SupAPIManager : NSObject{
     UIAlertView *confirmPost;
 }
 
 @property (nonatomic, strong) NSArray *supPosts;
 
-+(SupPostManager*)getSharedInstance;
++(SupAPIManager*)getSharedInstance;
 -(void)loadStatuses;
 -(void)postStatus: (CLLocation*) userLocation;
 @end

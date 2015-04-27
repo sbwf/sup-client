@@ -7,7 +7,7 @@
 //
 
 #import "MapViewController.h"
-#import "SupPostManager.h"
+#import "SupAPIManager.h"
 #import "UsersModel.h"
 #import "SupPostDetailsViewController.h"
 #import <GoogleMaps/GoogleMaps.h>
@@ -19,8 +19,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[SupPostManager getSharedInstance] addObserver:self forKeyPath:@"supPosts" options:0 context:NULL];
-    [[SupPostManager getSharedInstance] loadStatuses];
+    [[SupAPIManager getSharedInstance] addObserver:self forKeyPath:@"supPosts" options:0 context:NULL];
+    [[SupAPIManager getSharedInstance] loadStatuses];
     
     [[SupPostDetailsViewController getSharedInstance] addObserver:self forKeyPath:@"time" options:0 context:NULL];
     [[SupPostDetailsViewController getSharedInstance] addObserver:self forKeyPath:@"status" options:0 context:NULL];
@@ -52,15 +52,15 @@
 
     }
     
-    if ([keyPath isEqualToString:@"supPosts"] && ![SupPostManager getSharedInstance].supPosts && ![SupPostManager getSharedInstance].supPosts.count){
+    if ([keyPath isEqualToString:@"supPosts"] && ![SupAPIManager getSharedInstance].supPosts && ![SupAPIManager getSharedInstance].supPosts.count){
         NSLog(@"Observing for 'supPosts'");
-        NSLog(@"SupPosts: %@", [SupPostManager getSharedInstance].supPosts);
+        NSLog(@"SupPosts: %@", [SupAPIManager getSharedInstance].supPosts);
         
         
         // TODO: remove existing markers
             
             
-        for (NSDictionary* status in [SupPostManager getSharedInstance].supPosts){
+        for (NSDictionary* status in [SupAPIManager getSharedInstance].supPosts){
             [self addMarker:[status valueForKey:@"latitude"] :[status valueForKey:@"longitude"] : [status valueForKey:@"owner_id"]];
         }
     }
@@ -74,7 +74,7 @@
 }
 -(void)postStatus{
     //TODO: What if location is null/off. indicate un/successful post
-    [[SupPostManager getSharedInstance] postStatus:_myLocation];
+    [[SupAPIManager getSharedInstance] postStatus:_myLocation];
 }
 
 -(IBAction)postButtonClicked{

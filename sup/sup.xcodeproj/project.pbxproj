@@ -15,7 +15,7 @@
 		69B1F5661ADF43F600207BCD /* FriendsHubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B1F5651ADF43F600207BCD /* FriendsHubViewController.m */; };
 		69B1F5691ADF46BC00207BCD /* SupPostDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B1F5681ADF46BC00207BCD /* SupPostDetailsViewController.m */; };
 		69C5E9EE1AC86A4500BCB746 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C5E9ED1AC86A4500BCB746 /* SignUpViewController.m */; };
-		69D5B0391ABB956C002ED2C9 /* SupPostManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D5B0381ABB956C002ED2C9 /* SupPostManager.m */; };
+		69D5B0391ABB956C002ED2C9 /* SupAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D5B0381ABB956C002ED2C9 /* SupAPIManager.m */; };
 		69DCA9F51AB0AB1000D6EE96 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 69DCA9F41AB0AB1000D6EE96 /* main.m */; };
 		69DCA9F81AB0AB1000D6EE96 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 69DCA9F71AB0AB1000D6EE96 /* AppDelegate.m */; };
 		69DCA9FB1AB0AB1000D6EE96 /* SupPostTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69DCA9FA1AB0AB1000D6EE96 /* SupPostTableViewController.m */; };
@@ -65,8 +65,8 @@
 		69B1F5681ADF46BC00207BCD /* SupPostDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SupPostDetailsViewController.m; sourceTree = "<group>"; };
 		69C5E9EC1AC86A4500BCB746 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		69C5E9ED1AC86A4500BCB746 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
-		69D5B0371ABB956C002ED2C9 /* SupPostManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupPostManager.h; sourceTree = "<group>"; };
-		69D5B0381ABB956C002ED2C9 /* SupPostManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SupPostManager.m; sourceTree = "<group>"; };
+		69D5B0371ABB956C002ED2C9 /* SupAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupAPIManager.h; sourceTree = "<group>"; };
+		69D5B0381ABB956C002ED2C9 /* SupAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SupAPIManager.m; sourceTree = "<group>"; };
 		69DCA9EF1AB0AB1000D6EE96 /* sup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69DCA9F31AB0AB1000D6EE96 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69DCA9F41AB0AB1000D6EE96 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -140,8 +140,8 @@
 		69D5B03A1ABB9573002ED2C9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				69D5B0371ABB956C002ED2C9 /* SupPostManager.h */,
-				69D5B0381ABB956C002ED2C9 /* SupPostManager.m */,
+				69D5B0371ABB956C002ED2C9 /* SupAPIManager.h */,
+				69D5B0381ABB956C002ED2C9 /* SupAPIManager.m */,
 				69DCAA181AB0AB7B00D6EE96 /* UsersModel.h */,
 				69DCAA191AB0AB7B00D6EE96 /* UsersModel.m */,
 				698A7C061ABFA15500CAA473 /* CreateNewUserModel.h */,
@@ -366,7 +366,7 @@
 			files = (
 				69B1F5691ADF46BC00207BCD /* SupPostDetailsViewController.m in Sources */,
 				698A7C081ABFA15500CAA473 /* CreateNewUserModel.m in Sources */,
-				69D5B0391ABB956C002ED2C9 /* SupPostManager.m in Sources */,
+				69D5B0391ABB956C002ED2C9 /* SupAPIManager.m in Sources */,
 				69DCA9FB1AB0AB1000D6EE96 /* SupPostTableViewController.m in Sources */,
 				699917DC1ADB07D400EA2C2C /* FriendManager.m in Sources */,
 				69B1F5661ADF43F600207BCD /* FriendsHubViewController.m in Sources */,

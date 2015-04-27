@@ -8,7 +8,7 @@
 
 #import "SupPostTableViewController.h"
 #import "UsersModel.h"
-#import "SupPostManager.h"
+#import "SupAPIManager.h"
 #import "CreateNewUserModel.h"
 @interface SupPostTableViewController ()
 
@@ -21,14 +21,14 @@
     //[[UsersModel getSharedInstance] addObserver:self forKeyPath:@"users" options:0 context:NULL];
     //[[UsersModel getSharedInstance] loadData];
     
-    [[SupPostManager getSharedInstance] addObserver:self forKeyPath:@"supPosts" options:0 context:NULL];
-    [[SupPostManager getSharedInstance] loadStatuses];
+    [[SupAPIManager getSharedInstance] addObserver:self forKeyPath:@"supPosts" options:0 context:NULL];
+    [[SupAPIManager getSharedInstance] loadStatuses];
 }
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
     if ([keyPath isEqualToString:@"supPosts"]){
         NSLog(@"here");
-        data = [[NSArray alloc]initWithArray:[SupPostManager getSharedInstance].supPosts];
+        data = [[NSArray alloc]initWithArray:[SupAPIManager getSharedInstance].supPosts];
         NSLog(@"SupPosts: %@", data);
         [table reloadData];
         NSLog(@"after reload data");
