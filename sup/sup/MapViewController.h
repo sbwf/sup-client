@@ -19,7 +19,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *switchToListView;
 
 @property (nonatomic, retain)NSArray *posts;
+@property (nonatomic, retain) NSString *time;
+@property (nonatomic, retain) NSString *status;
 
++ (MapViewController*)getSharedInstance;
 -(void)postStatus;
 -(void)addMarker:(id)lat :(id)lng :(NSNumber*)owner_Id;
 -(IBAction)postButtonClicked;

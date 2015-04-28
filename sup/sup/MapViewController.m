@@ -21,16 +21,23 @@
     [super viewDidLoad];
     [[SupAPIManager getSharedInstance] addObserver:self forKeyPath:@"supPosts" options:0 context:NULL];
     [[SupAPIManager getSharedInstance] loadStatuses];
-    
-    [[NewStatusDetailViewController getSharedInstance] addObserver:self forKeyPath:@"time" options:0 context:NULL];
-    [[NewStatusDetailViewController getSharedInstance] addObserver:self forKeyPath:@"status" options:0 context:NULL];
+
     
     _mapView.myLocationEnabled = YES;
     [self.mapView addObserver:self forKeyPath:@"myLocation" options:NSKeyValueObservingOptionNew context:nil];
+    
     NSLog(@"Latitude %f@", self.mapView.myLocation.coordinate.latitude);
     NSLog(@"Latitude %f@", self.mapView.myLocation.coordinate.longitude);
     // Do any additional setup after loading the view.
 }
+
++ (MapViewController*)getSharedInstance{
+    static MapViewController *instance;
+    if (instance == nil)
+        instance = [[MapViewController alloc] init];
+    return instance;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -64,21 +71,15 @@
             [self addMarker:[status valueForKey:@"latitude"] :[status valueForKey:@"longitude"] : [status valueForKey:@"owner_id"]];
         }
     }
-    
-    if ([keyPath isEqualToString:@"time"]){
-        
-    }
-    if ([keyPath isEqualToString:@"status"]){
-        
-    }
 }
 -(void)postStatus{
     //TODO: What if location is null/off. indicate un/successful post
-    [[SupAPIManager getSharedInstance] postStatus:_myLocation];
+    
+    //[[SupAPIManager getSharedInstance] postStatus:_myLocation];
 }
 
 -(IBAction)postButtonClicked{
-    [self postStatus];
+    //[self postStatus];
 }
 
 -(void)addMarker:(id)lat :(id)lng :(NSNumber*)owner_Id{

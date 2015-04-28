@@ -47,12 +47,12 @@
     
     //TODO: ask scott about captialized Id
     NSDictionary *statusToAdd = @{
-        @"Owner": @(1),
-        @"id" : @(89),
+                                  @"status":
+  @{
+        @"owner_id": @(1),
         @"latitude" : @(userLocation.coordinate.latitude),
         @"longitude" : @(userLocation.coordinate.longitude),
-        @"time" : @(14)
-    };
+    }};
     
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:statusToAdd options:NSJSONWritingPrettyPrinted error:NULL];
     
@@ -72,13 +72,6 @@
              NSString *info = [NSJSONSerialization JSONObjectWithData:data
                                                               options:0
                                                                 error:NULL];
-             confirmPost =[[UIAlertView alloc]initWithTitle:@"Post Success"
-                                                      message:@"You've posted a SUP!"
-                                                     delegate:self
-                                            cancelButtonTitle:@"Ok"
-                                            otherButtonTitles:nil];
-             
-             [confirmPost show];
              //TODO: notification for when it's done
          }
      }];

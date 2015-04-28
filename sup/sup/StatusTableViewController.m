@@ -17,8 +17,6 @@
 @synthesize data, table, status;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //[[UsersModel getSharedInstance] addObserver:self forKeyPath:@"users" options:0 context:NULL];
-    //[[UsersModel getSharedInstance] loadData];
     
     [[SupAPIManager getSharedInstance] addObserver:self forKeyPath:@"statuses" options:0 context:NULL];
     [[SupAPIManager getSharedInstance] loadStatuses];
