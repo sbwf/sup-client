@@ -33,7 +33,6 @@
                                                                error:NULL];
              self.statuses = [[NSDictionary alloc]init];
              self.statuses = info;
-             NSLog(@"Got Statuses");
              NSLog(@"Statuses: %@", self.statuses);
          }
      }];
@@ -54,6 +53,8 @@
         @"longitude" : @(userLocation.coordinate.longitude),
     }};
     
+    NSLog(@"Status to add: %@", statusToAdd);
+    
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:statusToAdd options:NSJSONWritingPrettyPrinted error:NULL];
     
     [request setHTTPMethod:@"POST"];
@@ -72,24 +73,25 @@
              NSString *info = [NSJSONSerialization JSONObjectWithData:data
                                                               options:0
                                                                 error:NULL];
+             NSLog(@"Post status info: %@", info);
              //TODO: notification for when it's done
          }
      }];
 }
 
--(void)addUser: (NSString*) name : (NSString*) email : (NSNumber*) user_id
+-(void)addUser: (NSString*) firstName : (NSString*) lastName : (NSString*) phoneNum
 {
     NSURL *url = [NSURL URLWithString:@"http://localhost:3000/users/"];
     NSMutableURLRequest *req = [[NSMutableURLRequest alloc]initWithURL:url];
-    
     NSDictionary *userToAdd =@{
                                @"user" :
                                    @{
-                                       @"email" : email,
-                                       @"name" : name,
-                                       @"id" : user_id
+                                       @"first_name" : firstName,
+                                       @"last_name" : lastName,
+                                       @"phone" : phoneNum
                                        }
                                };
+    NSLog(@"UserToAdd: %@", userToAdd);
     
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:userToAdd
                                                        options:NSJSONWritingPrettyPrinted error:NULL];

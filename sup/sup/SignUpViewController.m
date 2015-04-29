@@ -79,17 +79,10 @@
 }
 
 -(IBAction)signedUp:(id)sender{
-    int r = arc4random_uniform(10000000);
+    NSString *phoneNum = @"4145316221";
+    [[SupAPIManager getSharedInstance] addUser:self.name :self.email : phoneNum];
     
-    [[SupAPIManager getSharedInstance] addUser:self.name :self.email : @(r)];
-    
-    confirmSignUp =[[UIAlertView alloc]initWithTitle:@"Congratulations"
-                                             message:@"You are now signed up!"
-                                            delegate:self
-                                            cancelButtonTitle:@"Ok"
-                                            otherButtonTitles:nil];
-    
-    [confirmSignUp show];
+    //TODO: confirmation that user signed up successfully
 }
 /*
 #pragma mark - Navigation

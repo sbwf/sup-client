@@ -17,7 +17,7 @@
 
 +(SupAPIManager*)getSharedInstance;
 
--(void)addUser: (NSString*) name : (NSString*) email : (NSNumber*) user_id;
+-(void)addUser: (NSString*) firstName : (NSString*) secondName : (NSString*) phoneNum;
 -(void)loadStatuses;
 -(void)postStatus: (CLLocation*) userLocation;
 @end
