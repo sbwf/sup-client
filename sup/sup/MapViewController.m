@@ -21,7 +21,18 @@
     [super viewDidLoad];
     [[SupAPIManager getSharedInstance] addObserver:self forKeyPath:@"supPosts" options:0 context:NULL];
     [[SupAPIManager getSharedInstance] loadStatuses];
-
+    
+    //CALayer *layer = _postButton2.layer;
+    //layer.backgroundColor = [[UIColor clearColor]CGColor];
+    //layer.borderColor = [[UIColor darkGrayColor] CGColor];
+    locationManager = [[CLLocationManager alloc] init];
+    locationManager.delegate = self;
+    if ([locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]){
+        [locationManager requestWhenInUseAuthorization];
+    }     
+    [locationManager startUpdatingLocation];
+    
+    NSLog(@"Location manager location: %@", locationManager.location);
     
     _mapView.myLocationEnabled = YES;
     [self.mapView addObserver:self forKeyPath:@"myLocation" options:NSKeyValueObservingOptionNew context:nil];
@@ -45,7 +56,7 @@
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
     if([keyPath isEqualToString:@"myLocation"]){
-        _mapView.myLocationEnabled = YES;
+        //_mapView.myLocationEnabled = YES;
         _myLocation = [[CLLocation alloc]
             initWithLatitude: self.mapView.myLocation.coordinate.latitude
                    longitude: self.mapView.myLocation.coordinate.longitude];
@@ -72,11 +83,7 @@
         }
     }
 }
--(void)postStatus{
-    //TODO: What if location is null/off. indicate un/successful post
-    
-    //[[SupAPIManager getSharedInstance] postStatus:_myLocation];
-}
+
 
 -(IBAction)postButtonClicked{
     //[self postStatus];

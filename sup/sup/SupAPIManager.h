@@ -12,9 +12,7 @@
 @interface SupAPIManager : NSObject{
     UIAlertView *confirmPost;
 }
-
 @property (nonatomic, strong) NSDictionary *statuses;
-
 +(SupAPIManager*)getSharedInstance;
 
 -(void)addUser: (NSString*) firstName : (NSString*) secondName : (NSString*) phoneNum;

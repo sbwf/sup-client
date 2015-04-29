@@ -39,12 +39,10 @@
 }
 
 -(void)postStatus: (CLLocation*) userLocation{
-    NSLog(@"in post status");
     NSURL *url = [NSURL URLWithString:@"http://localhost:3000/status/"];
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url];
     
-    //TODO: ask scott about captialized Id
     NSDictionary *statusToAdd = @{
                                   @"status":
   @{
@@ -91,7 +89,6 @@
                                        @"phone" : phoneNum
                                        }
                                };
-    NSLog(@"UserToAdd: %@", userToAdd);
     
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:userToAdd
                                                        options:NSJSONWritingPrettyPrinted error:NULL];

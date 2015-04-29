@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <GoogleMaps/GoogleMaps.h>
 #import <CoreLocation/CoreLocation.h>
-@interface MapViewController : UIViewController
+@interface MapViewController : UIViewController<CLLocationManagerDelegate>
 {
+    CLLocationManager *locationManager;
 }
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
 @property (nonatomic)CLLocation *myLocation;
@@ -23,7 +24,6 @@
 @property (nonatomic, retain) NSString *status;
 
 + (MapViewController*)getSharedInstance;
--(void)postStatus;
 -(void)addMarker:(id)lat :(id)lng :(NSNumber*)owner_Id;
 -(IBAction)postButtonClicked;
 
