@@ -17,7 +17,7 @@
 }
 
 -(void)loadStatuses{
-    NSURL *url = [NSURL URLWithString:@"http://localhost:3000/status/"];
+    NSURL *url = [NSURL URLWithString:@"http://141.140.178.204:3000/status/"];
     NSLog(@"In 'loadStatuses'");
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [NSURLConnection sendAsynchronousRequest:request
@@ -39,7 +39,7 @@
 }
 
 -(void)postStatus: (CLLocation*) userLocation{
-    NSURL *url = [NSURL URLWithString:@"http://localhost:3000/status/"];
+    NSURL *url = [NSURL URLWithString:@"http://141.140.178.204:3000/status/"];
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url];
     
@@ -79,7 +79,7 @@
 
 -(void)addUser: (NSString*) firstName : (NSString*) lastName : (NSString*) phoneNum
 {
-    NSURL *url = [NSURL URLWithString:@"http://localhost:3000/users/"];
+    NSURL *url = [NSURL URLWithString:@"http://141.140.178.204:3000/users/"];
     NSMutableURLRequest *req = [[NSMutableURLRequest alloc]initWithURL:url];
     NSDictionary *userToAdd =@{
                                @"user" :

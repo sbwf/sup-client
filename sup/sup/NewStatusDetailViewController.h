@@ -10,7 +10,9 @@
 #import <CoreLocation/CoreLocation.h>
 
 
-@interface NewStatusDetailViewController : UIViewController<UITextFieldDelegate>
+@interface NewStatusDetailViewController : UIViewController<UITextFieldDelegate, CLLocationManagerDelegate>{
+    CLLocationManager *locationManager;
+}
 
 @property (weak, nonatomic) IBOutlet UITextField *statusField;
 @property (weak, nonatomic) IBOutlet UITextField *timeField;

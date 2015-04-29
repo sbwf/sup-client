@@ -22,6 +22,17 @@
     
     
     [[MapViewController getSharedInstance] addObserver:self forKeyPath:@"myLocation" options:0 context:NULL];
+    locationManager = [[CLLocationManager alloc] init];
+    locationManager.delegate = self;
+    if ([locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]){
+        [locationManager requestWhenInUseAuthorization];
+    }
+    [locationManager startUpdatingLocation];
+    
+    _userLocation = [[CLLocation alloc]
+                   initWithLatitude: locationManager.location.coordinate.latitude
+                   longitude: locationManager.location.coordinate.latitude];
+
 
     // Do any additional setup after loading the view.
 }
@@ -36,6 +47,7 @@
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
     if ([keyPath isEqualToString:@"myLocation"]){
         NSLog(@"User location: %@", [MapViewController getSharedInstance].myLocation);
+        _userLocation = [[CLLocation alloc]init];
         _userLocation = [MapViewController getSharedInstance].myLocation;
     }
 }

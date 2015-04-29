@@ -19,12 +19,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[SupAPIManager getSharedInstance] addObserver:self forKeyPath:@"supPosts" options:0 context:NULL];
+    [[SupAPIManager getSharedInstance] addObserver:self forKeyPath:@"statuses" options:0 context:NULL];
     [[SupAPIManager getSharedInstance] loadStatuses];
     
-    //CALayer *layer = _postButton2.layer;
-    //layer.backgroundColor = [[UIColor clearColor]CGColor];
-    //layer.borderColor = [[UIColor darkGrayColor] CGColor];
     locationManager = [[CLLocationManager alloc] init];
     locationManager.delegate = self;
     if ([locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]){
@@ -32,13 +29,16 @@
     }     
     [locationManager startUpdatingLocation];
     
-    NSLog(@"Location manager location: %@", locationManager.location);
     
     _mapView.myLocationEnabled = YES;
+    _myLocation = [[CLLocation alloc]
+                   initWithLatitude: self.mapView.myLocation.coordinate.latitude
+                   longitude: self.mapView.myLocation.coordinate.longitude];
+    _mapView.camera = [GMSCameraPosition cameraWithLatitude:self.mapView.myLocation.coordinate.latitude
+                                                  longitude:self.mapView.myLocation.coordinate.longitude
+                                                       zoom:16];
     [self.mapView addObserver:self forKeyPath:@"myLocation" options:NSKeyValueObservingOptionNew context:nil];
     
-    NSLog(@"Latitude %f@", self.mapView.myLocation.coordinate.latitude);
-    NSLog(@"Latitude %f@", self.mapView.myLocation.coordinate.longitude);
     // Do any additional setup after loading the view.
 }
 
@@ -64,21 +64,21 @@
         _mapView.camera = [GMSCameraPosition cameraWithLatitude:self.mapView.myLocation.coordinate.latitude
                                                       longitude:self.mapView.myLocation.coordinate.longitude
                                                            zoom:16];
+         
         
-        NSLog(@"Latitude %f@", self.mapView.myLocation.coordinate.latitude);
-        NSLog(@"Longitude %f@", self.mapView.myLocation.coordinate.longitude);
+       // NSLog(@"Latitude %f@", self.mapView.myLocation.coordinate.latitude);
+        //NSLog(@"Longitude %f@", self.mapView.myLocation.coordinate.longitude);
 
     }
     
-    if ([keyPath isEqualToString:@"statuses"] && ![SupAPIManager getSharedInstance].statuses && ![SupAPIManager getSharedInstance].statuses.count){
+    if ([keyPath isEqualToString:@"statuses"]){
         NSLog(@"Observing for 'supPosts'");
         NSLog(@"SupPosts: %@", [SupAPIManager getSharedInstance].statuses);
         
-        
         // TODO: remove existing markers
-            
-            
-        for (NSDictionary* status in [SupAPIManager getSharedInstance].statuses){
+        
+        for (NSDictionary *status in [[SupAPIManager getSharedInstance].statuses valueForKey:@"statuses"]){
+            NSLog(@"in for loop 1");
             [self addMarker:[status valueForKey:@"latitude"] :[status valueForKey:@"longitude"] : [status valueForKey:@"owner_id"]];
         }
     }
@@ -90,10 +90,13 @@
 }
 
 -(void)addMarker:(id)lat :(id)lng :(NSNumber*)owner_Id{
-    GMSMarker *marker = [[GMSMarker alloc] init];
-    marker.position = CLLocationCoordinate2DMake([lat floatValue], [lng floatValue]);
+    NSLog(@"In addMarker");
+    NSLog(@"Latitude %f", [lat doubleValue]);
+    NSLog(@"Longitude %f", [lng doubleValue]);
+    CLLocationCoordinate2D position = CLLocationCoordinate2DMake([lat doubleValue], [lng doubleValue]);
+    GMSMarker *marker = [GMSMarker markerWithPosition:position];
     marker.title = @"SUP";
-    marker.map = _mapView;
+    marker.map = self.mapView;
 }
 
 /*
