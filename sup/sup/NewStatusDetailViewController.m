@@ -31,7 +31,7 @@
     
     _userLocation = [[CLLocation alloc]
                    initWithLatitude: locationManager.location.coordinate.latitude
-                   longitude: locationManager.location.coordinate.latitude];
+                   longitude: locationManager.location.coordinate.longitude];
 
 
     // Do any additional setup after loading the view.
@@ -100,6 +100,8 @@
 }
 
 -(IBAction)postButtonClicked{
+    NSLog(@"LATITUDE ...%f@", _userLocation.coordinate.latitude);
+    NSLog(@"LONGITUDE... %f@", _userLocation.coordinate.longitude);
     [[SupAPIManager getSharedInstance] postStatus:_userLocation];
 }
 

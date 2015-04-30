@@ -42,7 +42,9 @@
     NSURL *url = [NSURL URLWithString:@"http://141.140.178.204:3000/status/"];
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url];
-    
+    NSLog(@"LATITUDE %f@", userLocation.coordinate.latitude);
+    NSLog(@"LONGITUDE %f@", userLocation.coordinate.longitude);
+
     NSDictionary *statusToAdd = @{
                                   @"status":
   @{

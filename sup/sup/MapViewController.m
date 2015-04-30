@@ -72,14 +72,13 @@
     }
     
     if ([keyPath isEqualToString:@"statuses"]){
-        NSLog(@"Observing for 'supPosts'");
-        NSLog(@"SupPosts: %@", [SupAPIManager getSharedInstance].statuses);
+        NSLog(@"Observing for 'statuses'");
+        NSLog(@"Statuses: %@", [SupAPIManager getSharedInstance].statuses);
         
         // TODO: remove existing markers
         
         for (NSDictionary *status in [[SupAPIManager getSharedInstance].statuses valueForKey:@"statuses"]){
-            NSLog(@"in for loop 1");
-            [self addMarker:[status valueForKey:@"latitude"] :[status valueForKey:@"longitude"] : [status valueForKey:@"owner_id"]];
+            [self addMarker: [status valueForKey:@"latitude"] : [status valueForKey:@"longitude"] : [status valueForKey:@"owner_id"]];
         }
     }
 }
@@ -89,14 +88,14 @@
     //[self postStatus];
 }
 
--(void)addMarker:(id)lat :(id)lng :(NSNumber*)owner_Id{
+-(void)addMarker:(id)lat :(id)lng : (NSNumber*)owner_Id{
     NSLog(@"In addMarker");
     NSLog(@"Latitude %f", [lat doubleValue]);
     NSLog(@"Longitude %f", [lng doubleValue]);
     CLLocationCoordinate2D position = CLLocationCoordinate2DMake([lat doubleValue], [lng doubleValue]);
     GMSMarker *marker = [GMSMarker markerWithPosition:position];
     marker.title = @"SUP";
-    marker.map = self.mapView;
+    marker.map = _mapView;
 }
 
 /*
