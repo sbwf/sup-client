@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FriendsHubViewController : UIViewController
+@interface FriendsHubViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
+
+@property IBOutlet UITableView *table1;
+@property IBOutlet UITableView *table2;
 
 @end
