@@ -14,7 +14,7 @@
 @end
 
 @implementation FriendsHubViewController
-@synthesize table1, table2, data, friends;
+@synthesize table1, table2, friendData, friends, requestData, requests;
 
 
 - (void)viewDidLoad {
@@ -23,45 +23,82 @@
     
     
     [[FriendManager getSharedInstance] addObserver:self forKeyPath:@"friends" options:0 context:NULL];
-    [[FriendManager getSharedInstance] getFriendsOfUser:(NSInteger *) 1];
+    [[FriendManager getSharedInstance] getFriendsOfUser:(NSInteger *) 2];
+    
+//  friends generates an error when this gets uncommented?
+//    [[FriendManager getSharedInstance] addObserver:self forKeyPath:@"requests" options:0 context:NULL];
+//    [[FriendManager getSharedInstance] getFriendRequestsForUser:(NSInteger *) 2];
 }
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
     if ([keyPath isEqualToString:@"friends"]){
-        NSLog(@"here");
-        data = [[NSDictionary alloc]initWithDictionary:[FriendManager getSharedInstance].friends];
-        NSLog(@"Friends: %@", data);
+        NSLog(@"here- friends");
+        friendData = [[NSDictionary alloc]initWithDictionary:[FriendManager getSharedInstance].friends];
+        NSLog(@"Friends: %@", friendData);
         [table2 reloadData];
-        NSLog(@"after reload data");
+        NSLog(@"after reload friendData");
     }
+    
+    if ([keyPath isEqualToString:@"requests"]){
+        NSLog(@"here- requests");
+        requestData = [[NSDictionary alloc]initWithDictionary:[FriendManager getSharedInstance].requests];
+        NSLog(@"Requests: %@", requestData);
+        [table1 reloadData];
+        NSLog(@"after reload requestData");
+    }
+    
+    
 }
+
+
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 2;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return data.count;
+    return friendData.count + requestData.count + 3;
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"In cell for row at index path");
-    static NSString *CellId = @"FriendCell";
-    FriendCell *cell = (FriendCell*) [tableView dequeueReusableCellWithIdentifier:CellId];
+    static NSString *friendCellId = @"FriendCell";
+    FriendCell *friendCell = (FriendCell*) [tableView dequeueReusableCellWithIdentifier:friendCellId];
     
-    if (cell == nil){
-        NSArray *nib = [[NSBundle mainBundle]loadNibNamed:CellId owner:self options:nil];
-        cell = [nib objectAtIndex:0];
+    static NSString *requestCellId = @"RequestCell";
+    RequestCell *requestCell = (RequestCell*) [tableView dequeueReusableCellWithIdentifier:requestCellId];
+    
+    if (friendCell == nil){
+        NSArray *nib = [[NSBundle mainBundle]loadNibNamed:friendCellId owner:self options:nil];
+        friendCell = [nib objectAtIndex:0];
     }
-    friends = [[NSArray alloc]initWithArray:[data objectForKey:@"friends"]];
-    NSLog(@"HERE: %@", friends);
-    NSLog(@"%@",[NSString stringWithFormat:@"Owner: %@", [[[friends objectAtIndex:indexPath.row] objectForKey:@"user_id"] stringValue]]);
-    cell.firstName.text = [NSString stringWithFormat:@"First name: %@", [[[friends objectAtIndex:indexPath.row] objectForKey:@"first_name"] stringValue]];
-    cell.lastName.text = [NSString stringWithFormat:@"Last name: %@", [[friends objectAtIndex:indexPath.row] objectForKey:@"last_name"]];
-//    cell.lastActive.text = [NSString stringWithFormat:@"Latitude: %@", [[[friends objectAtIndex:indexPath.row] objectForKey:@"xxx"] stringValue]];
     
-    [[[friends objectAtIndex:indexPath.row] objectForKey:@"latitude"] stringValue];
+    if (requestCell == nil){
+        NSArray *nib = [[NSBundle mainBundle]loadNibNamed:requestCellId owner:self options:nil];
+        requestCell = [nib objectAtIndex:0];
+    }
+    
+    if (indexPath.section == 1) {
+        NSLog(@"HERE: %@", friends);
+        NSLog(@"%@",[NSString stringWithFormat:@"Owner: %@", [[[friends objectAtIndex:indexPath.row] objectForKey:@"user_id"] stringValue]]);
+        friends = [[NSArray alloc]initWithArray:[friendData objectForKey:@"friends"]];
+        friendCell.firstName.text = [NSString stringWithFormat:@"First name: %@", [[[friends objectAtIndex:indexPath.row] objectForKey:@"first_name"] stringValue]];
+        friendCell.lastName.text = [NSString stringWithFormat:@"Last name: %@", [[friends objectAtIndex:indexPath.row] objectForKey:@"last_name"]];
+        //    cell.lastActive.text = [NSString stringWithFormat:@"Latitude: %@", [[[friends objectAtIndex:indexPath.row] objectForKey:@"xxx"] stringValue]];
+        
+    } else {
+        NSLog(@"HERE: %@", requests);
+        NSLog(@"%@",[NSString stringWithFormat:@"Owner: %@", [[[requests objectAtIndex:indexPath.row] objectForKey:@"user_id"] stringValue]]);
+        requests = [[NSArray alloc]initWithArray:[requestData objectForKey:@"requests"]];
+        requestCell.requester_id.text = [NSString stringWithFormat:@"Requester ID: %@", [[[requests objectAtIndex:indexPath.row] objectForKey:@"user_id"] stringValue]];
+        requestCell.requested_id.text = [NSString stringWithFormat:@"Requested ID: %@", [[requests objectAtIndex:indexPath.row] objectForKey:@"requested_id"]];
+        requestCell.requestedAt.text = [NSString stringWithFormat:@"Requested at: %@", [[[requests objectAtIndex:indexPath.row] objectForKey:@"created"] stringValue]];
+        
+    }
+    
+    
+//    [[[friends objectAtIndex:indexPath.row] objectForKey:@"latitude"] stringValue];
     NSLog(@"after setting cell labels");
-    return cell;
+    return friendCell;
 }
 
 -(CGFloat)tableView:(UITableView*) tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
