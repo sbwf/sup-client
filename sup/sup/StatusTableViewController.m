@@ -7,7 +7,6 @@
 //
 
 #import "StatusTableViewController.h"
-#import "UsersModel.h"
 #import "SupAPIManager.h"
 @interface StatusTableViewController ()
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03D7AD691AF55F9F0006D855 /* FriendsPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D7AD681AF55F9F0006D855 /* FriendsPickerViewController.m */; };
 		6951C3D51ACB2BC700F3875C /* get_users.json in Resources */ = {isa = PBXBuildFile; fileRef = 6951C3D41ACB2BC700F3875C /* get_users.json */; };
 		697212891ABB748200AAF298 /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 697212871ABB748200AAF298 /* CustomCell.m */; };
 		6972128A1ABB748200AAF298 /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 697212881ABB748200AAF298 /* CustomCell.xib */; };
@@ -50,6 +51,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		03D7AD671AF55F9F0006D855 /* FriendsPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsPickerViewController.h; sourceTree = "<group>"; };
+		03D7AD681AF55F9F0006D855 /* FriendsPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsPickerViewController.m; sourceTree = "<group>"; };
 		6951C3D41ACB2BC700F3875C /* get_users.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = get_users.json; sourceTree = "<group>"; };
 		697212861ABB748200AAF298 /* CustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCell.h; sourceTree = "<group>"; };
 		697212871ABB748200AAF298 /* CustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCell.m; sourceTree = "<group>"; };
@@ -160,6 +163,8 @@
 		69D5B03D1ABB95B4002ED2C9 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				03D7AD671AF55F9F0006D855 /* FriendsPickerViewController.h */,
+				03D7AD681AF55F9F0006D855 /* FriendsPickerViewController.m */,
 				69DCA9F91AB0AB1000D6EE96 /* StatusTableViewController.h */,
 				69DCA9FA1AB0AB1000D6EE96 /* StatusTableViewController.m */,
 				69C5E9EC1AC86A4500BCB746 /* SignUpViewController.h */,
@@ -364,6 +369,7 @@
 				69D5B0391ABB956C002ED2C9 /* SupAPIManager.m in Sources */,
 				69DCA9FB1AB0AB1000D6EE96 /* StatusTableViewController.m in Sources */,
 				699917DC1ADB07D400EA2C2C /* FriendManager.m in Sources */,
+				03D7AD691AF55F9F0006D855 /* FriendsPickerViewController.m in Sources */,
 				69B1F5661ADF43F600207BCD /* FriendsHubViewController.m in Sources */,
 				69DCA9F81AB0AB1000D6EE96 /* AppDelegate.m in Sources */,
 				69DCAA1A1AB0AB7B00D6EE96 /* UsersModel.m in Sources */,
