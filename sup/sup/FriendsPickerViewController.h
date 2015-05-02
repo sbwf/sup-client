@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CustomCell.h"
+#import "FriendCell.h"
 
-@interface FriendsPickerViewController : UITableViewController
+@interface FriendsPickerViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property IBOutlet UITableView *table;
 @property (nonatomic, retain)NSArray *friendsData;

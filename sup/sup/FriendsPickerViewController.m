@@ -21,9 +21,14 @@
     [super viewDidLoad];
     
     NSLog(@"Pick yo friends");
-    
+    [SupAPIManager getSharedInstance].myId = @(2);
     [[SupAPIManager getSharedInstance] addObserver:self forKeyPath:@"friends" options:0 context:NULL];
-//    [[SupAPIManager getSharedInstance] loadStatuses];
+
+
+    [[SupAPIManager getSharedInstance] loadFriends];
+//    [NSThread sleepForTimeInterval:5];
+    
+    NSLog(@"My Id is: %@", [SupAPIManager getSharedInstance].myId);
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -33,13 +38,12 @@
 }
 
 
--(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
-    if ([keyPath isEqualToString:@"statuses"]){
-//        NSLog(@"here");
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
+    if ([keyPath isEqualToString:@"friends"]){
         friendsData = [[NSArray alloc] initWithArray:[SupAPIManager getSharedInstance].friends];
-        NSLog(@"Friends Data: %@", friendsData);
+//        NSLog(@"Friends Data: %@", friendsData);
         [table reloadData];
-        NSLog(@"after reload data");
+        NSLog(@"KVO reload friends");
     }
 }
 
@@ -61,6 +65,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 //#warning Incomplete method implementation.
     // Return the number of rows in the section.
+    NSLog(@"Num Friends: %zd", friendsData.count);
     return friendsData.count;
 }
 
@@ -68,18 +73,23 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     NSLog(@"Making cell");
-    static NSString *CellId = @"CustomCell";
-    CustomCell *cell = (CustomCell*) [tableView dequeueReusableCellWithIdentifier:CellId];
+    static NSString *CellId = @"FriendCell";
+    FriendCell *cell = (FriendCell*) [tableView dequeueReusableCellWithIdentifier:CellId];
     
     if (cell == nil){
         NSArray *nib = [[NSBundle mainBundle]loadNibNamed:CellId owner:self options:nil];
         cell = [nib objectAtIndex:0];
+        NSLog(@"Null cell");
     }
     
+    
+    
 //    friendsData = [[NSArray alloc]initWithArray:[data objectForKey:@"friends"]];
-    NSLog(@"with friends: %@", friendsData);
+    NSLog(@"Friends DATA for CELL: %@", friendsData);
 //    NSLog(@"%@",[NSString stringWithFormat:@"Owner: %@", [[[status objectAtIndex:indexPath.row] objectForKey:@"owner"/] stringValue]]);
-//    cell.owner.text = [NSString stringWithFormat:@"Owner: %@", [[[status objectAtIndex:indexPath.row] objectForKey:@"owner"] stringValue]];
+    cell.firstname.text = [NSString stringWithString:[[friendsData objectAtIndex:indexPath.row] objectForKey:@"first_name"]];
+    cell.lastname.text = [NSString stringWithString:[[friendsData objectAtIndex:indexPath.row] objectForKey:@"last_name"]];
+//    cell.firstname.text = [NSString stringWithFormat:@"Owner: %@", [[[status objectAtIndex:indexPath.row] objectForKey:@"owner"] stringValue]];
 //    cell.time.text = [NSString stringWithFormat:@"Time: %@", [[status objectAtIndex:indexPath.row] objectForKey:@"time"]];
 //    cell.latitude.text = [NSString stringWithFormat:@"Latitude: %@", [[[status objectAtIndex:indexPath.row] objectForKey:@"latitude"] stringValue]];
     

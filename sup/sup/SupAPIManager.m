@@ -9,7 +9,7 @@
 #import "SupAPIManager.h"
 
 @implementation SupAPIManager
-@synthesize friends;
+@synthesize friends, myId;
 
 + (SupAPIManager*)getSharedInstance{
     static SupAPIManager *instance;
@@ -29,14 +29,15 @@
                                        }
                                };
     
-    [self makeRequest:@"POST" :@"/users/" :userToAdd withBlock:^(NSDictionary *data) {
+    [self makeRequest:@"POST" :@"/users/" :userToAdd withBlock:^(NSDictionary *d) {
         NSLog(@"did it!");
-        NSLog(@"Data is: %@", data);
+        NSLog(@"Data is: %@", d);
+        self.myId = [d valueForKey:@"new_id"];
     }];
     
 }
 
--(void)loadStatuses{
+- (void)loadStatuses {
     NSLog(@"In 'loadStatuses'");
     [self makeRequest:@"GET" :@"/status" :nil withBlock:^(NSDictionary *d) {
         NSLog(@"Got statutes %@", d);
@@ -44,7 +45,8 @@
     }];    
 }
 
--(void)postStatus: (CLLocation*) userLocation{
+
+- (void)postStatus: (CLLocation*) userLocation{
     NSLog(@"LATITUDE %f@", userLocation.coordinate.latitude);
     NSLog(@"LONGITUDE %f@", userLocation.coordinate.longitude);
 
@@ -63,11 +65,23 @@
 }
 
 
+- (void)loadFriends {
+    NSLog(@"getting friends from server");
+    NSString *urlString = [NSString stringWithFormat:@"/users/%@/friends", self.myId];
+    [self makeRequest:@"GET" :urlString :nil withBlock:^(NSDictionary *d) {
+        NSLog(@"Got friends!");
+        self.friends = [d valueForKey:@"friends"];
+//        NSLog(@"Friends array: %@", self.friends);
+    }];
+}
+
+
+
 //Generic http request utility function
-- (void) makeRequest:(NSString *)method :(NSString *)urlPath :(NSDictionary *)data withBlock:(void (^)(NSDictionary* d))block {
+- (void)makeRequest:(NSString *)method :(NSString *)urlPath :(NSDictionary *)data withBlock:(void (^)(NSDictionary* d))block {
     
     // Change localhost to ip if testing on real device.
-    NSString *urlString = [@"http://localhost:3000" stringByAppendingPathExtension:urlPath];
+    NSString *urlString = [@"http://localhost:3000" stringByAppendingString:urlPath];
     NSURL *url = [NSURL URLWithString:urlString];
     
     // Make request obj with url and set request options

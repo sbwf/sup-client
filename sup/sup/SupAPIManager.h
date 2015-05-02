@@ -15,10 +15,12 @@
 
 @property (nonatomic, strong) NSDictionary *statuses;
 @property (nonatomic, strong) NSArray *friends;
+@property (nonatomic, strong) NSNumber *myId;
 
 +(SupAPIManager*)getSharedInstance;
 
 -(void)addUser: (NSString*) firstName : (NSString*) secondName : (NSString*) phoneNum;
 -(void)loadStatuses;
+-(void)loadFriends;
 -(void)postStatus: (CLLocation*) userLocation;
 @end
