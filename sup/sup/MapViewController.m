@@ -8,7 +8,6 @@
 
 #import "MapViewController.h"
 #import "SupAPIManager.h"
-#import "UsersModel.h"
 #import "NewStatusDetailViewController.h"
 #import <GoogleMaps/GoogleMaps.h>
 @interface MapViewController ()

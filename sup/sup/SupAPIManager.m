@@ -7,7 +7,9 @@
 //
 
 #import "SupAPIManager.h"
-    @implementation SupAPIManager
+
+@implementation SupAPIManager
+@synthesize friends;
 
 + (SupAPIManager*)getSharedInstance{
     static SupAPIManager *instance;
@@ -16,73 +18,8 @@
     return instance;
 }
 
--(void)loadStatuses{
-    NSURL *url = [NSURL URLWithString:@"http://141.140.178.204:3000/status/"];
-    NSLog(@"In 'loadStatuses'");
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    [NSURLConnection sendAsynchronousRequest:request
-                                       queue:[NSOperationQueue mainQueue]
-                           completionHandler:^(NSURLResponse *response,
-                                               NSData *data, NSError *connectionError)
-     {
-         if (data.length > 0 && connectionError == nil)
-         {
-             
-             NSDictionary *info = [NSJSONSerialization JSONObjectWithData:data
-                                                             options:0
-                                                               error:NULL];
-             self.statuses = [[NSDictionary alloc]init];
-             self.statuses = info;
-             NSLog(@"Statuses: %@", self.statuses);
-         }
-     }];
-}
 
--(void)postStatus: (CLLocation*) userLocation{
-    NSURL *url = [NSURL URLWithString:@"http://141.140.178.204:3000/status/"];
-    
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url];
-    NSLog(@"LATITUDE %f@", userLocation.coordinate.latitude);
-    NSLog(@"LONGITUDE %f@", userLocation.coordinate.longitude);
-
-    NSDictionary *statusToAdd = @{
-                                  @"status":
-  @{
-        @"owner_id": @(1),
-        @"latitude" : @(userLocation.coordinate.latitude),
-        @"longitude" : @(userLocation.coordinate.longitude),
-    }};
-    
-    NSLog(@"Status to add: %@", statusToAdd);
-    
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:statusToAdd options:NSJSONWritingPrettyPrinted error:NULL];
-    
-    [request setHTTPMethod:@"POST"];
-    [request setValue:@"application/json" forHTTPHeaderField:@"Content-type"];
-    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-    [request setHTTPBody:jsonData];
-    
-    [NSURLConnection sendAsynchronousRequest:request
-                                       queue:[NSOperationQueue mainQueue]
-                           completionHandler:^(NSURLResponse *response,
-                                               NSData *data, NSError *connectionError)
-     {
-         if (data.length > 0 && connectionError == nil)
-         {
-             //What happens when it doesn't succeed...we're assuming it's going to succeed. if succeeds, add
-             NSString *info = [NSJSONSerialization JSONObjectWithData:data
-                                                              options:0
-                                                                error:NULL];
-             NSLog(@"Post status info: %@", info);
-             //TODO: notification for when it's done
-         }
-     }];
-}
-
--(void)addUser: (NSString*) firstName : (NSString*) lastName : (NSString*) phoneNum
-{
-    NSURL *url = [NSURL URLWithString:@"http://141.140.178.204:3000/users/"];
-    NSMutableURLRequest *req = [[NSMutableURLRequest alloc]initWithURL:url];
+- (void)addUser: (NSString*) firstName : (NSString*) lastName : (NSString*) phoneNum {
     NSDictionary *userToAdd =@{
                                @"user" :
                                    @{
@@ -92,28 +29,87 @@
                                        }
                                };
     
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:userToAdd
-                                                       options:NSJSONWritingPrettyPrinted error:NULL];
+    [self makeRequest:@"POST" :@"/users/" :userToAdd withBlock:^(NSDictionary *data) {
+        NSLog(@"did it!");
+        NSLog(@"Data is: %@", data);
+    }];
     
-    [req setHTTPMethod:@"POST"];
+}
+
+-(void)loadStatuses{
+    NSLog(@"In 'loadStatuses'");
+    [self makeRequest:@"GET" :@"/status" :nil withBlock:^(NSDictionary *d) {
+        NSLog(@"Got statutes %@", d);
+        self.statuses = d;
+    }];    
+}
+
+-(void)postStatus: (CLLocation*) userLocation{
+    NSLog(@"LATITUDE %f@", userLocation.coordinate.latitude);
+    NSLog(@"LONGITUDE %f@", userLocation.coordinate.longitude);
+
+    NSDictionary *statusToAdd = @{
+                                  @"status":
+                                      @{
+                                          @"owner_id": @(1),
+                                          @"latitude" : @(userLocation.coordinate.latitude),
+                                          @"longitude" : @(userLocation.coordinate.longitude),
+                                          }
+                                  };
+    
+    [self makeRequest:@"POST" :@"/status" :statusToAdd withBlock:^(NSDictionary *d) {
+        NSLog(@"Posted status %@", d);
+    }];
+}
+
+
+//Generic http request utility function
+- (void) makeRequest:(NSString *)method :(NSString *)urlPath :(NSDictionary *)data withBlock:(void (^)(NSDictionary* d))block {
+    
+    // Change localhost to ip if testing on real device.
+    NSString *urlString = [@"http://localhost:3000" stringByAppendingPathExtension:urlPath];
+    NSURL *url = [NSURL URLWithString:urlString];
+    
+    // Make request obj with url and set request options
+    NSMutableURLRequest *req = [[NSMutableURLRequest alloc]initWithURL:url];
     [req setValue:@"application/json" forHTTPHeaderField:@"Content-type"];
     [req setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-    [req setHTTPBody:jsonData];
+    
+    
+    if ([method isEqualToString:@"POST"])  {
+        //Perpare data for req. JSON
+        NSData* jsonData = [NSJSONSerialization dataWithJSONObject:data
+                                                           options:NSJSONWritingPrettyPrinted error:NULL];
+        [req setHTTPBody:jsonData];
+        [req setHTTPMethod:@"POST"];
+    }
+    
+    if ([method isEqualToString:@"GET"]) {
+        [req setHTTPMethod:@"GET"];
+    }
+    
     
     [NSURLConnection sendAsynchronousRequest:req
                                        queue:[NSOperationQueue mainQueue]
                            completionHandler:^(NSURLResponse *response,
                                                NSData *data, NSError *connectionError)
      {
-         if (data.length > 0 && connectionError == nil)
-         {
+         if (data.length > 0 && connectionError == nil) {
+             NSDictionary *body = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
+             NSString *error = [body valueForKey:@"error"];
              
-             NSString *info = [NSJSONSerialization JSONObjectWithData:data
-                                                              options:0
-                                                                error:NULL];
-             NSLog(@"Message: %@", info);
+             if (error) {
+                 NSLog(@"Error: %@", error);
+                 NSLog(@"body: %@", body);
+             } else {
+                 block(body);
+             }
+             
+         } else {
+             NSLog(@"Error on connection: %@", connectionError);
          }
      }];
 }
+
 
 @end
