@@ -7,7 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface FriendManager : NSObject
--(void)getFriendsOfUser;
+
+@property (nonatomic, strong) NSDictionary *allFriendships;
+@property (nonatomic, strong) NSDictionary *friends;
++(FriendManager*)getSharedInstance;
+
+-(void)getAllFriends;
+-(void)getFriendsOfUser: (NSInteger*) user_id;
+-(void)getFriendRequestsForUser: (NSInteger*) user_id;
+-(void)getLastStatusOfUser: (NSInteger*) user_id;
+
 @end
