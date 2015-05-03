@@ -12,6 +12,7 @@
 
 @property (nonatomic, weak)IBOutlet UILabel *firstname;
 @property (nonatomic, weak)IBOutlet UILabel *lastname;
-@property (nonatomic, weak)IBOutlet UILabel *phone;
+@property (nonatomic, strong)NSNumber *friend_Id;
+//@property (nonatomic, weak)IBOutlet UILabel *phone;
 
 @end

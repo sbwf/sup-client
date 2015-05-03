@@ -509,7 +509,7 @@
 					"$(PROJECT_DIR)/sup",
 				);
 				INFOPLIST_FILE = sup/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path";
 				PRODUCT_NAME = sup;
 			};
 			name = Debug;
@@ -523,7 +523,7 @@
 					"$(PROJECT_DIR)/sup",
 				);
 				INFOPLIST_FILE = sup/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path";
 				PRODUCT_NAME = sup;
 			};
 			name = Release;

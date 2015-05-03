@@ -7,6 +7,7 @@
 //
 
 #import "FriendsPickerViewController.h"
+#import "NewStatusDetailViewController.h"
 #import "SupAPIManager.h"
 
 @interface FriendsPickerViewController ()
@@ -14,7 +15,7 @@
 @end
 
 @implementation FriendsPickerViewController
-@synthesize table, friendsData;
+@synthesize table, friendsData, selectedFriends;
 
 
 - (void)viewDidLoad {
@@ -24,8 +25,10 @@
     [SupAPIManager getSharedInstance].myId = @(2);
     [[SupAPIManager getSharedInstance] addObserver:self forKeyPath:@"friends" options:0 context:NULL];
 
-
+    self.selectedFriends = [[NSMutableArray alloc] init];
     [[SupAPIManager getSharedInstance] loadFriends];
+    
+    
 //    [NSThread sleepForTimeInterval:5];
     
     NSLog(@"My Id is: %@", [SupAPIManager getSharedInstance].myId);
@@ -82,20 +85,26 @@
         NSLog(@"Null cell");
     }
     
-    
-    
 //    friendsData = [[NSArray alloc]initWithArray:[data objectForKey:@"friends"]];
     NSLog(@"Friends DATA for CELL: %@", friendsData);
-//    NSLog(@"%@",[NSString stringWithFormat:@"Owner: %@", [[[status objectAtIndex:indexPath.row] objectForKey:@"owner"/] stringValue]]);
     cell.firstname.text = [NSString stringWithString:[[friendsData objectAtIndex:indexPath.row] objectForKey:@"first_name"]];
     cell.lastname.text = [NSString stringWithString:[[friendsData objectAtIndex:indexPath.row] objectForKey:@"last_name"]];
-//    cell.firstname.text = [NSString stringWithFormat:@"Owner: %@", [[[status objectAtIndex:indexPath.row] objectForKey:@"owner"] stringValue]];
-//    cell.time.text = [NSString stringWithFormat:@"Time: %@", [[status objectAtIndex:indexPath.row] objectForKey:@"time"]];
-//    cell.latitude.text = [NSString stringWithFormat:@"Latitude: %@", [[[status objectAtIndex:indexPath.row] objectForKey:@"latitude"] stringValue]];
-    
-//    [[[status objectAtIndex:indexPath.row] objectForKey:@"latitude"] stringValue];
+    cell.friend_Id = [[friendsData objectAtIndex:indexPath.row] objectForKey:@"user_id"];
     NSLog(@"after setting cell labels");
     return cell;
+}
+
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+    FriendCell *cell = (FriendCell*)[tableView cellForRowAtIndexPath:indexPath];
+    if ([self.selectedFriends containsObject:cell.friend_Id]) {
+        [self.selectedFriends removeObject:cell.friend_Id];
+        [cell setBackgroundColor:[UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0]];
+    } else {
+        [self.selectedFriends addObject:cell.friend_Id];
+        [cell setBackgroundColor:[UIColor colorWithRed:0.8 green:0.2 blue:0.2 alpha:0.6]];
+    }
+    
 }
 
 /*
@@ -132,14 +141,21 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    NSLog(@"In Segue");
+    
+    if ([[segue identifier] isEqualToString:@"PickedFriends"]) {
+        NewStatusDetailViewController *statusDetailCtrl = segue.destinationViewController;
+        statusDetailCtrl.friends = self.selectedFriends;
+    }
+    
+    
 }
-*/
 
 @end

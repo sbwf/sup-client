@@ -13,6 +13,7 @@
 
 @property IBOutlet UITableView *table;
 @property (nonatomic, retain)NSArray *friendsData;
+@property (nonatomic, retain)NSMutableSet *selectedFriends;
 
 
 @end

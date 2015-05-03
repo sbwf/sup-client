@@ -318,7 +318,7 @@
             </objects>
             <point key="canvasLocation" x="588" y="18"/>
         </scene>
-        <!--Friends Picker View Controller-->
+        <!--Title-->
         <scene sceneID="rNC-zD-yLr">
             <objects>
                 <viewController id="TfA-Ex-ac4" customClass="FriendsPickerViewController" sceneMemberID="viewController">
@@ -330,8 +330,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CAk-TL-GEC">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <items>
+                                    <navigationItem title="Pick Friends" id="Gft-Ve-44F">
+                                        <barButtonItem key="rightBarButtonItem" title="Done" id="Z3w-py-bba">
+                                            <connections>
+                                                <segue destination="wKY-mh-BYW" kind="popoverPresentation" identifier="PickedFriends" popoverAnchorBarButtonItem="Z3w-py-bba" id="0UM-Se-RF1">
+                                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                                </segue>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                                <variation key="heightClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="0.0" width="334" height="44"/>
+                                </variation>
+                            </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="4KM-cf-Fxa">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="44" width="600" height="556"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="TfA-Ex-ac4" id="2s2-z0-HiW"/>
@@ -340,18 +357,25 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="heightClass=regular">
+                            <mask key="subviews">
+                                <include reference="CAk-TL-GEC"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="7sS-MZ-Ctm"/>
                     <connections>
                         <outlet property="table" destination="4KM-cf-Fxa" id="SNs-nx-bZh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LBH-dQ-HvW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2320" y="946"/>
+            <point key="canvasLocation" x="2355" y="945.75"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Etc-12-m30"/>
+        <segue reference="0UM-Se-RF1"/>
+        <segue reference="YVe-4x-vgw"/>
         <segue reference="EaL-Eb-Efu"/>
     </inferredMetricsTieBreakers>
 </document>
