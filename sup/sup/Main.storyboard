@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="TfA-Ex-ac4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="wKY-mh-BYW">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -141,7 +141,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="heightClass=regular" fixedFrame="YES">
-                                    <rect key="frame" x="124" y="144" width="192" height="30"/>
+                                    <rect key="frame" x="124" y="193" width="192" height="30"/>
                                 </variation>
                                 <connections>
                                     <outlet property="delegate" destination="wKY-mh-BYW" id="FUu-t2-Bts"/>
@@ -186,6 +186,12 @@
                                 <state key="normal" title="Pick Friends">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="heightClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="147" y="138" width="85" height="30"/>
+                                </variation>
+                                <connections>
+                                    <segue destination="TfA-Ex-ac4" kind="showDetail" id="sd7-tU-pBL"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -336,9 +342,7 @@
                                     <navigationItem title="Pick Friends" id="Gft-Ve-44F">
                                         <barButtonItem key="rightBarButtonItem" title="Done" id="Z3w-py-bba">
                                             <connections>
-                                                <segue destination="wKY-mh-BYW" kind="popoverPresentation" identifier="PickedFriends" popoverAnchorBarButtonItem="Z3w-py-bba" id="0UM-Se-RF1">
-                                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                                </segue>
+                                                <segue destination="wKY-mh-BYW" kind="showDetail" identifier="PickedFriends" id="0UM-Se-RF1"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>

@@ -46,7 +46,7 @@
 }
 
 
-- (void)postStatus: (CLLocation*) userLocation{
+- (void)postStatus: (CLLocation*)userLocation :(NSSet*)selectedFriends{
     NSLog(@"LATITUDE %f@", userLocation.coordinate.latitude);
     NSLog(@"LONGITUDE %f@", userLocation.coordinate.longitude);
 
@@ -62,6 +62,12 @@
     [self makeRequest:@"POST" :@"/status" :statusToAdd withBlock:^(NSDictionary *d) {
         NSLog(@"Posted status %@", d);
     }];
+
+    NSString *urlString = [NSString stringWithFormat:@"/status/%@/viewers", self.myId];
+    [self makeRequest:@"POST" :urlString :selectedFriends withBlock:^(NSDictionary *d) {
+        NSLog(@"Posted status viewers %@", d);
+    }];
+    [NSThread sleepForTimeInterval:5];
 }
 
 
@@ -78,7 +84,7 @@
 
 
 //Generic http request utility function
-- (void)makeRequest:(NSString *)method :(NSString *)urlPath :(NSDictionary *)data withBlock:(void (^)(NSDictionary* d))block {
+- (void)makeRequest:(NSString *)method :(NSString *)urlPath :(NSObject *)dataObj withBlock:(void (^)(NSDictionary* d))block {
     
     // Change localhost to ip if testing on real device.
     NSString *urlString = [@"http://localhost:3000" stringByAppendingString:urlPath];
@@ -92,7 +98,7 @@
     
     if ([method isEqualToString:@"POST"])  {
         //Perpare data for req. JSON
-        NSData* jsonData = [NSJSONSerialization dataWithJSONObject:data
+        NSData* jsonData = [NSJSONSerialization dataWithJSONObject:dataObj
                                                            options:NSJSONWritingPrettyPrinted error:NULL];
         [req setHTTPBody:jsonData];
         [req setHTTPMethod:@"POST"];
@@ -113,7 +119,7 @@
              NSString *error = [body valueForKey:@"error"];
              
              if (error) {
-                 NSLog(@"Error: %@", error);
+                 NSLog(@"Error posting to %@: %@", urlString, error);
                  NSLog(@"body: %@", body);
              } else {
                  block(body);

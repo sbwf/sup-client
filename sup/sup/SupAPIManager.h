@@ -22,5 +22,5 @@
 -(void)addUser: (NSString*) firstName : (NSString*) secondName : (NSString*) phoneNum;
 -(void)loadStatuses;
 -(void)loadFriends;
--(void)postStatus: (CLLocation*) userLocation;
+-(void)postStatus: (CLLocation*)userLocation :(NSSet*)selectedFriends;
 @end

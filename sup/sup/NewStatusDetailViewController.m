@@ -104,7 +104,7 @@
 -(IBAction)postButtonClicked{
     NSLog(@"LATITUDE ...%f@", _userLocation.coordinate.latitude);
     NSLog(@"LONGITUDE... %f@", _userLocation.coordinate.longitude);
-    [[SupAPIManager getSharedInstance] postStatus:_userLocation];
+    [[SupAPIManager getSharedInstance] postStatus:_userLocation :self.friends];
 }
 
 
