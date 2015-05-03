@@ -7,6 +7,7 @@
 //
 
 #import "SupAPIManager.h"
+#import "MapViewController.h"
 
 @implementation SupAPIManager
 @synthesize friends;
@@ -29,7 +30,7 @@
                                        }
                                };
     
-    [self makeRequest:@"POST" :@"/users/" :userToAdd withBlock:^(NSDictionary *data) {
+    [self makeRequest:@"POST" :@"/users/" :userToAdd withBlock:^(NSObject *data) {
         NSLog(@"did it!");
         NSLog(@"Data is: %@", data);
     }];
@@ -38,10 +39,17 @@
 
 -(void)loadStatuses{
     NSLog(@"In 'loadStatuses'");
-    [self makeRequest:@"GET" :@"/status" :nil withBlock:^(NSDictionary *d) {
-        NSLog(@"Got statutes %@", d);
-        self.statuses = d;
-    }];    
+    [self makeRequest:@"GET" :@"/status" :nil withBlock:^(NSObject *d) {
+        // For each new status, make marker and add to set
+        for (NSDictionary *status in d) {
+            NSLog(@"Adding %@", status);
+            [self.statuses addObject:status];
+//            if (![self.statuses containsObject:status]) {
+//                [status  forKey:@"marker"];
+//                [self.statuses addObject:status];
+//            }
+        }
+    }];
 }
 
 -(void)postStatus: (CLLocation*) userLocation{
@@ -57,14 +65,16 @@
                                           }
                                   };
     
-    [self makeRequest:@"POST" :@"/status" :statusToAdd withBlock:^(NSDictionary *d) {
+    [self makeRequest:@"POST" :@"/status" :statusToAdd withBlock:^(NSObject *d) {
         NSLog(@"Posted status %@", d);
+        [MapViewController getSharedInstance].myMarker = [[MapViewController getSharedInstance] makeMarker:userLocation.coordinate.latitude :userLocation.coordinate.longitude :@"Scott"];
+        
     }];
 }
 
 
 //Generic http request utility function
-- (void) makeRequest:(NSString *)method :(NSString *)urlPath :(NSDictionary *)data withBlock:(void (^)(NSDictionary* d))block {
+- (void) makeRequest:(NSString *)method :(NSString *)urlPath :(NSDictionary *)data withBlock:(void (^)(NSObject* d))block {
     
     // Change localhost to ip if testing on real device.
     NSString *urlString = [@"http://localhost:3000" stringByAppendingPathExtension:urlPath];

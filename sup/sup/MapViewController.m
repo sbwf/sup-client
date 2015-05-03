@@ -10,14 +10,15 @@
 #import "SupAPIManager.h"
 #import "NewStatusDetailViewController.h"
 #import <GoogleMaps/GoogleMaps.h>
-@interface MapViewController ()
 
+@interface MapViewController ()
 @end
 
 @implementation MapViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [[SupAPIManager getSharedInstance] addObserver:self forKeyPath:@"statuses" options:0 context:NULL];
     [[SupAPIManager getSharedInstance] loadStatuses];
     
@@ -25,20 +26,24 @@
     locationManager.delegate = self;
     if ([locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]){
         [locationManager requestWhenInUseAuthorization];
-    }     
+    }
     [locationManager startUpdatingLocation];
     
     
     _mapView.myLocationEnabled = YES;
+    [self.mapView addObserver:self forKeyPath:@"myLocation" options:NSKeyValueObservingOptionNew context:nil];
+    
+    // Do any additional setup after loading the view.
+}
+
+- (void)viewDidAppear:(BOOL)animated{
     _myLocation = [[CLLocation alloc]
                    initWithLatitude: self.mapView.myLocation.coordinate.latitude
                    longitude: self.mapView.myLocation.coordinate.longitude];
     _mapView.camera = [GMSCameraPosition cameraWithLatitude:self.mapView.myLocation.coordinate.latitude
                                                   longitude:self.mapView.myLocation.coordinate.longitude
                                                        zoom:16];
-    [self.mapView addObserver:self forKeyPath:@"myLocation" options:NSKeyValueObservingOptionNew context:nil];
     
-    // Do any additional setup after loading the view.
 }
 
 + (MapViewController*)getSharedInstance{
@@ -54,31 +59,18 @@
 }
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
-    if([keyPath isEqualToString:@"myLocation"]){
-        //_mapView.myLocationEnabled = YES;
-        _myLocation = [[CLLocation alloc]
-            initWithLatitude: self.mapView.myLocation.coordinate.latitude
-                   longitude: self.mapView.myLocation.coordinate.longitude];
-        
-        _mapView.camera = [GMSCameraPosition cameraWithLatitude:self.mapView.myLocation.coordinate.latitude
-                                                      longitude:self.mapView.myLocation.coordinate.longitude
-                                                           zoom:16];
-         
-        
-       // NSLog(@"Latitude %f@", self.mapView.myLocation.coordinate.latitude);
-        //NSLog(@"Longitude %f@", self.mapView.myLocation.coordinate.longitude);
-
-    }
+//    if([keyPath isEqualToString:@"myLocation"]){
+//        _mapView.myLocationEnabled = YES;
+//
+//    }
     
     if ([keyPath isEqualToString:@"statuses"]){
         NSLog(@"Observing for 'statuses'");
         NSLog(@"Statuses: %@", [SupAPIManager getSharedInstance].statuses);
-        
-        // TODO: remove existing markers
-        
-        for (NSDictionary *status in [[SupAPIManager getSharedInstance].statuses valueForKey:@"statuses"]){
-            [self addMarker: [status valueForKey:@"latitude"] : [status valueForKey:@"longitude"] : [status valueForKey:@"owner_id"]];
+        for (NSDictionary *status in [SupAPIManager getSharedInstance].statuses) {
+            [_statusMarkers addObject:[[MapViewController getSharedInstance] makeMarker:[[status valueForKey:@"latitude"] doubleValue]  :[[status valueForKey:@"longitude"] doubleValue] :@"Scott"]];
         }
+        [self updateMap];
     }
 }
 
@@ -87,15 +79,20 @@
     //[self postStatus];
 }
 
--(void)addMarker:(id)lat :(id)lng : (NSNumber*)owner_Id{
-    NSLog(@"In addMarker");
-    NSLog(@"Latitude %f", [lat doubleValue]);
-    NSLog(@"Longitude %f", [lng doubleValue]);
-    CLLocationCoordinate2D position = CLLocationCoordinate2DMake([lat doubleValue], [lng doubleValue]);
+- (GMSMarker*)makeMarker:(double)lat :(double)lng : (NSString*)name{
+    CLLocationCoordinate2D position = CLLocationCoordinate2DMake(lat, lng);
     GMSMarker *marker = [GMSMarker markerWithPosition:position];
-    marker.title = @"SUP";
-    marker.map = _mapView;
+    marker.snippet = name;
+    return  marker;
 }
+
+- (void)updateMap {
+    for (GMSMarker *marker in _statusMarkers) {
+        marker.map = _mapView;
+    }
+}
+
+
 
 /*
 #pragma mark - Navigation
