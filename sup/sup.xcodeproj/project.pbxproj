@@ -39,6 +39,7 @@
 		69EC19A11AC8E7B0003AD53C /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69EC19A01AC8E7B0003AD53C /* MapViewController.m */; };
 		69F263BC1AD3133C00F698FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69F263BB1AD3133C00F698FE /* Main.storyboard */; };
 		BEC948971AF456D50091DD28 /* FriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEC948961AF456D50091DD28 /* FriendCell.m */; };
+		BEE1FCDF1AF578FE00DA62FD /* RequestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE1FCDE1AF578FE00DA62FD /* RequestCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +101,8 @@
 		69F263BB1AD3133C00F698FE /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		BEC948951AF456A60091DD28 /* FriendCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendCell.h; sourceTree = "<group>"; };
 		BEC948961AF456D50091DD28 /* FriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendCell.m; sourceTree = "<group>"; };
+		BEE1FCDD1AF578E900DA62FD /* RequestCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RequestCell.h; sourceTree = "<group>"; };
+		BEE1FCDE1AF578FE00DA62FD /* RequestCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +164,8 @@
 				697212881ABB748200AAF298 /* CustomCell.xib */,
 				BEC948951AF456A60091DD28 /* FriendCell.h */,
 				BEC948961AF456D50091DD28 /* FriendCell.m */,
+				BEE1FCDD1AF578E900DA62FD /* RequestCell.h */,
+				BEE1FCDE1AF578FE00DA62FD /* RequestCell.m */,
 			);
 			name = "Custom Cells";
 			sourceTree = "<group>";
@@ -373,6 +378,7 @@
 				69B1F5691ADF46BC00207BCD /* NewStatusDetailViewController.m in Sources */,
 				69D5B0391ABB956C002ED2C9 /* SupAPIManager.m in Sources */,
 				69DCA9FB1AB0AB1000D6EE96 /* StatusTableViewController.m in Sources */,
+				BEE1FCDF1AF578FE00DA62FD /* RequestCell.m in Sources */,
 				BEC948971AF456D50091DD28 /* FriendCell.m in Sources */,
 				699917DC1ADB07D400EA2C2C /* FriendManager.m in Sources */,
 				03D7AD691AF55F9F0006D855 /* FriendsPickerViewController.m in Sources */,
