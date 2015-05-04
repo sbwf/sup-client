@@ -35,8 +35,8 @@
 
     [self makeRequest:@"POST" :@"/users/" :userToAdd withBlock:^(NSObject *data) {
         NSLog(@"did it!");
-        NSLog(@"Data is: %@", d);
-        self.myId = [d valueForKey:@"new_id"];
+        NSLog(@"Data is: %@", data);
+        self.myId = [data valueForKey:@"new_id"];
     }];
     
 }
@@ -77,7 +77,7 @@
     }];
 
     NSString *urlString = [NSString stringWithFormat:@"/status/%@/viewers", self.myId];
-    [self makeRequest:@"POST" :urlString :selectedFriends withBlock:^(NSDictionary *d) {
+    [self makeRequest:@"POST" :urlString :selectedFriends withBlock:^(NSObject *d) {
         NSLog(@"Posted status viewers %@", d);
     }];
     [NSThread sleepForTimeInterval:5];
@@ -87,7 +87,7 @@
     NSLog(@"getting friends from server");
     NSString *urlString = [NSString stringWithFormat:@"/users/%@/friends", self.myId];
     NSLog(@"url string: %@", urlString);
-    [self makeRequest:@"GET" :urlString :nil withBlock:^(NSDictionary *d) {
+    [self makeRequest:@"GET" :urlString :nil withBlock:^(NSObject *d) {
         NSLog(@"Got friends!");
         self.friends = [d valueForKey:@"friends"];
         NSLog(@"Friends array: %@", self.friends);
@@ -97,7 +97,7 @@
 - (void) loadRequests {
     NSLog(@"getting friend requests from server");
     NSString *urlString = [NSString stringWithFormat:@"/requests/%@", self.myId];
-    [self makeRequest:@"GET" :urlString :nil withBlock:^(NSDictionary *d) {
+    [self makeRequest:@"GET" :urlString :nil withBlock:^(NSObject *d) {
         NSLog(@"Got requests!");
 //        self.requests = [NSArray arrayWithObject:[d valueForKey:@"pending_requests"]];
         self.requests = [d valueForKey:@"pending_requests"];
@@ -118,7 +118,7 @@
 
 
 //Generic http request utility function
-- (void) makeRequest:(NSString *)method :(NSString *)urlPath :(NSDictionary *)data withBlock:(void (^)(NSObject* d))block {
+- (void) makeRequest:(NSString *)method :(NSString *)urlPath :(NSObject *)dataObj withBlock:(void (^)(NSObject* d))block {
     
     // Change localhost to ip if testing on real device.
     NSString *urlString = [@"http://localhost:3000" stringByAppendingString:urlPath];
