@@ -59,19 +59,22 @@
 }
 
 
-- (void)postStatus: (CLLocation*)userLocation :(NSSet*)selectedFriends{
+- (void)postStatus: (CLLocation*)userLocation :(NSSet*)selectedFriends :(NSNumber*)duration{
     NSLog(@"LATITUDE %f", userLocation.coordinate.latitude);
     NSLog(@"LONGITUDE %f", userLocation.coordinate.longitude);
     NSLog(@"MY ID %@", self.myId);
+    NSLog(@"MY DURATION %@", duration);
     NSDictionary *statusToAdd = @{
                                           @"owner_id": self.myId,
                                           @"latitude" : @(userLocation.coordinate.latitude),
                                           @"longitude" : @(userLocation.coordinate.longitude),
-                                          @"duration" : @(5)
+                                          @"duration" : duration
                                   };
     
     [self makeRequest:@"POST" :@"/status" :statusToAdd withBlock:^(NSObject *d) {
         NSLog(@"Posted status %@", d);
+        
+        //TODO: Take out line of code below and see if it still works.
         [[MapViewController getSharedInstance].statusMarkers addObject:[[MapViewController getSharedInstance] makeMarker:userLocation.coordinate.latitude :userLocation.coordinate.longitude :@"sam" : self.myId]];
         
     }];
@@ -115,7 +118,7 @@
 - (void) makeRequest:(NSString *)method :(NSString *)urlPath :(NSDictionary *)dataObj withBlock:(void (^)(NSObject* d))block {
     
     // Change localhost to ip if testing on real device.
-    NSString *urlString = [@"http://141.140.193.127:3000" stringByAppendingString:urlPath];
+    NSString *urlString = [@"http://141.140.179.212:3000" stringByAppendingString:urlPath];
     NSURL *url = [NSURL URLWithString:urlString];
     
     // Make request obj with url and set request options
