@@ -15,7 +15,7 @@
 @end
 
 @implementation FriendsHubViewController
-@synthesize table, friendsData, requestsData;
+@synthesize friendsData, requestsData;
 
 
 - (void)viewDidLoad {
@@ -45,10 +45,8 @@
     if ([keyPath isEqualToString:@"requests"]){
         requestsData = [[NSArray alloc] initWithArray:[SupAPIManager getSharedInstance].requests];
 
-//        requestsData = [[NSDictionary alloc] in]
-//        requestsData = [[NSDictionary alloc] initWithArray:[SupAPIManager getSharedInstance].requests];
         NSLog(@"Requests Data: %@", requestsData);
-        [table reloadData];
+        [self.tableView reloadData];
         NSLog(@"KVO reload requests");
     }
 }
@@ -61,8 +59,6 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    //#warning Incomplete method implementation.
-    // Return the number of rows in the section.
     NSLog(@"Num Requests: %zd", requestsData.count);
     return requestsData.count;
 }
@@ -70,21 +66,12 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     NSLog(@"Making cell");
-    static NSString *CellId = @"RequestCell";
-    RequestCell *cell = (RequestCell*) [tableView dequeueReusableCellWithIdentifier:CellId];
+    UITableViewCell *cell = (UITableViewCell*) [tableView dequeueReusableCellWithIdentifier:@"request"];
     
-    if (cell == nil){
-        NSArray *nib = [[NSBundle mainBundle]loadNibNamed:CellId owner:self options:nil];
-        cell = [nib objectAtIndex:0];
-        NSLog(@"Null cell");
-    }
-    
-//    NSArray *requests = [[NSArray alloc]initWithArray:[requestsData objectForKey:@"friend_requests"]];
     NSLog(@"requess DATA for CELL: %@", [self.requestsData objectAtIndex:0]);
     NSLog(@"requess DATA for CELL: %@", [[self.requestsData objectAtIndex:0] valueForKey:@"user_id"]);
-//    cell.userId.text = [NSString stringWithString:[[self.requestsData objectAtIndex:indexPath.row] valueForKey:@"user_id"]];
-//    cell.requestedId.text = [NSString stringWithString:[[requestsData objectAtIndex:indexPath.row] objectForKey:@"requested_id"]];
-    cell.created.text = [[requestsData objectAtIndex:indexPath.row] valueForKey:@"created"];
+    cell.textLabel.text = [self.requestsData[indexPath.row][@"user_id"] description];
+    cell.detailTextLabel.text = [self.requestsData[indexPath.row][@"created"] description];
     NSLog(@"after setting cell labels");
     return cell;
 }
