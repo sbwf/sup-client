@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FriendCell.h"
 
 @interface FriendsHubViewController : UIViewController
+
+@property IBOutlet UITableView *table;
+@property (nonatomic, retain)NSArray *friendsData;
+@property (nonatomic, retain)NSArray *requestsData;
+
 
 @end

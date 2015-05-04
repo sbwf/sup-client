@@ -81,6 +81,26 @@
     }];
 }
 
+- (void) loadRequests {
+    NSLog(@"getting friend requests from server");
+    NSString *urlString = [NSString stringWithFormat:@"/requests/%@", self.myId];
+    [self makeRequest:@"GET" :urlString :nil withBlock:^(NSDictionary *d) {
+        NSLog(@"Got requests!");
+        self.requests = [d valueForKey:@"requests"];
+        NSLog(@"Requests array: %@", self.requests);
+    }];
+    
+}
+
+-(void)approveFriendRequest: (NSInteger*)requester_id {
+    NSLog(@"approving a friend request");
+    NSString *urlString = [NSString stringWithFormat:@"/users/%@/friends", requester_id];
+    NSDictionary *friend_id = @{@"friend_id": (self.myId)};
+    [self makeRequest:@"POST" :urlString :friend_id withBlock:^(NSDictionary *d) {
+        NSLog(@"Approved a friend request %@", d);
+    }];
+}
+
 
 
 //Generic http request utility function
