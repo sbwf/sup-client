@@ -18,13 +18,16 @@
 @property (weak, nonatomic) IBOutlet UIButton *postButton;
 @property (weak, nonatomic) IBOutlet UIButton *postButton2;
 @property (weak, nonatomic) IBOutlet UIButton *switchToListView;
+@property (nonatomic) GMSMarker *myMarker;
+@property (nonatomic)NSMutableArray *statusMarkers;
 
-@property (nonatomic, retain)NSArray *posts;
-@property (nonatomic, retain) NSString *time;
-@property (nonatomic, retain) NSString *status;
+//@property (nonatomic, retain)NSArray *posts;
+//@property (nonatomic, retain) NSString *time;
+//@property (nonatomic, retain) NSString *status;
 
 + (MapViewController*)getSharedInstance;
--(void)addMarker:(id)lat :(id)lng :(NSNumber*)owner_Id;
+- (void)updateMap;
+-(GMSMarker*)makeMarker:(double)lat :(double)lng :(NSString*) name;
 -(IBAction)postButtonClicked;
 
 @end

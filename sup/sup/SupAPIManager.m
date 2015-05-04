@@ -7,14 +7,17 @@
 //
 
 #import "SupAPIManager.h"
+#import "MapViewController.h"
 
 @implementation SupAPIManager
-@synthesize friends, myId;
+@synthesize friends, statuses;
 
 + (SupAPIManager*)getSharedInstance{
     static SupAPIManager *instance;
-    if (instance == nil)
+    if (instance == nil) {
         instance = [[SupAPIManager alloc] init];
+        instance.statuses = [[NSMutableSet alloc] init];
+    }
     return instance;
 }
 
@@ -29,7 +32,8 @@
                                        }
                                };
     
-    [self makeRequest:@"POST" :@"/users/" :userToAdd withBlock:^(NSDictionary *d) {
+
+    [self makeRequest:@"POST" :@"/users/" :userToAdd withBlock:^(NSObject *data) {
         NSLog(@"did it!");
         NSLog(@"Data is: %@", d);
         self.myId = [d valueForKey:@"new_id"];
@@ -39,10 +43,17 @@
 
 - (void)loadStatuses {
     NSLog(@"In 'loadStatuses'");
-    [self makeRequest:@"GET" :@"/status" :nil withBlock:^(NSDictionary *d) {
-        NSLog(@"Got statutes %@", d);
-        self.statuses = d;
-    }];    
+    [self makeRequest:@"GET" :@"/status" :nil withBlock:^(NSObject *d) {
+        // For each new status, make marker and add to set
+//        NSLog(@"Data: %@", d);
+//        NSArray *statusArray = [[NSArray alloc] initWithArray:[d valueForKey:@"statuses"]];
+//        NSLog(@"My statuses: %@", self.statuses);
+        for (NSDictionary *status in [d valueForKey:@"statuses"]) {
+//            NSLog(@"Adding dict %@", status);
+            [self.statuses addObject:status];
+        }
+//        NSLog(@"My statuses: %@", self.statuses);
+    }];
 }
 
 
@@ -59,8 +70,10 @@
                                           }
                                   };
     
-    [self makeRequest:@"POST" :@"/status" :statusToAdd withBlock:^(NSDictionary *d) {
+    [self makeRequest:@"POST" :@"/status" :statusToAdd withBlock:^(NSObject *d) {
         NSLog(@"Posted status %@", d);
+        [MapViewController getSharedInstance].myMarker = [[MapViewController getSharedInstance] makeMarker:userLocation.coordinate.latitude :userLocation.coordinate.longitude :@"Scott"];
+        
     }];
 
     NSString *urlString = [NSString stringWithFormat:@"/status/%@/viewers", self.myId];
@@ -105,7 +118,7 @@
 
 
 //Generic http request utility function
-- (void)makeRequest:(NSString *)method :(NSString *)urlPath :(NSObject *)dataObj withBlock:(void (^)(NSDictionary* d))block {
+- (void) makeRequest:(NSString *)method :(NSString *)urlPath :(NSDictionary *)data withBlock:(void (^)(NSObject* d))block {
     
     // Change localhost to ip if testing on real device.
     NSString *urlString = [@"http://localhost:3000" stringByAppendingString:urlPath];

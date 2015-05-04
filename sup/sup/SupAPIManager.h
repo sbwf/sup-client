@@ -13,7 +13,7 @@
     UIAlertView *confirmPost;
 }
 
-@property (nonatomic, strong) NSDictionary *statuses;
+@property (nonatomic, strong) NSMutableSet *statuses;
 @property (nonatomic, strong) NSArray *friends;
 @property (nonatomic, strong) NSArray *requests;
 @property (nonatomic, strong) NSNumber *myId;
