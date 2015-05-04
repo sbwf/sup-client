@@ -323,6 +323,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="xvg-3K-0nH">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RTx-Kr-ngi">
+                                    <rect key="frame" x="15" y="7" width="73" height="30"/>
+                                    <state key="normal" title="Map">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <segue destination="CVY-u6-z1y" kind="show" id="eAQ-Hz-VZs"/>
+                                    </connections>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Friends Hub" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XMN-uo-EPA">
+                                    <rect key="frame" x="96" y="11" width="101" height="21"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="1" green="0.58395091517631936" blue="0.81663727610681447" alpha="1" colorSpace="calibratedRGB"/>
+                        </view>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="request" textLabel="70f-9u-jp7" detailTextLabel="Cqh-NK-yJd" style="IBUITableViewCellStyleValue1" id="BYO-cp-Zly">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
@@ -356,11 +378,11 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LnU-RM-iaO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2014" y="-34"/>
+            <point key="canvasLocation" x="2029" y="-44"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Vke-TQ-9ec"/>
-        <segue reference="Etc-12-m30"/>
+        <segue reference="eAQ-Hz-VZs"/>
     </inferredMetricsTieBreakers>
 </document>
