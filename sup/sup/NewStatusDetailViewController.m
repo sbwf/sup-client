@@ -35,7 +35,7 @@
 
 
     // Do any additional setup after loading the view.
-    [SupAPIManager getSharedInstance].myId = @(2);
+    //[SupAPIManager getSharedInstance].myId = @(2);
     NSLog(@"Selected Friends: %@", self.friends);
 }
 

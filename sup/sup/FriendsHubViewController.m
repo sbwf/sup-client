@@ -23,7 +23,7 @@
     
     NSLog(@"Manage yo friends");
     
-    [SupAPIManager getSharedInstance].myId = @(2);
+    //[SupAPIManager getSharedInstance].myId = @(2);
     NSLog(@"My Id is: %@", [SupAPIManager getSharedInstance].myId);
 
 //    [[SupAPIManager getSharedInstance] addObserver:self forKeyPath:@"friends" options:0 context:NULL];
