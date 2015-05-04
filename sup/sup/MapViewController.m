@@ -15,11 +15,22 @@
 @end
 
 @implementation MapViewController
+@synthesize statusMarkers;
+
++ (MapViewController*)getSharedInstance{
+    static MapViewController *instance;
+    if (instance == nil)
+        instance = [[MapViewController alloc] init];
+    return instance;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [[SupAPIManager getSharedInstance] addObserver:self forKeyPath:@"statuses" options:0 context:NULL];
+    self.statusMarkers = [[NSMutableArray alloc] init];
+    
+//    [[SupAPIManager getSharedInstance] addObserver:self forKeyPath:@"statuses" options:NSKeyValueObservingOptionNew context:nil];
+    [[SupAPIManager getSharedInstance] addObserver:self forKeyPath:@"statuses" options:NSKeyValueSetSetMutation context:nil];
     [[SupAPIManager getSharedInstance] loadStatuses];
     
     locationManager = [[CLLocationManager alloc] init];
@@ -31,45 +42,32 @@
     
     
     _mapView.myLocationEnabled = YES;
-    [self.mapView addObserver:self forKeyPath:@"myLocation" options:NSKeyValueObservingOptionNew context:nil];
+//    [self.mapView addObserver:self forKeyPath:@"myLocation" options:NSKeyValueObservingOptionNew context:nil];
     
     // Do any additional setup after loading the view.
 }
 
-- (void)viewDidAppear:(BOOL)animated{
+- (void)viewDidAppear:(BOOL)animated {
     _myLocation = [[CLLocation alloc]
                    initWithLatitude: self.mapView.myLocation.coordinate.latitude
                    longitude: self.mapView.myLocation.coordinate.longitude];
     _mapView.camera = [GMSCameraPosition cameraWithLatitude:self.mapView.myLocation.coordinate.latitude
                                                   longitude:self.mapView.myLocation.coordinate.longitude
                                                        zoom:16];
-    
+    NSLog(@"View did appear, updating map");
+    [self updateMap];
 }
 
-+ (MapViewController*)getSharedInstance{
-    static MapViewController *instance;
-    if (instance == nil)
-        instance = [[MapViewController alloc] init];
-    return instance;
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
-//    if([keyPath isEqualToString:@"myLocation"]){
-//        _mapView.myLocationEnabled = YES;
-//
-//    }
-    
+    NSLog(@"In KVO: %@", keyPath);
     if ([keyPath isEqualToString:@"statuses"]){
-        NSLog(@"Observing for 'statuses'");
         NSLog(@"Statuses: %@", [SupAPIManager getSharedInstance].statuses);
         for (NSDictionary *status in [SupAPIManager getSharedInstance].statuses) {
-            [_statusMarkers addObject:[[MapViewController getSharedInstance] makeMarker:[[status valueForKey:@"latitude"] doubleValue]  :[[status valueForKey:@"longitude"] doubleValue] :@"Scott"]];
+            [self.statusMarkers addObject:[[MapViewController getSharedInstance] makeMarker:[[status valueForKey:@"latitude"] doubleValue]  :[[status valueForKey:@"longitude"] doubleValue] :@"Scott"]];
+//            NSLog(@"Made marker with %@", status);
         }
+        NSLog(@"Status Markers %@", self.statusMarkers);
         [self updateMap];
     }
 }
@@ -87,12 +85,19 @@
 }
 
 - (void)updateMap {
-    for (GMSMarker *marker in _statusMarkers) {
+    NSLog(@"Updating");
+
+    for (GMSMarker *marker in self.statusMarkers) {
+        NSLog(@"marker %@", marker);
         marker.map = _mapView;
     }
 }
 
 
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
 
 /*
 #pragma mark - Navigation

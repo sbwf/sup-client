@@ -10,12 +10,14 @@
 #import "MapViewController.h"
 
 @implementation SupAPIManager
-@synthesize friends;
+@synthesize friends, statuses;
 
 + (SupAPIManager*)getSharedInstance{
     static SupAPIManager *instance;
-    if (instance == nil)
+    if (instance == nil) {
         instance = [[SupAPIManager alloc] init];
+        instance.statuses = [[NSMutableSet alloc] init];
+    }
     return instance;
 }
 
@@ -41,14 +43,14 @@
     NSLog(@"In 'loadStatuses'");
     [self makeRequest:@"GET" :@"/status" :nil withBlock:^(NSObject *d) {
         // For each new status, make marker and add to set
-        for (NSDictionary *status in d) {
-            NSLog(@"Adding %@", status);
+//        NSLog(@"Data: %@", d);
+//        NSArray *statusArray = [[NSArray alloc] initWithArray:[d valueForKey:@"statuses"]];
+//        NSLog(@"My statuses: %@", self.statuses);
+        for (NSDictionary *status in [d valueForKey:@"statuses"]) {
+//            NSLog(@"Adding dict %@", status);
             [self.statuses addObject:status];
-//            if (![self.statuses containsObject:status]) {
-//                [status  forKey:@"marker"];
-//                [self.statuses addObject:status];
-//            }
         }
+//        NSLog(@"My statuses: %@", self.statuses);
     }];
 }
 
@@ -77,7 +79,7 @@
 - (void) makeRequest:(NSString *)method :(NSString *)urlPath :(NSDictionary *)data withBlock:(void (^)(NSObject* d))block {
     
     // Change localhost to ip if testing on real device.
-    NSString *urlString = [@"http://localhost:3000" stringByAppendingPathExtension:urlPath];
+    NSString *urlString = [@"http://localhost:3000" stringByAppendingString:urlPath];
     NSURL *url = [NSURL URLWithString:urlString];
     
     // Make request obj with url and set request options

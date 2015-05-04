@@ -26,6 +26,7 @@
 //@property (nonatomic, retain) NSString *status;
 
 + (MapViewController*)getSharedInstance;
+- (void)updateMap;
 -(GMSMarker*)makeMarker:(double)lat :(double)lng :(NSString*) name;
 -(IBAction)postButtonClicked;
 
