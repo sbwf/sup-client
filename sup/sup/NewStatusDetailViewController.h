@@ -20,7 +20,7 @@
 
 
 @property (nonatomic, strong)NSString *status;
-@property (nonatomic, strong)NSString *time;
+@property (nonatomic, strong)NSNumber *time;
 @property (nonatomic, strong)NSMutableSet *friends;
 @property (nonatomic)CLLocation *userLocation;
 

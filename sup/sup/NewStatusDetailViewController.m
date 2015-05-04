@@ -71,7 +71,7 @@
 }
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     if (textField.tag == 1) {
-        self.time = textField.text;
+        self.time = (NSNumber*) textField.text;
     }
     else if (textField.tag == 2){
         self.status = [[NSString alloc]initWithString:textField.text];
@@ -104,7 +104,8 @@
 -(IBAction)postButtonClicked{
     NSLog(@"LATITUDE ...%f@", _userLocation.coordinate.latitude);
     NSLog(@"LONGITUDE... %f@", _userLocation.coordinate.longitude);
-    [[SupAPIManager getSharedInstance] postStatus:_userLocation :self.friends];
+    NSLog(@"DURATION... %@", self.time);
+    [[SupAPIManager getSharedInstance] postStatus:_userLocation :self.friends: self.time];
 }
 
 

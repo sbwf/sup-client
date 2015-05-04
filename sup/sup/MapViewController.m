@@ -65,9 +65,7 @@
         NSLog(@"Statuses: %@", [SupAPIManager getSharedInstance].statuses);
         for (NSDictionary *status in [SupAPIManager getSharedInstance].statuses) {
             [self.statusMarkers addObject:[[MapViewController getSharedInstance] makeMarker:[[status valueForKey:@"latitude"] doubleValue]  :[[status valueForKey:@"longitude"] doubleValue] :@"Scott": [status valueForKey:@"owner_id"]]];
-//            NSLog(@"Made marker with %@", status);
         }
-        NSLog(@"Status Markers %@", self.statusMarkers);
         [self updateMap];
     }
 }
@@ -90,10 +88,7 @@
     NSLog(@"Updating");
     
     for (GMSMarker *marker in self.statusMarkers) {
-        NSLog(@"marker userData %@", marker.userData);
-        NSLog(@"this is my id %@", [SupAPIManager getSharedInstance].myId);
         if ([marker.userData intValue] == [[SupAPIManager getSharedInstance].myId intValue] ){
-            NSLog(@"In if statement, my id %@", [SupAPIManager getSharedInstance].myId);
             marker.icon = [GMSMarker markerImageWithColor:[UIColor blueColor]];
         }
         marker.map = _mapView;
