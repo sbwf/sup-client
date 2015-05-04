@@ -25,5 +25,5 @@
 -(void)loadFriends;
 -(void)postStatus: (CLLocation*)userLocation :(NSSet*)selectedFriends;
 -(void)loadRequests;
--(void)approveFriendRequest: (NSInteger*)requester_id;
+//-(void)approveFriendRequest: (NSInteger*)requester_id;
 @end

@@ -70,14 +70,14 @@
     [NSThread sleepForTimeInterval:5];
 }
 
-
 - (void)loadFriends {
     NSLog(@"getting friends from server");
     NSString *urlString = [NSString stringWithFormat:@"/users/%@/friends", self.myId];
+    NSLog(@"url string: %@", urlString);
     [self makeRequest:@"GET" :urlString :nil withBlock:^(NSDictionary *d) {
         NSLog(@"Got friends!");
         self.friends = [d valueForKey:@"friends"];
-//        NSLog(@"Friends array: %@", self.friends);
+        NSLog(@"Friends array: %@", self.friends);
     }];
 }
 
@@ -86,20 +86,21 @@
     NSString *urlString = [NSString stringWithFormat:@"/requests/%@", self.myId];
     [self makeRequest:@"GET" :urlString :nil withBlock:^(NSDictionary *d) {
         NSLog(@"Got requests!");
-        self.requests = [d valueForKey:@"requests"];
-        NSLog(@"Requests array: %@", self.requests);
+//        self.requests = [NSArray arrayWithObject:[d valueForKey:@"pending_requests"]];
+        self.requests = [d valueForKey:@"pending_requests"];
+//        NSLog(@"Requests array: %@", self.requests);
     }];
     
 }
 
--(void)approveFriendRequest: (NSInteger*)requester_id {
-    NSLog(@"approving a friend request");
-    NSString *urlString = [NSString stringWithFormat:@"/users/%@/friends", requester_id];
-    NSDictionary *friend_id = @{@"friend_id": (self.myId)};
-    [self makeRequest:@"POST" :urlString :friend_id withBlock:^(NSDictionary *d) {
-        NSLog(@"Approved a friend request %@", d);
-    }];
-}
+//-(void)approveFriendRequest: (NSInteger*)requester_id {
+//    NSLog(@"approving a friend request");
+//    NSString *urlString = [NSString stringWithFormat:@"/users/%@/friends", requester_id];
+//    NSDictionary *friend_id = @{@"friend_id": (self.myId)};
+//    [self makeRequest:@"POST" :urlString :friend_id withBlock:^(NSDictionary *d) {
+//        NSLog(@"Approved a friend request %@", d);
+//    }];
+//}
 
 
 

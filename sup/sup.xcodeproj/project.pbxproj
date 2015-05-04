@@ -40,6 +40,8 @@
 		69EC199E1AC8E5A2003AD53C /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 69EC199D1AC8E5A2003AD53C /* GoogleMaps.bundle */; };
 		69EC19A11AC8E7B0003AD53C /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69EC19A01AC8E7B0003AD53C /* MapViewController.m */; };
 		69F263BC1AD3133C00F698FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69F263BB1AD3133C00F698FE /* Main.storyboard */; };
+		BEF17DDC1AF73171002AD5CF /* RequestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF17DDA1AF73171002AD5CF /* RequestCell.m */; };
+		BEF17DDD1AF73171002AD5CF /* RequestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEF17DDB1AF73171002AD5CF /* RequestCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +104,9 @@
 		69EC199F1AC8E7B0003AD53C /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		69EC19A01AC8E7B0003AD53C /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		69F263BB1AD3133C00F698FE /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		BEF17DD91AF73171002AD5CF /* RequestCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestCell.h; sourceTree = "<group>"; };
+		BEF17DDA1AF73171002AD5CF /* RequestCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestCell.m; sourceTree = "<group>"; };
+		BEF17DDB1AF73171002AD5CF /* RequestCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RequestCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +169,9 @@
 				03D7AD6A1AF56C7D0006D855 /* FriendCell.h */,
 				03D7AD6B1AF56C7D0006D855 /* FriendCell.m */,
 				03D7AD6C1AF56C7D0006D855 /* FriendCell.xib */,
+				BEF17DD91AF73171002AD5CF /* RequestCell.h */,
+				BEF17DDA1AF73171002AD5CF /* RequestCell.m */,
+				BEF17DDB1AF73171002AD5CF /* RequestCell.xib */,
 			);
 			name = "Custom Cells";
 			sourceTree = "<group>";
@@ -351,6 +359,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				69DCAA031AB0AB1000D6EE96 /* LaunchScreen.xib in Resources */,
+				BEF17DDD1AF73171002AD5CF /* RequestCell.xib in Resources */,
 				6972128A1ABB748200AAF298 /* CustomCell.xib in Resources */,
 				69F263BC1AD3133C00F698FE /* Main.storyboard in Resources */,
 				03D7AD6E1AF56C7D0006D855 /* FriendCell.xib in Resources */,
@@ -377,6 +386,7 @@
 				69B1F5691ADF46BC00207BCD /* NewStatusDetailViewController.m in Sources */,
 				69D5B0391ABB956C002ED2C9 /* SupAPIManager.m in Sources */,
 				69DCA9FB1AB0AB1000D6EE96 /* StatusTableViewController.m in Sources */,
+				BEF17DDC1AF73171002AD5CF /* RequestCell.m in Sources */,
 				699917DC1ADB07D400EA2C2C /* FriendManager.m in Sources */,
 				03D7AD691AF55F9F0006D855 /* FriendsPickerViewController.m in Sources */,
 				69B1F5661ADF43F600207BCD /* FriendsHubViewController.m in Sources */,

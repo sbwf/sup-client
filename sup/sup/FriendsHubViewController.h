@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "FriendCell.h"
+#import "RequestCell.h"
 
 @interface FriendsHubViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 
