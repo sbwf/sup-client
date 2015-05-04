@@ -23,24 +23,31 @@
     
     NSLog(@"Manage yo friends");
     
-    //[SupAPIManager getSharedInstance].myId = @(2);
+    [SupAPIManager getSharedInstance].myId = @(2);
     NSLog(@"My Id is: %@", [SupAPIManager getSharedInstance].myId);
 
-//    [[SupAPIManager getSharedInstance] addObserver:self forKeyPath:@"friends" options:0 context:NULL];
-    [[SupAPIManager getSharedInstance] addObserver:self forKeyPath:@"requests" options:0 context:NULL];
+    [[SupAPIManager getSharedInstance] addObserver:self forKeyPath:@"friends" options:NSKeyValueObservingOptionInitial context:NULL];
+    [[SupAPIManager getSharedInstance] addObserver:self forKeyPath:@"requests" options:NSKeyValueObservingOptionInitial context:NULL];
     
 //    [[SupAPIManager getSharedInstance] loadFriends];
     [[SupAPIManager getSharedInstance] loadRequests];
+}
+
+- (void)dealloc {
+    [[SupAPIManager getSharedInstance] removeObserver:self forKeyPath:@"friends"];
+    [[SupAPIManager getSharedInstance] removeObserver:self forKeyPath:@"requests"];
 
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
-//    if ([keyPath isEqualToString:@"friends"]){
+    NSLog(@"-------> in Friends, KVO path %@", keyPath);
+    
+    if ([keyPath isEqualToString:@"friends"]){
 //        friendsData = [[NSArray alloc] initWithArray:[SupAPIManager getSharedInstance].friends];
 //                NSLog(@"Friends Data: %@", friendsData);
 //        [table reloadData];
-//        NSLog(@"KVO reload friends");
-//    }
+        NSLog(@"KVO reload friends");
+    }
     
     if ([keyPath isEqualToString:@"requests"]){
         requestsData = [[NSArray alloc] initWithArray:[SupAPIManager getSharedInstance].requests];
@@ -54,7 +61,11 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     //#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 1;
+    return 2;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return @"hey";
 }
 
 
