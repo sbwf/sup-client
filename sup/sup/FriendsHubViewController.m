@@ -7,16 +7,47 @@
 //
 
 #import "FriendsHubViewController.h"
+#import "SupAPIManager.h"
+
 
 @interface FriendsHubViewController ()
 
 @end
 
 @implementation FriendsHubViewController
+@synthesize table, friendsData, requestsData;
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    NSLog(@"Manage yo friends");
+    
+    [SupAPIManager getSharedInstance].myId = @(2);
+    NSLog(@"My Id is: %@", [SupAPIManager getSharedInstance].myId);
+
+    [[SupAPIManager getSharedInstance] addObserver:self forKeyPath:@"friends" options:0 context:NULL];
+    [[SupAPIManager getSharedInstance] addObserver:self forKeyPath:@"requests" options:0 context:NULL];
+    
+    [[SupAPIManager getSharedInstance] loadFriends];
+    [[SupAPIManager getSharedInstance] loadRequests];
+
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
+    if ([keyPath isEqualToString:@"friends"]){
+        friendsData = [[NSArray alloc] initWithArray:[SupAPIManager getSharedInstance].friends];
+                NSLog(@"Friends Data: %@", friendsData);
+        [table reloadData];
+        NSLog(@"KVO reload friends");
+    }
+    
+    if ([keyPath isEqualToString:@"requests"]){
+        requestsData = [[NSArray alloc] initWithArray:[SupAPIManager getSharedInstance].requests];
+        NSLog(@"Requests Data: %@", requestsData);
+        [table reloadData];
+        NSLog(@"KVO reload requests");
+    }
 }
 
 - (void)didReceiveMemoryWarning {

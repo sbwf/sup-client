@@ -15,6 +15,7 @@
 
 @property (nonatomic, strong) NSDictionary *statuses;
 @property (nonatomic, strong) NSArray *friends;
+@property (nonatomic, strong) NSArray *requests;
 @property (nonatomic, strong) NSNumber *myId;
 
 +(SupAPIManager*)getSharedInstance;
@@ -23,4 +24,6 @@
 -(void)loadStatuses;
 -(void)loadFriends;
 -(void)postStatus: (CLLocation*)userLocation :(NSSet*)selectedFriends;
+-(void)loadRequests;
+-(void)approveFriendRequest: (NSInteger*)requester_id;
 @end
