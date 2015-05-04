@@ -17,6 +17,7 @@
     if (instance == nil) {
         instance = [[SupAPIManager alloc] init];
         instance.statuses = [[NSMutableSet alloc] init];
+        instance.myId = @(1); //Hard coding
     }
     return instance;
 }
