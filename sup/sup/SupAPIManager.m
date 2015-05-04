@@ -36,7 +36,9 @@
     [self makeRequest:@"POST" :@"/users/" :userToAdd withBlock:^(NSObject *data) {
         NSLog(@"did it!");
         NSLog(@"Data is: %@", data);
+        self.myId = [[NSNumber alloc]init];
         self.myId = [data valueForKey:@"new_id"];
+        NSLog(@"Setting myId %@", self.myId);
     }];
     
 }
@@ -58,29 +60,21 @@
 
 
 - (void)postStatus: (CLLocation*)userLocation :(NSSet*)selectedFriends{
-    NSLog(@"LATITUDE %f@", userLocation.coordinate.latitude);
-    NSLog(@"LONGITUDE %f@", userLocation.coordinate.longitude);
-
+    NSLog(@"LATITUDE %f", userLocation.coordinate.latitude);
+    NSLog(@"LONGITUDE %f", userLocation.coordinate.longitude);
+    NSLog(@"MY ID %@", self.myId);
     NSDictionary *statusToAdd = @{
-                                  @"status":
-                                      @{
-                                          @"owner_id": @(1),
+                                          @"owner_id": self.myId,
                                           @"latitude" : @(userLocation.coordinate.latitude),
                                           @"longitude" : @(userLocation.coordinate.longitude),
-                                          }
+                                          @"duration" : @(5)
                                   };
     
     [self makeRequest:@"POST" :@"/status" :statusToAdd withBlock:^(NSObject *d) {
         NSLog(@"Posted status %@", d);
-        [MapViewController getSharedInstance].myMarker = [[MapViewController getSharedInstance] makeMarker:userLocation.coordinate.latitude :userLocation.coordinate.longitude :@"Scott"];
+        [[MapViewController getSharedInstance].statusMarkers addObject:[[MapViewController getSharedInstance] makeMarker:userLocation.coordinate.latitude :userLocation.coordinate.longitude :@"sam" : self.myId]];
         
     }];
-
-    NSString *urlString = [NSString stringWithFormat:@"/status/%@/viewers", self.myId];
-    [self makeRequest:@"POST" :urlString :selectedFriends withBlock:^(NSObject *d) {
-        NSLog(@"Posted status viewers %@", d);
-    }];
-    [NSThread sleepForTimeInterval:5];
 }
 
 - (void)loadFriends {
@@ -118,10 +112,10 @@
 
 
 //Generic http request utility function
-- (void) makeRequest:(NSString *)method :(NSString *)urlPath :(NSObject *)dataObj withBlock:(void (^)(NSObject* d))block {
+- (void) makeRequest:(NSString *)method :(NSString *)urlPath :(NSDictionary *)dataObj withBlock:(void (^)(NSObject* d))block {
     
     // Change localhost to ip if testing on real device.
-    NSString *urlString = [@"http://localhost:3000" stringByAppendingString:urlPath];
+    NSString *urlString = [@"http://141.140.193.127:3000" stringByAppendingString:urlPath];
     NSURL *url = [NSURL URLWithString:urlString];
     
     // Make request obj with url and set request options

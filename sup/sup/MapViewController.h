@@ -27,7 +27,7 @@
 
 + (MapViewController*)getSharedInstance;
 - (void)updateMap;
--(GMSMarker*)makeMarker:(double)lat :(double)lng :(NSString*) name;
+-(GMSMarker*)makeMarker:(double)lat :(double)lng :(NSString*) name: (NSNumber*) owner_id;
 -(IBAction)postButtonClicked;
 
 @end
