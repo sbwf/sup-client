@@ -7,7 +7,6 @@
 //
 
 #import "StatusTableViewController.h"
-#import "UsersModel.h"
 #import "SupAPIManager.h"
 @interface StatusTableViewController ()
 
@@ -17,7 +16,7 @@
 @synthesize data, table, status;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     [[SupAPIManager getSharedInstance] addObserver:self forKeyPath:@"statuses" options:0 context:NULL];
     [[SupAPIManager getSharedInstance] loadStatuses];
 }

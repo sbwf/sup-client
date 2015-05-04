@@ -35,6 +35,8 @@
 
 
     // Do any additional setup after loading the view.
+    [SupAPIManager getSharedInstance].myId = @(2);
+    NSLog(@"Selected Friends: %@", self.friends);
 }
 
 + (NewStatusDetailViewController*)getSharedInstance{
@@ -102,7 +104,7 @@
 -(IBAction)postButtonClicked{
     NSLog(@"LATITUDE ...%f@", _userLocation.coordinate.latitude);
     NSLog(@"LONGITUDE... %f@", _userLocation.coordinate.longitude);
-    [[SupAPIManager getSharedInstance] postStatus:_userLocation];
+    [[SupAPIManager getSharedInstance] postStatus:_userLocation :self.friends];
 }
 
 

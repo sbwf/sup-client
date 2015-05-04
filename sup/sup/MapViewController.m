@@ -8,7 +8,6 @@
 
 #import "MapViewController.h"
 #import "SupAPIManager.h"
-#import "UsersModel.h"
 #import "NewStatusDetailViewController.h"
 #import <GoogleMaps/GoogleMaps.h>
 @interface MapViewController ()
@@ -95,6 +94,7 @@
     CLLocationCoordinate2D position = CLLocationCoordinate2DMake([lat doubleValue], [lng doubleValue]);
     GMSMarker *marker = [GMSMarker markerWithPosition:position];
     marker.title = @"SUP";
+    marker.icon = [UIImage imageNamed:@"statusIcon.png"];
     marker.map = _mapView;
 }
 
