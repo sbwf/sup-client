@@ -66,6 +66,7 @@
         
     // If a saved user exists:
     } else {
+        [SupAPIManager getSharedInstance].myId = [savedUser objectForKey:@"savedUser"];
         NSLog(@"Saved User: %@", [savedUser objectForKey:@"savedUser"]);
     }
     _myLocation = [[CLLocation alloc]
