@@ -79,7 +79,7 @@
 
 - (void)loadFriends {
     NSLog(@"getting friends from server");
-    NSString *urlString = [NSString stringWithFormat:@"/friends/u/%@", self.myId];
+    NSString *urlString = [NSString stringWithFormat:@"/users/%@/friends", self.myId];
     NSLog(@"url string: %@", urlString);
     [self makeRequest:@"GET" :urlString :nil withBlock:^(NSObject *d) {
         NSLog(@"Got friends!");
@@ -116,7 +116,7 @@
 - (void) makeRequest:(NSString *)method :(NSString *)urlPath :(NSDictionary *)dataObj withBlock:(void (^)(NSObject* d))block {
     
     // Change localhost to ip if testing on real device.
-    NSString *urlString = [@"http://141.140.178.80:3000" stringByAppendingString:urlPath];
+    NSString *urlString = [@"http://localhost:3000" stringByAppendingString:urlPath];
     NSURL *url = [NSURL URLWithString:urlString];
     
     // Make request obj with url and set request options
