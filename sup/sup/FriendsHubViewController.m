@@ -76,25 +76,37 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
         NSLog(@"Num Requests: %zd", requestsData.count);
-        return requestsData.count;
+        
+        if (requestsData.count > 0) {
+            return requestsData.count;
+        } else {
+            return 0;
+        }
     } else {
         NSLog(@"Num friends: %zd", friendsData.count);
-        return friendsData.count;
+        
+        if (friendsData.count > 0) {
+            return friendsData.count;
+        } else {
+            return 0;
+        }
     }
-
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
+        
 //        NSLog(@"Making request cell");
         UITableViewCell *cell = (UITableViewCell*) [tableView dequeueReusableCellWithIdentifier:@"request"];
-        
 //        NSLog(@"request DATA for CELL: %@", [self.requestsData objectAtIndex:0]);
         cell.textLabel.text = [self.requestsData[indexPath.row][@"user_name"] description];
-        cell.detailTextLabel.text = [self.requestsData[indexPath.row][@"created"] description];
+        NSString *created = [self.requestsData[indexPath.row][@"created"] description];
+        cell.detailTextLabel.text = created;
 //        NSLog(@"after setting request cell labels");
         return cell;
+        
     } else {
+        
 //        NSLog(@"Making friend cell");
         UITableViewCell *cell = (UITableViewCell*) [tableView dequeueReusableCellWithIdentifier:@"friend"];
 //        NSLog(@"friend DATA for CELL: %@", [self.friendsData objectAtIndex:0]);
@@ -108,12 +120,11 @@
         cell.detailTextLabel.text = [ self.friendsData[indexPath.row][@"user_id"] description];;
 //        NSLog(@"after setting friend cell labels");
         return cell;
-
         
     }
 }
 
-- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 //    NSLog(@"clicked at row %ld", (long)indexPath.row);
     
     UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
@@ -128,6 +139,8 @@
         NSLog(@"section 0 selected");
         selectedCellId = [self.requestsData[indexPath.row][@"user_id"] description];
         alertConfirmationMessage = [NSString stringWithFormat: @"Approve %@'s [id: %@] friend request?", selectedCellText, selectedCellId];
+        
+        [[SupAPIManager getSharedInstance] approveFriendRequest:selectedCellId];
     
     //  Friends section
     } else if (indexPath.section == 1) {
@@ -135,7 +148,6 @@
         NSLog(@"section 1 selected");
         selectedCellId = [ self.friendsData[indexPath.row][@"user_id"] description];
         alertConfirmationMessage = [NSString stringWithFormat: @"%@'s id number is %@", selectedCellText, selectedCellId];
-
         
     } else {
         NSLog(@"unidentified section selected");
@@ -144,7 +156,7 @@
     
     UIAlertView *messageAlert = [[UIAlertView alloc]
                                  initWithTitle:selectedCellText message:alertConfirmationMessage delegate:nil cancelButtonTitle:@"no" otherButtonTitles:nil];
-    [messageAlert show];
+//    [messageAlert show];
     NSLog([NSString stringWithFormat:alertConfirmationMessage]);
 //    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
