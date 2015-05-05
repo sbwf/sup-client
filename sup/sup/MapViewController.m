@@ -85,7 +85,7 @@
     if ([keyPath isEqualToString:@"statuses"]){
         NSLog(@"Statuses: %@", [SupAPIManager getSharedInstance].statuses);
         for (NSDictionary *status in [SupAPIManager getSharedInstance].statuses) {
-            [self.statusMarkers addObject:[[MapViewController getSharedInstance] makeMarker:[[status valueForKey:@"latitude"] doubleValue]  :[[status valueForKey:@"longitude"] doubleValue] :@"Scott": [status valueForKey:@"owner_id"]]];
+            [self.statusMarkers addObject:[[MapViewController getSharedInstance] makeMarker:[[status valueForKey:@"latitude"] doubleValue]  :[[status valueForKey:@"longitude"] doubleValue] :[status valueForKey:@"owner_name"]: [status valueForKey:@"owner_id"]]];
         }
         [self updateMap];
     }
