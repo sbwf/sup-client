@@ -12,10 +12,12 @@
     UIAlertView *confirmSignUp;
 }
 
-@property (nonatomic, strong)NSString *name;
-@property (nonatomic, strong)NSString *email;
-@property (weak, nonatomic) IBOutlet UITextField *nameField;
-@property (weak, nonatomic) IBOutlet UITextField *emailField;
+@property (nonatomic, strong)NSString *firstName;
+@property (nonatomic, strong)NSString *lastName;
+@property (nonatomic, strong)NSString *phoneNumber;
+@property (weak, nonatomic) IBOutlet UITextField *firstNameField;
+@property (weak, nonatomic) IBOutlet UITextField *lastNameField;
+@property (weak, nonatomic) IBOutlet UITextField *phoneNumberField;
 @property (weak, nonatomic) IBOutlet UIButton *table;
 @property (weak, nonatomic) IBOutlet UIButton *signUp;
 

@@ -20,8 +20,6 @@
     _timeField.tag = 1;
     _statusField.tag = 2;
     
-    
-    [[MapViewController getSharedInstance] addObserver:self forKeyPath:@"myLocation" options:0 context:NULL];
     locationManager = [[CLLocationManager alloc] init];
     locationManager.delegate = self;
     if ([locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]){
@@ -32,7 +30,8 @@
     _userLocation = [[CLLocation alloc]
                    initWithLatitude: locationManager.location.coordinate.latitude
                    longitude: locationManager.location.coordinate.longitude];
-
+    NSLog(@"User location latitude, %f", _userLocation.coordinate.latitude);
+    NSLog(@"User location latitude, %f", _userLocation.coordinate.longitude);
 
     // Do any additional setup after loading the view.
     //[SupAPIManager getSharedInstance].myId = @(2);
@@ -46,13 +45,6 @@
     return instance;
 }
 
--(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
-    if ([keyPath isEqualToString:@"myLocation"]){
-        NSLog(@"User location: %@", [MapViewController getSharedInstance].myLocation);
-        _userLocation = [[CLLocation alloc]init];
-        _userLocation = [MapViewController getSharedInstance].myLocation;
-    }
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

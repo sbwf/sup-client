@@ -18,8 +18,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _nameField.tag = 1;
-    _emailField.tag = 2;
+    _firstNameField.tag = 1;
+    _lastNameField.tag = 2;
+    _phoneNumberField.tag = 3;
 }
 
 //+ (SignUpViewController*)getSharedInstance{
@@ -45,12 +46,16 @@
 }
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     if (textField.tag == 1) {
-        self.name = textField.text;
+        self.firstName = textField.text;
         UITextField *passwordTextField = (UITextField *)[self.view viewWithTag:2];
         [passwordTextField becomeFirstResponder];
     }
-    else {
-        self.email = [[NSString alloc]initWithString:textField.text];
+    if (textField.tag == 2){
+        self.lastName = [[NSString alloc]initWithString:textField.text];
+        [textField resignFirstResponder];
+    }
+    if (textField.tag == 3){
+        self.phoneNumber = [[NSString alloc]initWithString:textField.text];
         [textField resignFirstResponder];
     }
     return YES;
@@ -79,9 +84,10 @@
 }
 
 -(IBAction)signedUp:(id)sender{
-    NSString *phoneNum = @"4145316221";
+//    NSString *phoneNum = @"4145316221";
 //    [[SupAPIManager getSharedInstance] addUser:self.name :self.email :phoneNum ];
-    [[SupAPIManager getSharedInstance] addUser:self.name :self.email :phoneNum withBlock:^(NSNumber *newId) {
+
+    [[SupAPIManager getSharedInstance] addUser:self.firstName :self.lastName :self.phoneNumber withBlock:^(NSNumber *newId) {
         NSUserDefaults *savedUser = [NSUserDefaults standardUserDefaults];
         [savedUser setObject:newId forKey:@"savedUser"];
         [self dismissViewControllerAnimated:YES completion:nil];
