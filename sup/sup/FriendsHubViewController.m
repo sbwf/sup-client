@@ -8,6 +8,7 @@
 
 #import "FriendsHubViewController.h"
 #import "SupAPIManager.h"
+#import "YLMoment.h"
 
 
 @interface FriendsHubViewController ()
@@ -77,20 +78,13 @@
     if (section == 0) {
         NSLog(@"Num Requests: %zd", requestsData.count);
         
-        if (requestsData.count > 0) {
-            return requestsData.count;
-        } else {
-            return 0;
-        }
+        return requestsData.count;
     } else {
         NSLog(@"Num friends: %zd", friendsData.count);
         
-        if (friendsData.count > 0) {
-            return friendsData.count;
-        } else {
-            return 0;
-        }
+        return friendsData.count;
     }
+
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -100,8 +94,16 @@
         UITableViewCell *cell = (UITableViewCell*) [tableView dequeueReusableCellWithIdentifier:@"request"];
 //        NSLog(@"request DATA for CELL: %@", [self.requestsData objectAtIndex:0]);
         cell.textLabel.text = [self.requestsData[indexPath.row][@"user_name"] description];
-        NSString *created = [self.requestsData[indexPath.row][@"created"] description];
-        cell.detailTextLabel.text = created;
+
+        NSDateFormatter *iso8601Formatter = [[NSDateFormatter alloc] init];
+        iso8601Formatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
+        
+        NSDate *created = [NSDate dateWithTimeIntervalSince1970:
+                           [self.requestsData[indexPath.row][@"created"] doubleValue]];
+        YLMoment *moment = [YLMoment momentWithDate:created];
+        NSLog(@"createdAsMoment: %@", moment);
+        NSString *timeSinceRequest = [moment fromNow];
+        cell.detailTextLabel.text = timeSinceRequest;
 //        NSLog(@"after setting request cell labels");
         return cell;
         

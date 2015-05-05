@@ -107,6 +107,7 @@
     NSDictionary *friend_id = @{@"friend_id": (self.myId)};
     [self makeRequest:@"POST" :urlString :friend_id withBlock:^(NSObject *d) {
         NSLog(@"Approved a friend request %@", d);
+        [self loadRequests];
     }];
 }
 
