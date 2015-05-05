@@ -64,9 +64,9 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     if (section == 0) {
-        return @"Pending Requests";
+        return @"Follower Requests";
     } else if (section == 1) {
-        return @"Friends";
+        return @"Following";
     } else {
         return @"Unmarked section";
     }
@@ -86,21 +86,27 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        NSLog(@"Making request cell");
+//        NSLog(@"Making request cell");
         UITableViewCell *cell = (UITableViewCell*) [tableView dequeueReusableCellWithIdentifier:@"request"];
         
-        NSLog(@"request DATA for CELL: %@", [self.requestsData objectAtIndex:0]);
+//        NSLog(@"request DATA for CELL: %@", [self.requestsData objectAtIndex:0]);
         cell.textLabel.text = [self.requestsData[indexPath.row][@"user_name"] description];
         cell.detailTextLabel.text = [self.requestsData[indexPath.row][@"created"] description];
-        NSLog(@"after setting request cell labels");
+//        NSLog(@"after setting request cell labels");
         return cell;
     } else {
-        NSLog(@"Making friend cell");
+//        NSLog(@"Making friend cell");
         UITableViewCell *cell = (UITableViewCell*) [tableView dequeueReusableCellWithIdentifier:@"friend"];
-        NSLog(@"friend DATA for CELL: %@", [self.friendsData objectAtIndex:0]);
-        cell.textLabel.text = [self.friendsData[indexPath.row][@"first_name"] description];
-        cell.detailTextLabel.text = [self.friendsData[indexPath.row][@"last_name"] description];
-        NSLog(@"after setting friend cell labels");
+//        NSLog(@"friend DATA for CELL: %@", [self.friendsData objectAtIndex:0]);
+        
+        NSString *firstName = [self.friendsData[indexPath.row][@"first_name"] description];
+        NSString *lastName = [self.friendsData[indexPath.row][@"last_name"] description];
+        NSString *fullName = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
+        
+        
+        cell.textLabel.text = fullName;
+        cell.detailTextLabel.text = [ self.friendsData[indexPath.row][@"user_id"] description];;
+//        NSLog(@"after setting friend cell labels");
         return cell;
 
         
