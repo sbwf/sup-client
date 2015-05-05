@@ -164,6 +164,9 @@
 }
 
 
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    NSLog(@"--------> searchity search search");
+}
 
 
 

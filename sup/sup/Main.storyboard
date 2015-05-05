@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CVY-u6-z1y">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -333,11 +334,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="xvg-3K-0nH">
-                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="104"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RTx-Kr-ngi">
-                                    <rect key="frame" x="15" y="7" width="73" height="30"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RTx-Kr-ngi">
+                                    <rect key="frame" x="18" y="26" width="31" height="30"/>
                                     <state key="normal" title="Map">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
@@ -345,14 +346,36 @@
                                         <segue destination="CVY-u6-z1y" kind="show" id="eAQ-Hz-VZs"/>
                                     </connections>
                                 </button>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Friends Hub" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XMN-uo-EPA">
-                                    <rect key="frame" x="96" y="11" width="101" height="21"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="CQE-mq-KPb">
+                                    <rect key="frame" x="0.0" y="60" width="600" height="44"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="4Q9-K5-fuY" id="miP-VC-7Bb"/>
+                                    </connections>
+                                </searchBar>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friends Hub" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XMN-uo-EPA">
+                                    <rect key="frame" x="252" y="30" width="96" height="21"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
                             <color key="backgroundColor" red="1" green="0.58395091517631936" blue="0.81663727610681447" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstItem="RTx-Kr-ngi" firstAttribute="centerY" secondItem="XMN-uo-EPA" secondAttribute="centerY" id="Awm-xr-2As"/>
+                                <constraint firstItem="XMN-uo-EPA" firstAttribute="top" secondItem="xvg-3K-0nH" secondAttribute="top" constant="30" id="Iyi-6Q-wW2"/>
+                                <constraint firstItem="RTx-Kr-ngi" firstAttribute="leading" secondItem="xvg-3K-0nH" secondAttribute="leadingMargin" constant="10" id="RNr-Bh-14C"/>
+                                <constraint firstItem="CQE-mq-KPb" firstAttribute="top" secondItem="XMN-uo-EPA" secondAttribute="bottom" constant="10" id="eW9-KV-wxq"/>
+                                <constraint firstAttribute="bottom" secondItem="CQE-mq-KPb" secondAttribute="bottom" id="jNl-pG-rfX"/>
+                                <constraint firstAttribute="centerX" secondItem="XMN-uo-EPA" secondAttribute="centerX" id="tlU-UE-Poq"/>
+                                <constraint firstAttribute="trailing" secondItem="CQE-mq-KPb" secondAttribute="trailing" id="uia-TB-nwv"/>
+                                <constraint firstItem="CQE-mq-KPb" firstAttribute="leading" secondItem="xvg-3K-0nH" secondAttribute="leading" id="ytE-eH-UU0"/>
+                            </constraints>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="eW9-KV-wxq"/>
+                                </mask>
+                            </variation>
                         </view>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="request" textLabel="70f-9u-jp7" detailTextLabel="Cqh-NK-yJd" style="IBUITableViewCellStyleValue1" id="BYO-cp-Zly">
@@ -405,10 +428,21 @@
                         </connections>
                     </tableView>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="eca-mh-YEo" id="hUh-08-qcg"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LnU-RM-iaO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="eca-mh-YEo">
+                    <connections>
+                        <outlet property="delegate" destination="4Q9-K5-fuY" id="Uth-ES-y1V"/>
+                        <outlet property="searchContentsController" destination="4Q9-K5-fuY" id="MMl-iA-p97"/>
+                        <outlet property="searchResultsDataSource" destination="4Q9-K5-fuY" id="qsT-bt-y0N"/>
+                        <outlet property="searchResultsDelegate" destination="4Q9-K5-fuY" id="MUH-eU-GhA"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="2029" y="-44"/>
+            <point key="canvasLocation" x="2029" y="-46"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
