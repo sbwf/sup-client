@@ -59,11 +59,13 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return 3;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     if (section == 0) {
+        return @"Add Friends";
+    } else if (section == 1) {
         return @"Pending Requests";
     } else {
         return @"Friends";
@@ -73,17 +75,22 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
+        return 1;
+    } else if (section == 1) {
         NSLog(@"Num Requests: %zd", requestsData.count);
         return requestsData.count;
     } else {
         NSLog(@"Num friends: %zd", friendsData.count);
         return friendsData.count;
     }
-
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
+        NSLog(@"making search cell");
+        UITableViewCell *cell = (UITableViewCell*) [tableView dequeueReusableCellWithIdentifier:@"add"];
+        return cell;
+    } else if (indexPath.section == 1) {
         NSLog(@"Making request cell");
         UITableViewCell *cell = (UITableViewCell*) [tableView dequeueReusableCellWithIdentifier:@"request"];
         
