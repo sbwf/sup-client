@@ -82,7 +82,7 @@
 
 - (void)loadFriends {
     NSLog(@"getting friends from server");
-    NSString *urlString = [NSString stringWithFormat:@"/users/%@/friends", self.myId];
+    NSString *urlString = [NSString stringWithFormat:@"/friends/u/%@", self.myId];
     NSLog(@"url string: %@", urlString);
     [self makeRequest:@"GET" :urlString :nil withBlock:^(NSObject *d) {
         NSLog(@"Got friends!");
@@ -124,6 +124,7 @@
     
     // Make request obj with url and set request options
     NSMutableURLRequest *req = [[NSMutableURLRequest alloc]initWithURL:url];
+    req.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
     [req setValue:@"application/json" forHTTPHeaderField:@"Content-type"];
     [req setValue:@"application/json" forHTTPHeaderField:@"Accept"];
     
@@ -151,7 +152,22 @@
              NSString *error = [body valueForKey:@"error"];
              
              if (error) {
-                 NSLog(@"Error with request to %@: %@", urlString, error);
+                 NSHTTPURLResponse *httpRes = (NSHTTPURLResponse*) response;
+                 NSLog(@"Error with request:"
+                        "\n%@ %@"
+                        "\nRequest headers: %@"
+                        "\nRequest body: %@"
+                        "\nResponse: %i"
+                        "\nResponse headers: %@"
+                        "\nResponse body: %@"
+                        "\nError: %@",
+                       req.HTTPMethod, req.URL,
+                       req.allHTTPHeaderFields,
+                       req.HTTPBody,
+                       (int) httpRes.statusCode,
+                       httpRes.allHeaderFields,
+                       data,
+                       error);
                  NSLog(@"body: %@", body);
              } else {
                  block(body);
