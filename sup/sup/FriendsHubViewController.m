@@ -21,9 +21,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSLog(@"Manage yo friends");
-    
-    [SupAPIManager getSharedInstance].myId = @(2);
+//    NSLog(@"Manage yo friends");
+//    [SupAPIManager getSharedInstance].myId = @(2);
     NSLog(@"My Id is: %@", [SupAPIManager getSharedInstance].myId);
 
     [[SupAPIManager getSharedInstance] addObserver:self forKeyPath:@"friends" options:NSKeyValueObservingOptionInitial context:NULL];
@@ -33,6 +32,7 @@
     [[SupAPIManager getSharedInstance] loadRequests];
 }
 
+//  remove keyObservers onleave
 - (void)dealloc {
     [[SupAPIManager getSharedInstance] removeObserver:self forKeyPath:@"friends"];
     [[SupAPIManager getSharedInstance] removeObserver:self forKeyPath:@"requests"];
@@ -65,8 +65,10 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     if (section == 0) {
         return @"Pending Requests";
-    } else {
+    } else if (section == 1) {
         return @"Friends";
+    } else {
+        return @"Unmarked section";
     }
 }
 
@@ -103,22 +105,49 @@
 
         
     }
-    
+}
 
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
+//    NSLog(@"clicked at row %ld", (long)indexPath.row);
+    
+    UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
+    NSString *selectedCellText = selectedCell.textLabel.text;
+    NSString *selectedCellId;
+    NSString *alertConfirmationMessage;
+
+    
+    //  Requests section
+    if (indexPath.section == 0) {
+        
+        NSLog(@"section 0 selected");
+        selectedCellId = [self.requestsData[indexPath.row][@"user_id"] description];
+        alertConfirmationMessage = [NSString stringWithFormat: @"Approve %@'s [id: %@] friend request?", selectedCellText, selectedCellId];
+    
+    //  Friends section
+    } else if (indexPath.section == 1) {
+        
+        NSLog(@"section 1 selected");
+        selectedCellId = [ self.friendsData[indexPath.row][@"user_id"] description];
+        alertConfirmationMessage = [NSString stringWithFormat: @"%@'s id number is %@", selectedCellText, selectedCellId];
+
+        
+    } else {
+        NSLog(@"unidentified section selected");
+    }
+    
+    
+    UIAlertView *messageAlert = [[UIAlertView alloc]
+                                 initWithTitle:selectedCellText message:alertConfirmationMessage delegate:nil cancelButtonTitle:@"no" otherButtonTitles:nil];
+    [messageAlert show];
+    NSLog([NSString stringWithFormat:alertConfirmationMessage]);
+//    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 
 
 
 
-
-
-
-
-
-
-
-//  boilerplate
+//////////////////////////////////////  boilerplate
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
