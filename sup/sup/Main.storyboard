@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CVY-u6-z1y">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CVY-u6-z1y">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -61,7 +61,7 @@
         <!--Sign Up View Controller-->
         <scene sceneID="oUt-8v-QoM">
             <objects>
-                <viewController id="UXX-Vh-BV9" customClass="SignUpViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpView" id="UXX-Vh-BV9" customClass="SignUpViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2h3-yq-aTF"/>
                         <viewControllerLayoutGuide type="bottom" id="Wb8-ge-lnP"/>
@@ -404,6 +404,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Vke-TQ-9ec"/>
-        <segue reference="eAQ-Hz-VZs"/>
+        <segue reference="YVe-4x-vgw"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -19,7 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *table;
 @property (weak, nonatomic) IBOutlet UIButton *signUp;
 
-+(SignUpViewController*)getSharedInstance;
+//+(SignUpViewController*)getSharedInstance;
 -(IBAction)signedUp:(id)sender;
 
 @end

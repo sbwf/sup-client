@@ -22,12 +22,12 @@
     _emailField.tag = 2;
 }
 
-+ (SignUpViewController*)getSharedInstance{
-    static SignUpViewController *instance;
-    if (instance == nil)
-        instance = [[SignUpViewController alloc] init];
-    return instance;
-}
+//+ (SignUpViewController*)getSharedInstance{
+//    static SignUpViewController *instance;
+//    if (instance == nil)
+//        instance = [[SignUpViewController alloc] init];
+//    return instance;
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -80,8 +80,12 @@
 
 -(IBAction)signedUp:(id)sender{
     NSString *phoneNum = @"4145316221";
-    [[SupAPIManager getSharedInstance] addUser:self.name :self.email : phoneNum];
-    
+//    [[SupAPIManager getSharedInstance] addUser:self.name :self.email :phoneNum ];
+    [[SupAPIManager getSharedInstance] addUser:self.name :self.email :phoneNum withBlock:^(NSNumber *newId) {
+        NSUserDefaults *savedUser = [NSUserDefaults standardUserDefaults];
+        [savedUser setObject:newId forKey:@"savedUser"];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
     //TODO: confirmation that user signed up successfully
 }
 /*

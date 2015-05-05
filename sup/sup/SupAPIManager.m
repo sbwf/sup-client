@@ -17,13 +17,13 @@
     if (instance == nil) {
         instance = [[SupAPIManager alloc] init];
         instance.statuses = [[NSMutableSet alloc] init];
-        instance.myId = @(1); //Hard coding
+//        instance.myId = @(1); //Hard coding
     }
     return instance;
 }
 
 
-- (void)addUser: (NSString*) firstName : (NSString*) lastName : (NSString*) phoneNum {
+- (void)addUser:(NSString*)firstName :(NSString*)lastName :(NSString*)phoneNum withBlock:(void (^)(NSNumber* d))done {
     NSDictionary *userToAdd =@{
                                @"user" :
                                    @{
@@ -37,30 +37,16 @@
     [self makeRequest:@"POST" :@"/users/" :userToAdd withBlock:^(NSObject *data) {
         NSLog(@"did it!");
         NSLog(@"Data is: %@", data);
-        self.myId = [[NSNumber alloc]init];
+//        self.myId = [[NSNumber alloc]init];
         self.myId = [data valueForKey:@"new_id"];
-        NSLog(@"Setting myId %@", self.myId);
+        NSLog(@"Setting my id %@", self.myId);
+        done(self.myId);
     }];
     
 }
 
-- (void)loadStatuses {
-    NSLog(@"In 'loadStatuses'");
-    [self makeRequest:@"GET" :@"/status" :nil withBlock:^(NSObject *d) {
-        // For each new status, make marker and add to set
-//        NSLog(@"Data: %@", d);
-//        NSArray *statusArray = [[NSArray alloc] initWithArray:[d valueForKey:@"statuses"]];
-//        NSLog(@"My statuses: %@", self.statuses);
-        for (NSDictionary *status in [d valueForKey:@"statuses"]) {
-//            NSLog(@"Adding dict %@", status);
-            [self.statuses addObject:status];
-        }
-//        NSLog(@"My statuses: %@", self.statuses);
-    }];
-}
 
-
-- (void)postStatus: (CLLocation*)userLocation :(NSSet*)selectedFriends :(NSNumber*)duration{
+- (void)postStatus:(CLLocation*)userLocation :(NSSet*)selectedFriends :(NSNumber*)duration{
     NSLog(@"LATITUDE %f", userLocation.coordinate.latitude);
     NSLog(@"LONGITUDE %f", userLocation.coordinate.longitude);
     NSLog(@"MY ID %@", self.myId);
@@ -81,6 +67,19 @@
     }];
 }
 
+
+- (void)loadStatuses {
+    NSLog(@"In 'loadStatuses'");
+    NSString *urlString = [NSString stringWithFormat:@"/users/%@/visible", self.myId];
+    [self makeRequest:@"GET" :urlString :nil withBlock:^(NSObject *d) {
+        // For each new status, make marker and add to set
+        for (NSDictionary *status in [d valueForKey:@"statuses"]) {
+            [self.statuses addObject:status];
+        }
+    }];
+}
+
+
 - (void)loadFriends {
     NSLog(@"getting friends from server");
     NSString *urlString = [NSString stringWithFormat:@"/users/%@/friends", self.myId];
@@ -91,6 +90,7 @@
         NSLog(@"Friends array: %@", self.friends);
     }];
 }
+
 
 - (void) loadRequests {
     NSLog(@"getting friend requests from server");
@@ -119,7 +119,7 @@
 - (void) makeRequest:(NSString *)method :(NSString *)urlPath :(NSDictionary *)dataObj withBlock:(void (^)(NSObject* d))block {
     
     // Change localhost to ip if testing on real device.
-    NSString *urlString = [@"http://141.140.179.212:3000" stringByAppendingString:urlPath];
+    NSString *urlString = [@"http://localhost:3000" stringByAppendingString:urlPath];
     NSURL *url = [NSURL URLWithString:urlString];
     
     // Make request obj with url and set request options
@@ -151,7 +151,7 @@
              NSString *error = [body valueForKey:@"error"];
              
              if (error) {
-                 NSLog(@"Error posting to %@: %@", urlString, error);
+                 NSLog(@"Error with request to %@: %@", urlString, error);
                  NSLog(@"body: %@", body);
              } else {
                  block(body);
