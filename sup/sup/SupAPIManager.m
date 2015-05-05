@@ -25,13 +25,10 @@
 
 - (void)addUser:(NSString*)firstName :(NSString*)lastName :(NSString*)phoneNum withBlock:(void (^)(NSNumber* d))done {
     NSDictionary *userToAdd =@{
-                               @"user" :
-                                   @{
                                        @"first_name" : firstName,
                                        @"last_name" : lastName,
                                        @"phone" : phoneNum
-                                       }
-                               };
+                                       };
     
 
     [self makeRequest:@"POST" :@"/users/" :userToAdd withBlock:^(NSObject *data) {
@@ -119,7 +116,7 @@
 - (void) makeRequest:(NSString *)method :(NSString *)urlPath :(NSDictionary *)dataObj withBlock:(void (^)(NSObject* d))block {
     
     // Change localhost to ip if testing on real device.
-    NSString *urlString = [@"http://localhost:3000" stringByAppendingString:urlPath];
+    NSString *urlString = [@"http://141.140.178.80:3000" stringByAppendingString:urlPath];
     NSURL *url = [NSURL URLWithString:urlString];
     
     // Make request obj with url and set request options
