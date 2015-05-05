@@ -29,7 +29,7 @@
     [[SupAPIManager getSharedInstance] addObserver:self forKeyPath:@"friends" options:NSKeyValueObservingOptionInitial context:NULL];
     [[SupAPIManager getSharedInstance] addObserver:self forKeyPath:@"requests" options:NSKeyValueObservingOptionInitial context:NULL];
     
-//    [[SupAPIManager getSharedInstance] loadFriends];
+    [[SupAPIManager getSharedInstance] loadFriends];
     [[SupAPIManager getSharedInstance] loadRequests];
 }
 
@@ -40,12 +40,12 @@
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
-    NSLog(@"-------> in Friends, KVO path %@", keyPath);
+    NSLog(@"-------> in observeValue, KVO path %@", keyPath);
     
     if ([keyPath isEqualToString:@"friends"]){
-//        friendsData = [[NSArray alloc] initWithArray:[SupAPIManager getSharedInstance].friends];
-//                NSLog(@"Friends Data: %@", friendsData);
-//        [table reloadData];
+        friendsData = [[NSArray alloc] initWithArray:[SupAPIManager getSharedInstance].friends];
+        NSLog(@"Friends Data: %@", friendsData);
+        [self.tableView reloadData];
         NSLog(@"KVO reload friends");
     }
     
@@ -59,32 +59,52 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    //#warning Potentially incomplete method implementation.
-    // Return the number of sections.
     return 2;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return @"hey";
+    if (section == 0) {
+        return @"Pending Requests";
+    } else {
+        return @"Friends";
+    }
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSLog(@"Num Requests: %zd", requestsData.count);
-    return requestsData.count;
+    if (section == 0) {
+        NSLog(@"Num Requests: %zd", requestsData.count);
+        return requestsData.count;
+    } else {
+        NSLog(@"Num friends: %zd", friendsData.count);
+        return friendsData.count;
+    }
+
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        NSLog(@"Making request cell");
+        UITableViewCell *cell = (UITableViewCell*) [tableView dequeueReusableCellWithIdentifier:@"request"];
+        
+        NSLog(@"request DATA for CELL: %@", [self.requestsData objectAtIndex:0]);
+        cell.textLabel.text = [self.requestsData[indexPath.row][@"user_name"] description];
+        cell.detailTextLabel.text = [self.requestsData[indexPath.row][@"created"] description];
+        NSLog(@"after setting request cell labels");
+        return cell;
+    } else {
+        NSLog(@"Making friend cell");
+        UITableViewCell *cell = (UITableViewCell*) [tableView dequeueReusableCellWithIdentifier:@"friend"];
+        NSLog(@"friend DATA for CELL: %@", [self.friendsData objectAtIndex:0]);
+        cell.textLabel.text = [self.friendsData[indexPath.row][@"first_name"] description];
+        cell.detailTextLabel.text = [self.friendsData[indexPath.row][@"last_name"] description];
+        NSLog(@"after setting friend cell labels");
+        return cell;
+
+        
+    }
     
-    NSLog(@"Making cell");
-    UITableViewCell *cell = (UITableViewCell*) [tableView dequeueReusableCellWithIdentifier:@"request"];
-    
-    NSLog(@"requess DATA for CELL: %@", [self.requestsData objectAtIndex:0]);
-    NSLog(@"requess DATA for CELL: %@", [[self.requestsData objectAtIndex:0] valueForKey:@"user_id"]);
-    cell.textLabel.text = [self.requestsData[indexPath.row][@"user_id"] description];
-    cell.detailTextLabel.text = [self.requestsData[indexPath.row][@"created"] description];
-    NSLog(@"after setting cell labels");
-    return cell;
+
 }
 
 
