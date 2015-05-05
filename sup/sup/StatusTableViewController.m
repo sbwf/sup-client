@@ -8,36 +8,42 @@
 
 #import "StatusTableViewController.h"
 #import "SupAPIManager.h"
-@interface StatusTableViewController ()
+//#import "MapViewController.h"
+#import "SignUpViewController.h"
 
+@interface StatusTableViewController ()
 @end
 
 @implementation StatusTableViewController
 @synthesize data, table, status;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     [[SupAPIManager getSharedInstance] addObserver:self forKeyPath:@"statuses" options:0 context:NULL];
     [[SupAPIManager getSharedInstance] loadStatuses];
 }
 
--(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
     if ([keyPath isEqualToString:@"statuses"]){
         NSLog(@"here");
-        data = [[NSDictionary alloc]initWithDictionary:[SupAPIManager getSharedInstance].statuses];
+        data = [[NSDictionary alloc] initWithDictionary:[SupAPIManager getSharedInstance].statuses];
         NSLog(@"SupPosts: %@", data);
         [table reloadData];
         NSLog(@"after reload data");
     }
 }
 
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return data.count;
 }
--(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+
+- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"In cell for row at index path");
     static NSString *CellId = @"CustomCell";
     CustomCell *cell = (CustomCell*) [tableView dequeueReusableCellWithIdentifier:CellId];
@@ -58,11 +64,11 @@
     return cell;
 }
 
--(CGFloat)tableView:(UITableView*) tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (CGFloat)tableView:(UITableView*) tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 134;
 }
 
--(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
     //if we want something to happen when we click on cells
 }
 

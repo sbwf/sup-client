@@ -8,7 +8,8 @@
 
 #import "MapViewController.h"
 #import "SupAPIManager.h"
-#import "NewStatusDetailViewController.h"
+//#import "NewStatusDetailViewController.h"
+#import "SignUpViewController.h"
 #import <GoogleMaps/GoogleMaps.h>
 
 @interface MapViewController ()
@@ -29,7 +30,6 @@
     
     self.statusMarkers = [[NSMutableArray alloc] init];
     
-//    [[SupAPIManager getSharedInstance] addObserver:self forKeyPath:@"statuses" options:NSKeyValueObservingOptionNew context:nil];
     [[SupAPIManager getSharedInstance] addObserver:self forKeyPath:@"statuses" options:NSKeyValueSetSetMutation context:nil];
     [[SupAPIManager getSharedInstance] loadStatuses];
     
@@ -48,6 +48,26 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    NSUserDefaults *savedUser = [NSUserDefaults standardUserDefaults];
+    
+    // JUST FOR TESTING
+//    [savedUser removeObjectForKey:@"savedUser"];
+    //
+    
+    // If NO saved user is found, promt user to sign up
+    if (![savedUser objectForKey:@"savedUser"]) {
+        NSLog(@"No User :(");
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        // SignUpViewController *mapView = [[SignUpViewController alloc] init];
+        SignUpViewController *signUp = [storyboard instantiateViewControllerWithIdentifier:@"SignUpView"];
+        [self presentViewController:signUp animated:YES completion:^{
+            NSLog(@"Did transition");
+        }];
+        
+    // If a saved user exists:
+    } else {
+        NSLog(@"Saved User: %@", [savedUser objectForKey:@"savedUser"]);
+    }
     _myLocation = [[CLLocation alloc]
                    initWithLatitude: self.mapView.myLocation.coordinate.latitude
                    longitude: self.mapView.myLocation.coordinate.longitude];
