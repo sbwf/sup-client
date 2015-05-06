@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CVY-u6-z1y">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14C2043" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CVY-u6-z1y">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -291,24 +292,38 @@
                                     <segue destination="4Q9-K5-fuY" kind="show" id="YIN-zx-71S"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V8G-cd-19q">
+                                <rect key="frame" x="298" y="280" width="39" height="39"/>
+                                <state key="normal" image="Refresh icon.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="lEI-eh-JG9" firstAttribute="top" secondItem="JlO-bc-E20" secondAttribute="bottom" id="1lu-5w-mUQ"/>
                             <constraint firstItem="gol-LN-Gsb" firstAttribute="leading" secondItem="cqH-ad-9ix" secondAttribute="leadingMargin" id="5E1-79-ttj"/>
+                            <constraint firstItem="V8G-cd-19q" firstAttribute="leading" secondItem="cqH-ad-9ix" secondAttribute="leadingMargin" constant="282" id="6kB-Vi-nFv"/>
                             <constraint firstItem="lEI-eh-JG9" firstAttribute="leading" secondItem="cqH-ad-9ix" secondAttribute="leading" id="FJ2-do-Kaf"/>
                             <constraint firstItem="lEI-eh-JG9" firstAttribute="top" secondItem="cqH-ad-9ix" secondAttribute="top" id="Kii-MM-iHC"/>
                             <constraint firstAttribute="centerX" secondItem="wLP-eW-XF6" secondAttribute="centerX" id="Off-SR-ccO"/>
                             <constraint firstItem="SfC-Ni-8nq" firstAttribute="top" secondItem="lEI-eh-JG9" secondAttribute="bottom" id="Ydf-SW-j3j"/>
+                            <constraint firstItem="SfC-Ni-8nq" firstAttribute="top" secondItem="V8G-cd-19q" secondAttribute="bottom" id="ZFP-Lg-IEf"/>
                             <constraint firstItem="SfC-Ni-8nq" firstAttribute="top" secondItem="wLP-eW-XF6" secondAttribute="bottom" constant="10" id="ZIu-QF-ocU"/>
+                            <constraint firstItem="V8G-cd-19q" firstAttribute="leading" secondItem="cqH-ad-9ix" secondAttribute="leadingMargin" constant="10" id="k9V-gp-XPv"/>
                             <constraint firstItem="JlO-bc-E20" firstAttribute="top" secondItem="eL7-fn-zfG" secondAttribute="bottom" id="qZR-hY-tDE"/>
+                            <constraint firstItem="SfC-Ni-8nq" firstAttribute="top" secondItem="V8G-cd-19q" secondAttribute="bottom" constant="28" id="r7F-VL-H84"/>
                             <constraint firstItem="gol-LN-Gsb" firstAttribute="top" secondItem="eL7-fn-zfG" secondAttribute="bottom" id="tlM-tw-oTG"/>
                             <constraint firstAttribute="trailing" secondItem="lEI-eh-JG9" secondAttribute="trailing" id="uTY-fT-hki"/>
                             <constraint firstAttribute="trailingMargin" secondItem="JlO-bc-E20" secondAttribute="trailing" id="vOr-0U-QQ2"/>
+                            <constraint firstItem="V8G-cd-19q" firstAttribute="leading" secondItem="cqH-ad-9ix" secondAttribute="centerXWithinMargins" constant="45" id="zJL-eL-1wD"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="1lu-5w-mUQ"/>
+                                <exclude reference="6kB-Vi-nFv"/>
+                                <exclude reference="k9V-gp-XPv"/>
+                                <exclude reference="ZFP-Lg-IEf"/>
                             </mask>
                         </variation>
                     </view>
@@ -446,6 +461,7 @@
     </scenes>
     <resources>
         <image name="Listviewbutton.png" width="48" height="48"/>
+        <image name="Refresh icon.png" width="40" height="40"/>
         <image name="friendsbutton.png" width="48" height="48"/>
         <image name="supbutton.png" width="75" height="75"/>
     </resources>
