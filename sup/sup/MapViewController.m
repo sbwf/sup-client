@@ -25,7 +25,6 @@
     self.statusMarkers = [[NSMutableArray alloc] init];
     
     [[SupAPIManager getSharedInstance] addObserver:self forKeyPath:@"statuses" options:NSKeyValueSetSetMutation context:nil];
-    [[SupAPIManager getSharedInstance] loadStatuses];
     
     locationManager = [[CLLocationManager alloc] init];
     locationManager.delegate = self;
@@ -68,6 +67,7 @@
                                                   longitude:self.mapView.myLocation.coordinate.longitude
                                                        zoom:16];
     NSLog(@"View did appear, updating map");
+    [[SupAPIManager getSharedInstance] loadStatuses];
     [self updateMap];
 }
 
@@ -83,6 +83,15 @@
     }
 }
 
+-(IBAction)statusTableButtonClicked{
+    NSLog(@"Status Table Button");
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    NewStatusDetailViewController *statusTable = [storyboard instantiateViewControllerWithIdentifier:@"StatusTableView"];
+    [statusTable setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
+    [self presentViewController:statusTable animated:YES completion:^{
+        //        NSLog(@"Did transition to status table view");
+    }];
+}
 
 -(IBAction)postButtonClicked{
     NSLog(@"Post Button");
