@@ -45,19 +45,6 @@
     [super touchesBegan:touches withEvent:event];
 }
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
-    if (textField.tag == 1) {
-        self.firstName = textField.text;
-        UITextField *passwordTextField = (UITextField *)[self.view viewWithTag:2];
-        [passwordTextField becomeFirstResponder];
-    }
-    if (textField.tag == 2){
-        self.lastName = [[NSString alloc]initWithString:textField.text];
-        [textField resignFirstResponder];
-    }
-    if (textField.tag == 3){
-        self.phoneNumber = [[NSString alloc]initWithString:textField.text];
-        [textField resignFirstResponder];
-    }
     return YES;
 }
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
@@ -68,6 +55,21 @@
 
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardDidHideNotification object:nil];
+
+    if (textField.tag == 1) {
+        self.firstName = textField.text;
+        UITextField *passwordTextField = (UITextField *)[self.view viewWithTag:2];
+        [passwordTextField becomeFirstResponder];
+    }
+    else if (textField.tag == 2){
+        self.lastName = [[NSString alloc]initWithString:textField.text];
+        [textField resignFirstResponder];
+    }
+    else if (textField.tag == 3){
+        self.phoneNumber = [[NSString alloc]initWithString:textField.text];
+        [textField resignFirstResponder];
+        NSLog(@"Phone number field %@", self.phoneNumber);
+    }
     [self.view endEditing:YES];
     return YES;
 }
@@ -84,6 +86,9 @@
 }
 
 -(IBAction)signedUp:(id)sender{
+    NSLog(@"first name %@", self.firstName);
+    NSLog(@"last name %@", self.lastName);
+    NSLog(@"phone name %@", self.phoneNumber);
     if (self.firstName && self.lastName && self.phoneNumber) {
         [[SupAPIManager getSharedInstance] addUser:self.firstName :self.lastName :self.phoneNumber withBlock:^(NSNumber *newId) {
             NSUserDefaults *savedUser = [NSUserDefaults standardUserDefaults];
