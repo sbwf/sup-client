@@ -93,14 +93,15 @@
     
 }
 
-//-(void)approveFriendRequest: (NSInteger*)requester_id {
-//    NSLog(@"approving a friend request");
-//    NSString *urlString = [NSString stringWithFormat:@"/users/%@/friends", requester_id];
-//    NSDictionary *friend_id = @{@"friend_id": (self.myId)};
-//    [self makeRequest:@"POST" :urlString :friend_id withBlock:^(NSDictionary *d) {
-//        NSLog(@"Approved a friend request %@", d);
-//    }];
-//}
+-(void)approveFriendRequest: (NSString*)requester_id {
+    NSLog(@"approving a friend request");
+    NSString *urlString = [NSString stringWithFormat:@"/users/%@/friends", requester_id];
+    NSDictionary *friend_id = @{@"friend_id": (self.myId)};
+    [self makeRequest:@"POST" :urlString :friend_id withBlock:^(NSObject *d) {
+        NSLog(@"Approved a friend request %@", d);
+        [self loadRequests];
+    }];
+}
 
 
 
