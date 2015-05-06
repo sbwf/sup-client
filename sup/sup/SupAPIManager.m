@@ -111,6 +111,19 @@
     }];
 }
 
+-(void)searchForUser: (NSString*)phone {
+    NSLog(@"searching for user with phone #: %@", phone);
+    NSString *urlString = [NSString stringWithFormat:@"/users?phone=%@", phone];
+    NSLog(@"%@", urlString);
+    
+    [self makeRequest:@"GET" :urlString :nil withBlock:^(NSObject *d) {
+        NSLog(@"Searched for user!");
+        
+        NSObject *user = [d valueForKey:@"user"];
+        NSLog(@"d: %@\n user: %@", d, user);
+    }];
+}
+
 
 
 //Generic http request utility function

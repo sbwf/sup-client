@@ -159,13 +159,16 @@
     UIAlertView *messageAlert = [[UIAlertView alloc]
                                  initWithTitle:selectedCellText message:alertConfirmationMessage delegate:nil cancelButtonTitle:@"no" otherButtonTitles:nil];
 //    [messageAlert show];
-    NSLog([NSString stringWithFormat:alertConfirmationMessage]);
+    NSLog(@"%@", alertConfirmationMessage);
 //    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-    NSLog(@"--------> searchity search search");
+    NSString *searchInput = searchBar.text;
+    
+    NSLog(@"--------> searchity search search: %@", searchInput);
+    [[SupAPIManager getSharedInstance] searchForUser:searchInput];
 }
 
 
