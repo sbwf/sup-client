@@ -8,7 +8,7 @@
 
 #import "StatusTableViewController.h"
 #import "SupAPIManager.h"
-//#import "MapViewController.h"
+#import "MapViewController.h"
 #import "SignUpViewController.h"
 
 @interface StatusTableViewController ()
@@ -68,6 +68,13 @@
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
     //if we want something to happen when we click on cells
+}
+
+-(IBAction)backButtonClicked{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    MapViewController *backMap = [storyboard instantiateViewControllerWithIdentifier:@"MapView"];
+    [backMap setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
+    [self presentViewController:backMap animated:YES completion:nil];
 }
 
 

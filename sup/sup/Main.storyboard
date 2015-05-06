@@ -1,63 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CVY-u6-z1y">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CVY-u6-z1y">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Status Table View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="StatusTableViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="AEG-qs-ZJn">
-                                <rect key="frame" x="0.0" y="58" width="600" height="542"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="Lyh-hc-pTz"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="SU3-xW-LbO"/>
-                                </connections>
-                            </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="List View of Sups" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbU-Ng-yhP">
-                                <rect key="frame" x="75" y="20" width="205" height="21"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular" fixedFrame="YES">
-                                    <rect key="frame" x="89" y="20" width="205" height="21"/>
-                                </variation>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xzB-s7-kdT">
-                                <rect key="frame" x="288" y="16" width="60" height="30"/>
-                                <state key="normal" title="Map">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="heightClass=regular" fixedFrame="YES">
-                                    <rect key="frame" x="302" y="16" width="60" height="30"/>
-                                </variation>
-                                <connections>
-                                    <segue destination="CVY-u6-z1y" kind="modal" id="Etc-12-m30"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="EUR-oY-3cv"/>
-                    <connections>
-                        <outlet property="map" destination="xzB-s7-kdT" id="Ps3-58-oos"/>
-                        <outlet property="table" destination="AEG-qs-ZJn" id="8Uj-bQ-gMC"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="366" y="-6"/>
-        </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="oUt-8v-QoM">
             <objects>
@@ -91,9 +38,6 @@
                                 <state key="normal" title="Table">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="modal" id="Vke-TQ-9ec"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome to SUP!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wYV-i7-yw7">
                                 <rect key="frame" x="33" y="125" width="282" height="21"/>
@@ -136,7 +80,7 @@
         <!--New Status Detail View Controller-->
         <scene sceneID="NSa-BO-INN">
             <objects>
-                <viewController id="wKY-mh-BYW" customClass="NewStatusDetailViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewStatusView" id="wKY-mh-BYW" customClass="NewStatusDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Kef-0f-1mB"/>
                         <viewControllerLayoutGuide type="bottom" id="ZL5-tf-LmR"/>
@@ -214,10 +158,99 @@
             </objects>
             <point key="canvasLocation" x="1511" y="758"/>
         </scene>
+        <!--Status Table View Controller-->
+        <scene sceneID="zLx-zx-bnn">
+            <objects>
+                <tableViewController storyboardIdentifier="StatusTableView" id="slY-K8-hBU" customClass="StatusTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="G0d-Wf-XUp">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="RQI-2x-OXD">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="104"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sOD-X2-vuk">
+                                    <rect key="frame" x="18" y="26" width="35" height="30"/>
+                                    <state key="normal" title="Back">
+                                        <color key="titleColor" red="0.0" green="0.6705882353" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <segue destination="CVY-u6-z1y" kind="show" id="yc4-fe-yZJ"/>
+                                    </connections>
+                                </button>
+                                <searchBar contentMode="redraw" placeholder="Enter a friend's phone number to request them" translatesAutoresizingMaskIntoConstraints="NO" id="Rio-ho-GjD">
+                                    <rect key="frame" x="0.0" y="60" width="600" height="44"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="4Q9-K5-fuY" id="JTl-SV-3C9"/>
+                                    </connections>
+                                </searchBar>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Statuses" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="btg-GT-VYg">
+                                    <rect key="frame" x="252" y="30" width="96" height="21"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                    <color key="textColor" red="0.0" green="0.6705882353" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="0.95686274510000002" green="0.60784313729999995" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstItem="btg-GT-VYg" firstAttribute="top" secondItem="RQI-2x-OXD" secondAttribute="top" constant="30" id="2sq-yf-1A6"/>
+                                <constraint firstItem="Rio-ho-GjD" firstAttribute="top" secondItem="btg-GT-VYg" secondAttribute="bottom" constant="10" id="38Z-7f-dab"/>
+                                <constraint firstItem="Rio-ho-GjD" firstAttribute="leading" secondItem="RQI-2x-OXD" secondAttribute="leading" id="PU6-qO-Vul"/>
+                                <constraint firstAttribute="trailing" secondItem="Rio-ho-GjD" secondAttribute="trailing" id="SFL-Mp-Why"/>
+                                <constraint firstItem="sOD-X2-vuk" firstAttribute="leading" secondItem="RQI-2x-OXD" secondAttribute="leadingMargin" constant="10" id="cin-51-lyv"/>
+                                <constraint firstAttribute="centerX" secondItem="btg-GT-VYg" secondAttribute="centerX" id="f3Z-cz-mgI"/>
+                                <constraint firstAttribute="bottom" secondItem="Rio-ho-GjD" secondAttribute="bottom" id="nOG-Ae-k9P"/>
+                                <constraint firstItem="sOD-X2-vuk" firstAttribute="centerY" secondItem="btg-GT-VYg" secondAttribute="centerY" id="zez-tM-cVd"/>
+                            </constraints>
+                            <variation key="default">
+                                <mask key="subviews">
+                                    <exclude reference="Rio-ho-GjD"/>
+                                </mask>
+                                <mask key="constraints">
+                                    <exclude reference="38Z-7f-dab"/>
+                                </mask>
+                            </variation>
+                        </view>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="status" textLabel="81g-DZ-E5f" detailTextLabel="dtS-bd-1YT" style="IBUITableViewCellStyleValue1" id="Zhs-hb-WBr">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zhs-hb-WBr" id="LSK-Oa-0x2">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Jane Smith" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="81g-DZ-E5f">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="2" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dtS-bd-1YT">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="slY-K8-hBU" id="1Lh-GX-1QJ"/>
+                            <outlet property="delegate" destination="slY-K8-hBU" id="hQG-fr-2rQ"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vPP-vn-ltr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="418" y="-8"/>
+        </scene>
         <!--Map View Controller-->
         <scene sceneID="gDz-TG-s5H">
             <objects>
-                <viewController id="CVY-u6-z1y" customClass="MapViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapView" id="CVY-u6-z1y" customClass="MapViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eL7-fn-zfG"/>
                         <viewControllerLayoutGuide type="bottom" id="SfC-Ni-8nq"/>
@@ -246,7 +279,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="modal" id="EaL-Eb-Efu"/>
+                                    <action selector="statusTableButtonClicked" destination="CVY-u6-z1y" eventType="touchUpInside" id="fXX-w5-ePw"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JlO-bc-E20">
@@ -379,7 +412,6 @@
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="2" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="STq-Kg-bJz">
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -418,7 +450,6 @@
         <image name="supbutton.png" width="75" height="75"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="eAQ-Hz-VZs"/>
-        <segue reference="EaL-Eb-Efu"/>
+        <segue reference="yc4-fe-yZJ"/>
     </inferredMetricsTieBreakers>
 </document>
