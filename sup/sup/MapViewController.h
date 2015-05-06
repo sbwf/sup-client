@@ -13,19 +13,16 @@
 {
     CLLocationManager *locationManager;
 }
+
+//@property (nonatomic)UIStoryboard *storyboard;
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
+@property (nonatomic) GMSMarker *myMarker;
 @property (nonatomic)CLLocation *myLocation;
 @property (weak, nonatomic) IBOutlet UIButton *postButton;
 @property (weak, nonatomic) IBOutlet UIButton *postButton2;
 @property (weak, nonatomic) IBOutlet UIButton *switchToListView;
-@property (nonatomic) GMSMarker *myMarker;
 @property (nonatomic)NSMutableArray *statusMarkers;
 
-//@property (nonatomic, retain)NSArray *posts;
-//@property (nonatomic, retain) NSString *time;
-//@property (nonatomic, retain) NSString *status;
-
-+ (MapViewController*)getSharedInstance;
 - (void)updateMap;
 -(GMSMarker*)makeMarker:(double)lat :(double)lng :(NSString*) name: (NSNumber*) owner_id;
 -(IBAction)postButtonClicked;

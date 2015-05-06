@@ -8,8 +8,8 @@
 
 #import "MapViewController.h"
 #import "SupAPIManager.h"
-//#import "NewStatusDetailViewController.h"
 #import "SignUpViewController.h"
+#import "NewStatusDetailViewController.h"
 #import <GoogleMaps/GoogleMaps.h>
 
 @interface MapViewController ()
@@ -17,13 +17,6 @@
 
 @implementation MapViewController
 @synthesize statusMarkers;
-
-+ (MapViewController*)getSharedInstance{
-    static MapViewController *instance;
-    if (instance == nil)
-        instance = [[MapViewController alloc] init];
-    return instance;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -39,9 +32,8 @@
         [locationManager requestWhenInUseAuthorization];
     }
     [locationManager startUpdatingLocation];
-    
-    
     _mapView.myLocationEnabled = YES;
+    
 //    [self.mapView addObserver:self forKeyPath:@"myLocation" options:NSKeyValueObservingOptionNew context:nil];
     
     // Do any additional setup after loading the view.
@@ -58,7 +50,6 @@
     if (![savedUser objectForKey:@"savedUser"]) {
         NSLog(@"No User :(");
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        // SignUpViewController *mapView = [[SignUpViewController alloc] init];
         SignUpViewController *signUp = [storyboard instantiateViewControllerWithIdentifier:@"SignUpView"];
         [self presentViewController:signUp animated:YES completion:^{
             NSLog(@"Did transition");
@@ -85,7 +76,7 @@
     if ([keyPath isEqualToString:@"statuses"]){
         NSLog(@"Statuses: %@", [SupAPIManager getSharedInstance].statuses);
         for (NSDictionary *status in [SupAPIManager getSharedInstance].statuses) {
-            [self.statusMarkers addObject:[[MapViewController getSharedInstance] makeMarker:[[status valueForKey:@"latitude"] doubleValue]  :[[status valueForKey:@"longitude"] doubleValue] :[status valueForKey:@"owner_name"]: [status valueForKey:@"owner_id"]]];
+            [self.statusMarkers addObject:[self makeMarker:[[status valueForKey:@"latitude"] doubleValue]  :[[status valueForKey:@"longitude"] doubleValue] :[status valueForKey:@"owner_name"]: [status valueForKey:@"owner_id"]]];
         }
         [self updateMap];
     }
@@ -93,7 +84,13 @@
 
 
 -(IBAction)postButtonClicked{
-    //[self postStatus];
+    NSLog(@"Post Button");
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    NewStatusDetailViewController *newStatusView = [storyboard instantiateViewControllerWithIdentifier:@"NewStatusView"];
+    [newStatusView setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+    [self presentViewController:newStatusView animated:YES completion:^{
+        NSLog(@"Did transition to new status");
+    }];
 }
 
 
@@ -107,7 +104,6 @@
 
 - (void)updateMap {
     NSLog(@"Updating");
-    
     for (GMSMarker *marker in self.statusMarkers) {
         if ([marker.userData intValue] == [[SupAPIManager getSharedInstance].myId intValue] ){
             marker.icon = [GMSMarker markerImageWithColor:[UIColor blueColor]];

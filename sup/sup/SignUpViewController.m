@@ -90,6 +90,7 @@
     [[SupAPIManager getSharedInstance] addUser:self.firstName :self.lastName :self.phoneNumber withBlock:^(NSNumber *newId) {
         NSUserDefaults *savedUser = [NSUserDefaults standardUserDefaults];
         [savedUser setObject:newId forKey:@"savedUser"];
+        [self setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
         [self dismissViewControllerAnimated:YES completion:nil];
     }];
     //TODO: confirmation that user signed up successfully
