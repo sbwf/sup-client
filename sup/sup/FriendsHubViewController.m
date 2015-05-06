@@ -23,7 +23,6 @@
     [super viewDidLoad];
     
 //    NSLog(@"Manage yo friends");
-//    [SupAPIManager getSharedInstance].myId = @(2);
     NSLog(@"My Id is: %@", [SupAPIManager getSharedInstance].myId);
 
     [[SupAPIManager getSharedInstance] addObserver:self forKeyPath:@"friends" options:NSKeyValueObservingOptionInitial context:NULL];
@@ -95,13 +94,10 @@
 //        NSLog(@"request DATA for CELL: %@", [self.requestsData objectAtIndex:0]);
         cell.textLabel.text = [self.requestsData[indexPath.row][@"user_name"] description];
 
-        NSDateFormatter *iso8601Formatter = [[NSDateFormatter alloc] init];
-        iso8601Formatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
         
         NSDate *created = [NSDate dateWithTimeIntervalSince1970:
                            [self.requestsData[indexPath.row][@"created"] doubleValue]];
         YLMoment *moment = [YLMoment momentWithDate:created];
-        NSLog(@"createdAsMoment: %@", moment);
         NSString *timeSinceRequest = [moment fromNow];
         cell.detailTextLabel.text = timeSinceRequest;
 //        NSLog(@"after setting request cell labels");

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		03D7AD691AF55F9F0006D855 /* FriendsPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D7AD681AF55F9F0006D855 /* FriendsPickerViewController.m */; };
 		4E04AFD21AFAB9FB00314E83 /* supbutton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E04AFD11AFAB9FB00314E83 /* supbutton@2x.png */; };
+		4E04B0301AFABF6800314E83 /* YLMomentRelativeTimeLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4E04B0041AFABF6800314E83 /* YLMomentRelativeTimeLocalizable.strings */; };
+		4E04B0311AFABF6800314E83 /* YLMoment.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E04B00F1AFABF6800314E83 /* YLMoment.m */; };
 		4E894B1B1AFAA7A100155509 /* Listviewbutton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E894B181AFAA7A100155509 /* Listviewbutton@2x.png */; };
 		4E894B1C1AFAA7A100155509 /* post button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E894B191AFAA7A100155509 /* post button@2x.png */; };
 		4E894B1D1AFAA7A100155509 /* Refresh icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E894B1A1AFAA7A100155509 /* Refresh icon@2x.png */; };
@@ -58,6 +60,17 @@
 		03D7AD671AF55F9F0006D855 /* FriendsPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsPickerViewController.h; sourceTree = "<group>"; };
 		03D7AD681AF55F9F0006D855 /* FriendsPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsPickerViewController.m; sourceTree = "<group>"; };
 		4E04AFD11AFAB9FB00314E83 /* supbutton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "supbutton@2x.png"; path = "../../supbutton@2x.png"; sourceTree = "<group>"; };
+		4E04B0051AFABF6800314E83 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/YLMomentRelativeTimeLocalizable.strings; sourceTree = "<group>"; };
+		4E04B0061AFABF6800314E83 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/YLMomentRelativeTimeLocalizable.strings; sourceTree = "<group>"; };
+		4E04B0071AFABF6800314E83 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/YLMomentRelativeTimeLocalizable.strings; sourceTree = "<group>"; };
+		4E04B0081AFABF6800314E83 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/YLMomentRelativeTimeLocalizable.strings; sourceTree = "<group>"; };
+		4E04B0091AFABF6800314E83 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/YLMomentRelativeTimeLocalizable.strings; sourceTree = "<group>"; };
+		4E04B00A1AFABF6800314E83 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/YLMomentRelativeTimeLocalizable.strings; sourceTree = "<group>"; };
+		4E04B00B1AFABF6800314E83 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/YLMomentRelativeTimeLocalizable.strings; sourceTree = "<group>"; };
+		4E04B00C1AFABF6800314E83 /* sq */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sq; path = sq.lproj/YLMomentRelativeTimeLocalizable.strings; sourceTree = "<group>"; };
+		4E04B00D1AFABF6800314E83 /* zh */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = zh; path = zh.lproj/YLMomentRelativeTimeLocalizable.strings; sourceTree = "<group>"; };
+		4E04B00E1AFABF6800314E83 /* YLMoment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLMoment.h; sourceTree = "<group>"; };
+		4E04B00F1AFABF6800314E83 /* YLMoment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLMoment.m; sourceTree = "<group>"; };
 		4E894B181AFAA7A100155509 /* Listviewbutton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Listviewbutton@2x.png"; sourceTree = "<group>"; };
 		4E894B191AFAA7A100155509 /* post button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "post button@2x.png"; sourceTree = "<group>"; };
 		4E894B1A1AFAA7A100155509 /* Refresh icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Refresh icon@2x.png"; sourceTree = "<group>"; };
@@ -136,6 +149,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E04B0021AFABF6800314E83 /* YLMoment */ = {
+			isa = PBXGroup;
+			children = (
+				4E04B0031AFABF6800314E83 /* Localization */,
+				4E04B00E1AFABF6800314E83 /* YLMoment.h */,
+				4E04B00F1AFABF6800314E83 /* YLMoment.m */,
+			);
+			name = YLMoment;
+			path = ../../../YLMoment/YLMoment;
+			sourceTree = "<group>";
+		};
+		4E04B0031AFABF6800314E83 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				4E04B0041AFABF6800314E83 /* YLMomentRelativeTimeLocalizable.strings */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
 		6951C3D31ACB2B9400F3875C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -202,6 +234,7 @@
 		69DCA9F11AB0AB1000D6EE96 /* sup */ = {
 			isa = PBXGroup;
 			children = (
+				BEA2010E1AF9594D001AFB47 /* Libraries */,
 				69EC19841AC8E477003AD53C /* Frameworks */,
 				69D5B03D1ABB95B4002ED2C9 /* ViewControllers */,
 				69D5B03A1ABB9573002ED2C9 /* Models */,
@@ -261,6 +294,14 @@
 				69EC198F1AC8E4FA003AD53C /* SystemConfiguration.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BEA2010E1AF9594D001AFB47 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				4E04B0021AFABF6800314E83 /* YLMoment */,
+			);
+			name = Libraries;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -327,6 +368,14 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
+				es,
+				fr,
+				ja,
+				nl,
+				pt,
+				sq,
+				zh,
 			);
 			mainGroup = 69DCA9E61AB0AB1000D6EE96;
 			productRefGroup = 69DCA9F01AB0AB1000D6EE96 /* Products */;
@@ -351,6 +400,7 @@
 				4E894B1C1AFAA7A100155509 /* post button@2x.png in Resources */,
 				69DCAA001AB0AB1000D6EE96 /* Images.xcassets in Resources */,
 				4E894B1F1AFAA7B400155509 /* friendsbutton@2x.png in Resources */,
+				4E04B0301AFABF6800314E83 /* YLMomentRelativeTimeLocalizable.strings in Resources */,
 				69EC199E1AC8E5A2003AD53C /* GoogleMaps.bundle in Resources */,
 				4E894B211AFAABF300155509 /* SUPLOGODONE.png in Resources */,
 				6951C3D51ACB2BC700F3875C /* get_users.json in Resources */,
@@ -382,6 +432,7 @@
 				69DCAA1A1AB0AB7B00D6EE96 /* UsersModel.m in Sources */,
 				69EC19A11AC8E7B0003AD53C /* MapViewController.m in Sources */,
 				69DCA9F51AB0AB1000D6EE96 /* main.m in Sources */,
+				4E04B0311AFABF6800314E83 /* YLMoment.m in Sources */,
 				69C5E9EE1AC86A4500BCB746 /* SignUpViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -405,6 +456,22 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		4E04B0041AFABF6800314E83 /* YLMomentRelativeTimeLocalizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4E04B0051AFABF6800314E83 /* de */,
+				4E04B0061AFABF6800314E83 /* en */,
+				4E04B0071AFABF6800314E83 /* es */,
+				4E04B0081AFABF6800314E83 /* fr */,
+				4E04B0091AFABF6800314E83 /* ja */,
+				4E04B00A1AFABF6800314E83 /* nl */,
+				4E04B00B1AFABF6800314E83 /* pt */,
+				4E04B00C1AFABF6800314E83 /* sq */,
+				4E04B00D1AFABF6800314E83 /* zh */,
+			);
+			name = YLMomentRelativeTimeLocalizable.strings;
+			sourceTree = "<group>";
+		};
 		69DCAA011AB0AB1000D6EE96 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
