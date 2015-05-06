@@ -56,6 +56,7 @@
     NSLog(@"textFieldShouldClear:");
     return YES;
 }
+
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     NSLog(@"touchesBegan:withEvent:");
     [self.view endEditing:YES];
@@ -70,6 +71,7 @@
     }
     return YES;
 }
+
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
     return YES;
@@ -94,10 +96,14 @@
 }
 
 -(IBAction)postButtonClicked{
-    NSLog(@"LATITUDE ...%f@", _userLocation.coordinate.latitude);
-    NSLog(@"LONGITUDE... %f@", _userLocation.coordinate.longitude);
-    NSLog(@"DURATION... %@", self.time);
-    [[SupAPIManager getSharedInstance] postStatus:_userLocation :self.friends: self.time];
+    NSLog(@"LATITUDE: %f@", _userLocation.coordinate.latitude);
+    NSLog(@"LONGITUDE: %f@", _userLocation.coordinate.longitude);
+    NSLog(@"DURATION: %@", self.time);
+    [[SupAPIManager getSharedInstance] postStatus:_userLocation :self.friends :self.time withBlock:^{
+        NSLog(@"Posted done");
+        [self setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
 }
 
 

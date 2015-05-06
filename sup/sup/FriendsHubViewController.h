@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface FriendsHubViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
+@interface FriendsHubViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
 
 @property (nonatomic, retain)NSArray *friendsData;
 @property (nonatomic, retain)NSArray *requestsData;

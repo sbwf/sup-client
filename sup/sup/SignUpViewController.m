@@ -84,14 +84,24 @@
 }
 
 -(IBAction)signedUp:(id)sender{
-//    NSString *phoneNum = @"4145316221";
-//    [[SupAPIManager getSharedInstance] addUser:self.name :self.email :phoneNum ];
+    if (self.firstName && self.lastName && self.phoneNumber) {
+        [[SupAPIManager getSharedInstance] addUser:self.firstName :self.lastName :self.phoneNumber withBlock:^(NSNumber *newId) {
+            NSUserDefaults *savedUser = [NSUserDefaults standardUserDefaults];
+            [savedUser setObject:newId forKey:@"savedUser"];
+            [self setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }];
+    } else {
+        NSLog(@"Found nil in input");
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle:@"Uh oh!"
+                              message:@"Your Info wasn't entered correctly!"
+                              delegate:self
+                              cancelButtonTitle:@"Okay"
+                              otherButtonTitles:nil];
+        [alert show];
+    }
 
-    [[SupAPIManager getSharedInstance] addUser:self.firstName :self.lastName :self.phoneNumber withBlock:^(NSNumber *newId) {
-        NSUserDefaults *savedUser = [NSUserDefaults standardUserDefaults];
-        [savedUser setObject:newId forKey:@"savedUser"];
-        [self dismissViewControllerAnimated:YES completion:nil];
-    }];
     //TODO: confirmation that user signed up successfully
 }
 /*

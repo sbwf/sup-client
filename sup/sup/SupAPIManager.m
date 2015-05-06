@@ -28,13 +28,12 @@
                                        @"first_name" : firstName,
                                        @"last_name" : lastName,
                                        @"phone" : phoneNum
-                                       };
+                                       };	
     
 
     [self makeRequest:@"POST" :@"/users/" :userToAdd withBlock:^(NSObject *data) {
         NSLog(@"did it!");
         NSLog(@"Data is: %@", data);
-//        self.myId = [[NSNumber alloc]init];
         self.myId = [data valueForKey:@"new_id"];
         NSLog(@"Setting my id %@", self.myId);
         done(self.myId);
@@ -43,11 +42,7 @@
 }
 
 
-- (void)postStatus:(CLLocation*)userLocation :(NSSet*)selectedFriends :(NSNumber*)duration{
-    NSLog(@"LATITUDE %f", userLocation.coordinate.latitude);
-    NSLog(@"LONGITUDE %f", userLocation.coordinate.longitude);
-    NSLog(@"MY ID %@", self.myId);
-    NSLog(@"MY DURATION %@", duration);
+- (void)postStatus:(CLLocation*)userLocation :(NSSet*)selectedFriends :(NSNumber*)duration withBlock:(void (^)(void))done{
     NSDictionary *statusToAdd = @{
                                           @"owner_id": self.myId,
                                           @"latitude" : @(userLocation.coordinate.latitude),
@@ -57,10 +52,7 @@
     
     [self makeRequest:@"POST" :@"/status" :statusToAdd withBlock:^(NSObject *d) {
         NSLog(@"Posted status %@", d);
-        
-        //TODO: Take out line of code below and see if it still works.
-        [[MapViewController getSharedInstance].statusMarkers addObject:[[MapViewController getSharedInstance] makeMarker:userLocation.coordinate.latitude :userLocation.coordinate.longitude :@"sam" : self.myId]];
-        
+        done();
     }];
 }
 
@@ -101,14 +93,28 @@
     
 }
 
-//-(void)approveFriendRequest: (NSInteger*)requester_id {
-//    NSLog(@"approving a friend request");
-//    NSString *urlString = [NSString stringWithFormat:@"/users/%@/friends", requester_id];
-//    NSDictionary *friend_id = @{@"friend_id": (self.myId)};
-//    [self makeRequest:@"POST" :urlString :friend_id withBlock:^(NSDictionary *d) {
-//        NSLog(@"Approved a friend request %@", d);
-//    }];
-//}
+-(void)approveFriendRequest: (NSString*)requester_id {
+    NSLog(@"approving a friend request");
+    NSString *urlString = [NSString stringWithFormat:@"/users/%@/friends", requester_id];
+    NSDictionary *friend_id = @{@"friend_id": (self.myId)};
+    [self makeRequest:@"POST" :urlString :friend_id withBlock:^(NSObject *d) {
+        NSLog(@"Approved a friend request %@", d);
+        [self loadRequests];
+    }];
+}
+
+-(void)searchForUser: (NSString*)phone {
+    NSLog(@"searching for user with phone #: %@", phone);
+    NSString *urlString = [NSString stringWithFormat:@"/users?phone=%@", phone];
+    NSLog(@"%@", urlString);
+    
+    [self makeRequest:@"GET" :urlString :nil withBlock:^(NSObject *d) {
+        NSLog(@"Searched for user!");
+        
+        NSObject *user = [d valueForKey:@"user"];
+        NSLog(@"d: %@\n user: %@", d, user);
+    }];
+}
 
 
 

@@ -23,7 +23,8 @@
 - (void)addUser: (NSString*)firstName :(NSString*)secondName :(NSString*)phoneNum withBlock:(void (^)(NSNumber* d))done;
 - (void)loadStatuses;
 - (void)loadFriends;
-- (void)postStatus:(CLLocation*)userLocation :(NSSet*)selectedFriends :(NSNumber*)duration;
+- (void)postStatus: (CLLocation*)userLocation :(NSSet*)selectedFriends :(NSNumber*)duration withBlock:(void (^)(void))done;
 - (void)loadRequests;
-//-(void)approveFriendRequest: (NSInteger*)requester_id;
+- (void)approveFriendRequest: (NSString*)requester_id;
+- (void)searchForUser: (NSString*)phone;
 @end
