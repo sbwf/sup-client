@@ -46,22 +46,22 @@
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"In cell for row at index path");
     static NSString *CellId = @"CustomCell";
-    CustomCell *cell = (CustomCell*) [tableView dequeueReusableCellWithIdentifier:CellId];
-    
-    if (cell == nil){
-        NSArray *nib = [[NSBundle mainBundle]loadNibNamed:CellId owner:self options:nil];
-        cell = [nib objectAtIndex:0];
-    }
-    status = [[NSArray alloc]initWithArray:[data objectForKey:@"statuses"]];
-    NSLog(@"HERE: %@", status);
-    NSLog(@"%@",[NSString stringWithFormat:@"Owner: %@", [[[status objectAtIndex:indexPath.row] objectForKey:@"owner"] stringValue]]);
-    cell.owner.text = [NSString stringWithFormat:@"Owner: %@", [[[status objectAtIndex:indexPath.row] objectForKey:@"owner"] stringValue]];
-    cell.time.text = [NSString stringWithFormat:@"Time: %@", [[status objectAtIndex:indexPath.row] objectForKey:@"time"]];
-    cell.latitude.text = [NSString stringWithFormat:@"Latitude: %@", [[[status objectAtIndex:indexPath.row] objectForKey:@"latitude"] stringValue]];
-    
-    [[[status objectAtIndex:indexPath.row] objectForKey:@"latitude"] stringValue];
-    NSLog(@"after setting cell labels");
-    return cell;
+//    CustomCell *cell = (CustomCell*) [tableView dequeueReusableCellWithIdentifier:CellId];
+//    
+//    if (cell == nil){
+//        NSArray *nib = [[NSBundle mainBundle]loadNibNamed:CellId owner:self options:nil];
+//        cell = [nib objectAtIndex:0];
+//    }
+//    status = [[NSArray alloc]initWithArray:[data objectForKey:@"statuses"]];
+//    NSLog(@"HERE: %@", status);
+//    NSLog(@"%@",[NSString stringWithFormat:@"Owner: %@", [[[status objectAtIndex:indexPath.row] objectForKey:@"owner"] stringValue]]);
+//    cell.owner.text = [NSString stringWithFormat:@"Owner: %@", [[[status objectAtIndex:indexPath.row] objectForKey:@"owner"] stringValue]];
+//    cell.time.text = [NSString stringWithFormat:@"Time: %@", [[status objectAtIndex:indexPath.row] objectForKey:@"time"]];
+//    cell.latitude.text = [NSString stringWithFormat:@"Latitude: %@", [[[status objectAtIndex:indexPath.row] objectForKey:@"latitude"] stringValue]];
+//    
+//    [[[status objectAtIndex:indexPath.row] objectForKey:@"latitude"] stringValue];
+//    NSLog(@"after setting cell labels");
+    return nil;
 }
 
 - (CGFloat)tableView:(UITableView*) tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

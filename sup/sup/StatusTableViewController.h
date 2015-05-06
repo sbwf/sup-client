@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CustomCell.h"
+//#import "CustomCell.h"
 
 @interface StatusTableViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 @property IBOutlet UITableView *table;

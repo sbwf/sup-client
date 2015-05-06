@@ -77,33 +77,33 @@
     
     NSLog(@"Making cell");
     static NSString *CellId = @"FriendCell";
-    FriendCell *cell = (FriendCell*) [tableView dequeueReusableCellWithIdentifier:CellId];
-    
-    if (cell == nil){
-        NSArray *nib = [[NSBundle mainBundle]loadNibNamed:CellId owner:self options:nil];
-        cell = [nib objectAtIndex:0];
-        NSLog(@"Null cell");
-    }
-    
-//    friendsData = [[NSArray alloc]initWithArray:[data objectForKey:@"friends"]];
-    NSLog(@"Friends DATA for CELL: %@", friendsData);
-    cell.firstname.text = [NSString stringWithString:[[friendsData objectAtIndex:indexPath.row] objectForKey:@"first_name"]];
-    cell.lastname.text = [NSString stringWithString:[[friendsData objectAtIndex:indexPath.row] objectForKey:@"last_name"]];
-    cell.friend_Id = [[friendsData objectAtIndex:indexPath.row] objectForKey:@"user_id"];
-    NSLog(@"after setting cell labels");
-    return cell;
+//    FriendCell *cell = (FriendCell*) [tableView dequeueReusableCellWithIdentifier:CellId];
+//    
+//    if (cell == nil){
+//        NSArray *nib = [[NSBundle mainBundle]loadNibNamed:CellId owner:self options:nil];
+//        cell = [nib objectAtIndex:0];
+//        NSLog(@"Null cell");
+//    }
+//    
+////    friendsData = [[NSArray alloc]initWithArray:[data objectForKey:@"friends"]];
+//    NSLog(@"Friends DATA for CELL: %@", friendsData);
+//    cell.firstname.text = [NSString stringWithString:[[friendsData objectAtIndex:indexPath.row] objectForKey:@"first_name"]];
+//    cell.lastname.text = [NSString stringWithString:[[friendsData objectAtIndex:indexPath.row] objectForKey:@"last_name"]];
+//    cell.friend_Id = [[friendsData objectAtIndex:indexPath.row] objectForKey:@"user_id"];
+//    NSLog(@"after setting cell labels");
+    return nil;
 }
 
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
-    FriendCell *cell = (FriendCell*)[tableView cellForRowAtIndexPath:indexPath];
-    if ([self.selectedFriends containsObject:cell.friend_Id]) {
-        [self.selectedFriends removeObject:cell.friend_Id];
-        [cell setBackgroundColor:[UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0]];
-    } else {
-        [self.selectedFriends addObject:cell.friend_Id];
-        [cell setBackgroundColor:[UIColor colorWithRed:0.8 green:0.2 blue:0.2 alpha:0.6]];
-    }
+//    FriendCell *cell = (FriendCell*)[tableView cellForRowAtIndexPath:indexPath];
+//    if ([self.selectedFriends containsObject:cell.friend_Id]) {
+//        [self.selectedFriends removeObject:cell.friend_Id];
+//        [cell setBackgroundColor:[UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0]];
+//    } else {
+//        [self.selectedFriends addObject:cell.friend_Id];
+//        [cell setBackgroundColor:[UIColor colorWithRed:0.8 green:0.2 blue:0.2 alpha:0.6]];
+//    }
     
 }
 
