@@ -15,22 +15,33 @@
 @end
 
 @implementation StatusTableViewController
-@synthesize data, table, status;
+@synthesize table, statusData;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [[SupAPIManager getSharedInstance] addObserver:self forKeyPath:@"statuses" options:0 context:NULL];
+    self.statusData = [[NSMutableArray alloc] init];
+    [[SupAPIManager getSharedInstance] addObserver:self forKeyPath:@"statuses" options:NSKeyValueSetSetMutation context:nil];
+
+//    self.statusData = [NSMutableArray arrayWithArray:[SupAPIManager getSharedInstance].statuses];
+//    self.statusData = [[SupAPIManager getSharedInstance].statuses mutableCopy];
+//    NSLog(@"Copied array: %@", self.statusData);
+//    [table reloadData];
+}
+
+-(void)viewDidAppear:(BOOL)animated {
     [[SupAPIManager getSharedInstance] loadStatuses];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
     if ([keyPath isEqualToString:@"statuses"]){
-        NSLog(@"here");
-        data = [[NSDictionary alloc] initWithDictionary:[SupAPIManager getSharedInstance].statuses];
-        NSLog(@"SupPosts: %@", data);
+        NSLog(@"Changes to this: %@", [SupAPIManager getSharedInstance].statuses);
+        for (NSDictionary *status in [SupAPIManager getSharedInstance].statuses) {
+            NSLog(@"status to add: %@", status);
+            [self.statusData addObject:status];
+        }
+        NSLog(@"SupPosts: %@", statusData);
         [table reloadData];
-        NSLog(@"after reload data");
     }
 }
 
@@ -40,28 +51,15 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return data.count;
+    return statusData.count;
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"In cell for row at index path");
-    static NSString *CellId = @"CustomCell";
-//    CustomCell *cell = (CustomCell*) [tableView dequeueReusableCellWithIdentifier:CellId];
-//    
-//    if (cell == nil){
-//        NSArray *nib = [[NSBundle mainBundle]loadNibNamed:CellId owner:self options:nil];
-//        cell = [nib objectAtIndex:0];
-//    }
-//    status = [[NSArray alloc]initWithArray:[data objectForKey:@"statuses"]];
-//    NSLog(@"HERE: %@", status);
-//    NSLog(@"%@",[NSString stringWithFormat:@"Owner: %@", [[[status objectAtIndex:indexPath.row] objectForKey:@"owner"] stringValue]]);
-//    cell.owner.text = [NSString stringWithFormat:@"Owner: %@", [[[status objectAtIndex:indexPath.row] objectForKey:@"owner"] stringValue]];
-//    cell.time.text = [NSString stringWithFormat:@"Time: %@", [[status objectAtIndex:indexPath.row] objectForKey:@"time"]];
-//    cell.latitude.text = [NSString stringWithFormat:@"Latitude: %@", [[[status objectAtIndex:indexPath.row] objectForKey:@"latitude"] stringValue]];
-//    
-//    [[[status objectAtIndex:indexPath.row] objectForKey:@"latitude"] stringValue];
-//    NSLog(@"after setting cell labels");
-    return nil;
+    UITableViewCell *cell = (UITableViewCell*) [tableView dequeueReusableCellWithIdentifier:@"status"];
+//    NSLog(@"request DATA for CELL: %@", [self.statusData objectAtIndex:0]);
+    cell.textLabel.text = [[self.statusData objectAtIndex:indexPath.row] valueForKey:@"owner_name"];
+//    cell.detailTextLabel.text = [[self.statusData objectAtIndex:indexPath.row] valueForKey:@"duration"];
+    return cell;
 }
 
 - (CGFloat)tableView:(UITableView*) tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
