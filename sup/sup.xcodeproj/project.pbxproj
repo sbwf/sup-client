@@ -8,11 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		03D7AD691AF55F9F0006D855 /* FriendsPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D7AD681AF55F9F0006D855 /* FriendsPickerViewController.m */; };
-		03D7AD6D1AF56C7D0006D855 /* FriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D7AD6B1AF56C7D0006D855 /* FriendCell.m */; };
-		03D7AD6E1AF56C7D0006D855 /* FriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03D7AD6C1AF56C7D0006D855 /* FriendCell.xib */; };
 		6951C3D51ACB2BC700F3875C /* get_users.json in Resources */ = {isa = PBXBuildFile; fileRef = 6951C3D41ACB2BC700F3875C /* get_users.json */; };
-		697212891ABB748200AAF298 /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 697212871ABB748200AAF298 /* CustomCell.m */; };
-		6972128A1ABB748200AAF298 /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 697212881ABB748200AAF298 /* CustomCell.xib */; };
 		699917DC1ADB07D400EA2C2C /* FriendManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 699917DB1ADB07D400EA2C2C /* FriendManager.m */; };
 		69B1F5661ADF43F600207BCD /* FriendsHubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B1F5651ADF43F600207BCD /* FriendsHubViewController.m */; };
 		69B1F5691ADF46BC00207BCD /* NewStatusDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B1F5681ADF46BC00207BCD /* NewStatusDetailViewController.m */; };
@@ -40,8 +36,14 @@
 		69EC199E1AC8E5A2003AD53C /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 69EC199D1AC8E5A2003AD53C /* GoogleMaps.bundle */; };
 		69EC19A11AC8E7B0003AD53C /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69EC19A01AC8E7B0003AD53C /* MapViewController.m */; };
 		69F263BC1AD3133C00F698FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69F263BB1AD3133C00F698FE /* Main.storyboard */; };
-		BEF17DDC1AF73171002AD5CF /* RequestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF17DDA1AF73171002AD5CF /* RequestCell.m */; };
-		BEF17DDD1AF73171002AD5CF /* RequestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEF17DDB1AF73171002AD5CF /* RequestCell.xib */; };
+		BEA201101AF9599B001AFB47 /* YLMoment.podspec in Resources */ = {isa = PBXBuildFile; fileRef = BEA2010F1AF9599B001AFB47 /* YLMoment.podspec */; };
+		BEA2011F1AF95DA5001AFB47 /* YLMomentRelativeTimeLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BEA201131AF95DA5001AFB47 /* YLMomentRelativeTimeLocalizable.strings */; };
+		BEA201201AF95DA5001AFB47 /* YLMoment.m in Sources */ = {isa = PBXBuildFile; fileRef = BEA2011E1AF95DA5001AFB47 /* YLMoment.m */; };
+		BEA928F91AFAA53F001BCC73 /* friendsbutton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BEA928F41AFAA53F001BCC73 /* friendsbutton@2x.png */; };
+		BEA928FA1AFAA53F001BCC73 /* Listviewbutton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BEA928F51AFAA53F001BCC73 /* Listviewbutton@2x.png */; };
+		BEA928FB1AFAA53F001BCC73 /* post button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BEA928F61AFAA53F001BCC73 /* post button@2x.png */; };
+		BEA928FC1AFAA53F001BCC73 /* Refresh icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BEA928F71AFAA53F001BCC73 /* Refresh icon@2x.png */; };
+		BEA928FD1AFAA53F001BCC73 /* statusIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = BEA928F81AFAA53F001BCC73 /* statusIcon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,13 +59,7 @@
 /* Begin PBXFileReference section */
 		03D7AD671AF55F9F0006D855 /* FriendsPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsPickerViewController.h; sourceTree = "<group>"; };
 		03D7AD681AF55F9F0006D855 /* FriendsPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsPickerViewController.m; sourceTree = "<group>"; };
-		03D7AD6A1AF56C7D0006D855 /* FriendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendCell.h; sourceTree = "<group>"; };
-		03D7AD6B1AF56C7D0006D855 /* FriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendCell.m; sourceTree = "<group>"; };
-		03D7AD6C1AF56C7D0006D855 /* FriendCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendCell.xib; sourceTree = "<group>"; };
 		6951C3D41ACB2BC700F3875C /* get_users.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = get_users.json; sourceTree = "<group>"; };
-		697212861ABB748200AAF298 /* CustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCell.h; sourceTree = "<group>"; };
-		697212871ABB748200AAF298 /* CustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCell.m; sourceTree = "<group>"; };
-		697212881ABB748200AAF298 /* CustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
 		699917DA1ADB07D400EA2C2C /* FriendManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendManager.h; sourceTree = "<group>"; };
 		699917DB1ADB07D400EA2C2C /* FriendManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendManager.m; sourceTree = "<group>"; };
 		69B1F5641ADF43F600207BCD /* FriendsHubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsHubViewController.h; sourceTree = "<group>"; };
@@ -104,9 +100,23 @@
 		69EC199F1AC8E7B0003AD53C /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		69EC19A01AC8E7B0003AD53C /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		69F263BB1AD3133C00F698FE /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		BEF17DD91AF73171002AD5CF /* RequestCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestCell.h; sourceTree = "<group>"; };
-		BEF17DDA1AF73171002AD5CF /* RequestCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestCell.m; sourceTree = "<group>"; };
-		BEF17DDB1AF73171002AD5CF /* RequestCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RequestCell.xib; sourceTree = "<group>"; };
+		BEA2010F1AF9599B001AFB47 /* YLMoment.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = YLMoment.podspec; path = "../../../Downloads/YLMoment-master/YLMoment.podspec"; sourceTree = "<group>"; };
+		BEA201141AF95DA5001AFB47 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/YLMomentRelativeTimeLocalizable.strings; sourceTree = "<group>"; };
+		BEA201151AF95DA5001AFB47 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/YLMomentRelativeTimeLocalizable.strings; sourceTree = "<group>"; };
+		BEA201161AF95DA5001AFB47 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/YLMomentRelativeTimeLocalizable.strings; sourceTree = "<group>"; };
+		BEA201171AF95DA5001AFB47 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/YLMomentRelativeTimeLocalizable.strings; sourceTree = "<group>"; };
+		BEA201181AF95DA5001AFB47 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/YLMomentRelativeTimeLocalizable.strings; sourceTree = "<group>"; };
+		BEA201191AF95DA5001AFB47 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/YLMomentRelativeTimeLocalizable.strings; sourceTree = "<group>"; };
+		BEA2011A1AF95DA5001AFB47 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/YLMomentRelativeTimeLocalizable.strings; sourceTree = "<group>"; };
+		BEA2011B1AF95DA5001AFB47 /* sq */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sq; path = sq.lproj/YLMomentRelativeTimeLocalizable.strings; sourceTree = "<group>"; };
+		BEA2011C1AF95DA5001AFB47 /* zh */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = zh; path = zh.lproj/YLMomentRelativeTimeLocalizable.strings; sourceTree = "<group>"; };
+		BEA2011D1AF95DA5001AFB47 /* YLMoment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLMoment.h; sourceTree = "<group>"; };
+		BEA2011E1AF95DA5001AFB47 /* YLMoment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLMoment.m; sourceTree = "<group>"; };
+		BEA928F41AFAA53F001BCC73 /* friendsbutton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "friendsbutton@2x.png"; sourceTree = "<group>"; };
+		BEA928F51AFAA53F001BCC73 /* Listviewbutton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Listviewbutton@2x.png"; sourceTree = "<group>"; };
+		BEA928F61AFAA53F001BCC73 /* post button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "post button@2x.png"; sourceTree = "<group>"; };
+		BEA928F71AFAA53F001BCC73 /* Refresh icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Refresh icon@2x.png"; sourceTree = "<group>"; };
+		BEA928F81AFAA53F001BCC73 /* statusIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = statusIcon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +152,11 @@
 		6951C3D31ACB2B9400F3875C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BEA928F41AFAA53F001BCC73 /* friendsbutton@2x.png */,
+				BEA928F51AFAA53F001BCC73 /* Listviewbutton@2x.png */,
+				BEA928F61AFAA53F001BCC73 /* post button@2x.png */,
+				BEA928F71AFAA53F001BCC73 /* Refresh icon@2x.png */,
+				BEA928F81AFAA53F001BCC73 /* statusIcon.png */,
 				6951C3D41ACB2BC700F3875C /* get_users.json */,
 			);
 			path = Resources;
@@ -163,15 +178,6 @@
 		69D5B03C1ABB95A3002ED2C9 /* Custom Cells */ = {
 			isa = PBXGroup;
 			children = (
-				697212861ABB748200AAF298 /* CustomCell.h */,
-				697212871ABB748200AAF298 /* CustomCell.m */,
-				697212881ABB748200AAF298 /* CustomCell.xib */,
-				03D7AD6A1AF56C7D0006D855 /* FriendCell.h */,
-				03D7AD6B1AF56C7D0006D855 /* FriendCell.m */,
-				03D7AD6C1AF56C7D0006D855 /* FriendCell.xib */,
-				BEF17DD91AF73171002AD5CF /* RequestCell.h */,
-				BEF17DDA1AF73171002AD5CF /* RequestCell.m */,
-				BEF17DDB1AF73171002AD5CF /* RequestCell.xib */,
 			);
 			name = "Custom Cells";
 			sourceTree = "<group>";
@@ -198,6 +204,7 @@
 		69DCA9E61AB0AB1000D6EE96 = {
 			isa = PBXGroup;
 			children = (
+				BEA2010F1AF9599B001AFB47 /* YLMoment.podspec */,
 				69DCA9F11AB0AB1000D6EE96 /* sup */,
 				69DCAA0B1AB0AB1100D6EE96 /* supTests */,
 				69DCA9F01AB0AB1000D6EE96 /* Products */,
@@ -216,6 +223,7 @@
 		69DCA9F11AB0AB1000D6EE96 /* sup */ = {
 			isa = PBXGroup;
 			children = (
+				BEA2010E1AF9594D001AFB47 /* Libraries */,
 				69EC19841AC8E477003AD53C /* Frameworks */,
 				69D5B03D1ABB95B4002ED2C9 /* ViewControllers */,
 				69D5B03C1ABB95A3002ED2C9 /* Custom Cells */,
@@ -275,6 +283,33 @@
 				69EC198F1AC8E4FA003AD53C /* SystemConfiguration.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BEA2010E1AF9594D001AFB47 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				BEA201111AF95DA5001AFB47 /* YLMoment */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		BEA201111AF95DA5001AFB47 /* YLMoment */ = {
+			isa = PBXGroup;
+			children = (
+				BEA201121AF95DA5001AFB47 /* Localization */,
+				BEA2011D1AF95DA5001AFB47 /* YLMoment.h */,
+				BEA2011E1AF95DA5001AFB47 /* YLMoment.m */,
+			);
+			name = YLMoment;
+			path = "../../../../Downloads/YLMoment-master/YLMoment";
+			sourceTree = "<group>";
+		};
+		BEA201121AF95DA5001AFB47 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				BEA201131AF95DA5001AFB47 /* YLMomentRelativeTimeLocalizable.strings */,
+			);
+			path = Localization;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -341,6 +376,14 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
+				es,
+				fr,
+				ja,
+				nl,
+				pt,
+				sq,
+				zh,
 			);
 			mainGroup = 69DCA9E61AB0AB1000D6EE96;
 			productRefGroup = 69DCA9F01AB0AB1000D6EE96 /* Products */;
@@ -358,14 +401,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEA928F91AFAA53F001BCC73 /* friendsbutton@2x.png in Resources */,
 				69DCAA031AB0AB1000D6EE96 /* LaunchScreen.xib in Resources */,
-				BEF17DDD1AF73171002AD5CF /* RequestCell.xib in Resources */,
-				6972128A1ABB748200AAF298 /* CustomCell.xib in Resources */,
 				69F263BC1AD3133C00F698FE /* Main.storyboard in Resources */,
-				03D7AD6E1AF56C7D0006D855 /* FriendCell.xib in Resources */,
 				69DCAA001AB0AB1000D6EE96 /* Images.xcassets in Resources */,
+				BEA201101AF9599B001AFB47 /* YLMoment.podspec in Resources */,
 				69EC199E1AC8E5A2003AD53C /* GoogleMaps.bundle in Resources */,
+				BEA928FD1AFAA53F001BCC73 /* statusIcon.png in Resources */,
 				6951C3D51ACB2BC700F3875C /* get_users.json in Resources */,
+				BEA928FC1AFAA53F001BCC73 /* Refresh icon@2x.png in Resources */,
+				BEA928FB1AFAA53F001BCC73 /* post button@2x.png in Resources */,
+				BEA2011F1AF95DA5001AFB47 /* YLMomentRelativeTimeLocalizable.strings in Resources */,
+				BEA928FA1AFAA53F001BCC73 /* Listviewbutton@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,16 +433,14 @@
 				69B1F5691ADF46BC00207BCD /* NewStatusDetailViewController.m in Sources */,
 				69D5B0391ABB956C002ED2C9 /* SupAPIManager.m in Sources */,
 				69DCA9FB1AB0AB1000D6EE96 /* StatusTableViewController.m in Sources */,
-				BEF17DDC1AF73171002AD5CF /* RequestCell.m in Sources */,
 				699917DC1ADB07D400EA2C2C /* FriendManager.m in Sources */,
 				03D7AD691AF55F9F0006D855 /* FriendsPickerViewController.m in Sources */,
 				69B1F5661ADF43F600207BCD /* FriendsHubViewController.m in Sources */,
 				69DCA9F81AB0AB1000D6EE96 /* AppDelegate.m in Sources */,
-				03D7AD6D1AF56C7D0006D855 /* FriendCell.m in Sources */,
 				69DCAA1A1AB0AB7B00D6EE96 /* UsersModel.m in Sources */,
 				69EC19A11AC8E7B0003AD53C /* MapViewController.m in Sources */,
-				697212891ABB748200AAF298 /* CustomCell.m in Sources */,
 				69DCA9F51AB0AB1000D6EE96 /* main.m in Sources */,
+				BEA201201AF95DA5001AFB47 /* YLMoment.m in Sources */,
 				69C5E9EE1AC86A4500BCB746 /* SignUpViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -425,6 +470,22 @@
 				69DCAA021AB0AB1000D6EE96 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		BEA201131AF95DA5001AFB47 /* YLMomentRelativeTimeLocalizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BEA201141AF95DA5001AFB47 /* de */,
+				BEA201151AF95DA5001AFB47 /* en */,
+				BEA201161AF95DA5001AFB47 /* es */,
+				BEA201171AF95DA5001AFB47 /* fr */,
+				BEA201181AF95DA5001AFB47 /* ja */,
+				BEA201191AF95DA5001AFB47 /* nl */,
+				BEA2011A1AF95DA5001AFB47 /* pt */,
+				BEA2011B1AF95DA5001AFB47 /* sq */,
+				BEA2011C1AF95DA5001AFB47 /* zh */,
+			);
+			name = YLMomentRelativeTimeLocalizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -11,6 +11,7 @@
 #import "SignUpViewController.h"
 #import "NewStatusDetailViewController.h"
 #import <GoogleMaps/GoogleMaps.h>
+#import "YLMoment.h"
 
 @interface MapViewController ()
 @end
@@ -95,10 +96,15 @@
 
 
 - (GMSMarker*)makeMarker:(double)lat :(double)lng : (NSString*)name :(NSNumber*) expirationDate : (NSNumber*)owner_id {
+    NSDate *expDate = [NSDate dateWithTimeIntervalSince1970: [expirationDate doubleValue] ];
+    YLMoment *moment = [YLMoment momentWithDate:expDate];
+    NSString *expiresIn = [moment fromNow];
+    NSLog(@"expires: %@", expiresIn);
+    
     CLLocationCoordinate2D position = CLLocationCoordinate2DMake(lat, lng);
     GMSMarker *marker = [GMSMarker markerWithPosition:position];
     marker.title = name;
-    marker.snippet = [NSString stringWithFormat:@"Expires in : %@", [expirationDate stringValue]];
+    marker.snippet = [NSString stringWithFormat:@"For another %@", expiresIn];
     marker.userData = owner_id;
     return  marker;
 }
