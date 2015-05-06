@@ -24,7 +24,7 @@
 @property (nonatomic)NSMutableArray *statusMarkers;
 
 - (void)updateMap;
--(GMSMarker*)makeMarker:(double)lat :(double)lng :(NSString*) name:(NSString*)duration :(NSNumber*) owner_id;
+-(GMSMarker*)makeMarker:(double)lat :(double)lng :(NSString*) name:(NSNumber*)expirationDate :(NSNumber*) owner_id;
 -(IBAction)postButtonClicked;
 
 @end

@@ -76,7 +76,7 @@
     if ([keyPath isEqualToString:@"statuses"]){
         NSLog(@"Statuses: %@", [SupAPIManager getSharedInstance].statuses);
         for (NSDictionary *status in [SupAPIManager getSharedInstance].statuses) {
-            [self.statusMarkers addObject:[self makeMarker:[[status valueForKey:@"latitude"] doubleValue]  :[[status valueForKey:@"longitude"] doubleValue] :[status valueForKey:@"owner_name"]: [[status valueForKey:@"duration"] stringValue]: [status valueForKey:@"owner_id"]]];
+            [self.statusMarkers addObject:[self makeMarker:[[status valueForKey:@"latitude"] doubleValue]  :[[status valueForKey:@"longitude"] doubleValue] :[status valueForKey:@"owner_name"]: [status valueForKey:@"expires"]: [status valueForKey:@"owner_id"]]];
         }
         [self updateMap];
     }
@@ -94,11 +94,11 @@
 }
 
 
-- (GMSMarker*)makeMarker:(double)lat :(double)lng : (NSString*)name :(NSString*) duration : (NSNumber*)owner_id {
+- (GMSMarker*)makeMarker:(double)lat :(double)lng : (NSString*)name :(NSNumber*) expirationDate : (NSNumber*)owner_id {
     CLLocationCoordinate2D position = CLLocationCoordinate2DMake(lat, lng);
     GMSMarker *marker = [GMSMarker markerWithPosition:position];
     marker.title = name;
-    marker.snippet = [NSString stringWithFormat:@"Duration: %@", duration];
+    marker.snippet = [NSString stringWithFormat:@"Expires in : %@", [expirationDate stringValue]];
     marker.userData = owner_id;
     return  marker;
 }
