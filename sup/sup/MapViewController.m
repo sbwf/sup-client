@@ -113,6 +113,7 @@
     CLLocationCoordinate2D position = CLLocationCoordinate2DMake(lat, lng);
     GMSMarker *marker = [GMSMarker markerWithPosition:position];
     marker.title = name;
+    marker.icon = [UIImage imageNamed:@"theirPin"];
     marker.snippet = [NSString stringWithFormat:@"For another %@", expiresIn];
     marker.userData = owner_id;
     return  marker;
@@ -122,7 +123,7 @@
     NSLog(@"Updating");
     for (GMSMarker *marker in self.statusMarkers) {
         if ([marker.userData intValue] == [[SupAPIManager getSharedInstance].myId intValue] ){
-            marker.icon = [GMSMarker markerImageWithColor:[UIColor blueColor]];
+            marker.icon = [UIImage imageNamed:@"yourPin"];
         }
         marker.map = _mapView;
     }
