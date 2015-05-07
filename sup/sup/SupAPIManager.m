@@ -108,7 +108,7 @@
     NSString *urlString = [NSString stringWithFormat:@"/users?phone=%@", phone];
 //    NSLog(@"%@", urlString);
     
-    [self makeRequest:@"GET" :urlString :nil withBlock:^(NSObject *d) {
+    [self makeRequestWithError:@"GET" :urlString :nil withBlock:^(NSObject *d) {
         NSDictionary *result = [[NSDictionary alloc]init];
         NSLog(@"hello!!!!!!!!!!");
         NSLog(@"d = %@", d);
@@ -192,6 +192,76 @@
          }
      }];
 }
+
+//Generic http request utility function
+- (void) makeRequestWithError:(NSString *)method :(NSString *)urlPath :(NSDictionary *)dataObj withBlock:(void (^)(NSObject* d))block {
+    
+    // Change localhost to ip if testing on real device.
+    NSString *urlString = [@"http://localhost:3000" stringByAppendingString:urlPath];
+    NSURL *url = [NSURL URLWithString:urlString];
+    
+    // Make request obj with url and set request options
+    NSMutableURLRequest *req = [[NSMutableURLRequest alloc]initWithURL:url];
+    req.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
+    [req setValue:@"application/json" forHTTPHeaderField:@"Content-type"];
+    [req setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    
+    
+    if ([method isEqualToString:@"POST"])  {
+        //Perpare data for req. JSON
+        NSData* jsonData = [NSJSONSerialization dataWithJSONObject:dataObj
+                                                           options:NSJSONWritingPrettyPrinted error:NULL];
+        [req setHTTPBody:jsonData];
+        [req setHTTPMethod:@"POST"];
+    }
+    
+    if ([method isEqualToString:@"GET"]) {
+        [req setHTTPMethod:@"GET"];
+    }
+    
+    
+    [NSURLConnection sendAsynchronousRequest:req
+                                       queue:[NSOperationQueue mainQueue]
+                           completionHandler:^(NSURLResponse *response,
+                                               NSData *data, NSError *connectionError)
+     {
+         if (data.length > 0 && connectionError == nil) {
+             NSDictionary *body = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
+             NSString *error = [body valueForKey:@"error"];
+             
+             if (error) {
+                 NSHTTPURLResponse *httpRes = (NSHTTPURLResponse*) response;
+                 NSLog(@"Error with request:"
+                       "\n%@ %@"
+                       "\nRequest headers: %@"
+                       "\nRequest body: %@"
+                       "\nResponse: %i"
+                       "\nResponse headers: %@"
+                       "\nResponse body: %@"
+                       "\nError: %@",
+                       req.HTTPMethod, req.URL,
+                       req.allHTTPHeaderFields,
+                       req.HTTPBody,
+                       (int) httpRes.statusCode,
+                       httpRes.allHeaderFields,
+                       data,
+                       error);
+//                 NSLog(@"body: %@", body);
+                 
+                 NSDictionary *errorJSON = @{
+                                               @"error": error
+                                               };
+                 block(errorJSON);
+             } else {
+                 block(body);
+             }
+             
+         } else {
+             NSLog(@"Error on connection: %@", connectionError);
+         }
+     }];
+}
+
 
 
 @end
