@@ -103,26 +103,39 @@
     }];
 }
 
+-(void)requestFriend:(NSString *)friend_id {
+    NSLog(@"making a friend request");
+    NSString *urlString = [NSString stringWithFormat:@"/requests"];
+    
+    NSDictionary *rel = @{
+                                  @"user_id": self.myId,
+                                  @"requested_id" : friend_id,
+                                  };
+    
+    [self makeRequestWithError:@"POST" :urlString :rel withBlock:^(NSObject *d) {
+        NSLog(@"Posted status %@", d);
+    }];
+    
+    
+                           
+}
+
 -(void)searchForUser: (NSString*)phone withBlock:(void (^)(NSObject* d))done {
-//    NSLog(@"searching for user with phone #: %@", phone);
     NSString *urlString = [NSString stringWithFormat:@"/users?phone=%@", phone];
-//    NSLog(@"%@", urlString);
     
     [self makeRequestWithError:@"GET" :urlString :nil withBlock:^(NSObject *d) {
         NSDictionary *result = [[NSDictionary alloc]init];
-        NSLog(@"hello!!!!!!!!!!");
-        NSLog(@"d = %@", d);
         
         if ([d valueForKey:@"user"]) {
             result = [d valueForKey:@"user"];
         } else {
             NSLog(@"in else");
-            NSString *errorMessage = [NSString stringWithFormat:@"User with phone number %@ not found!", phone];
+            NSString *errorMessage = [NSString stringWithFormat:@"We couldn't find a user with the phone number %@", phone];
             result = @{
                        @"error": errorMessage
                        };
         }
-        NSLog(@"finished searchForUser with result: %@", result);
+//        NSLog(@"finished searchForUser with result: %@", result);
         done(result);
     }];
 }

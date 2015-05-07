@@ -163,12 +163,17 @@
     
 //    NSLog(@"--------> searchity search search: %@", searchInput);
     [[SupAPIManager getSharedInstance] searchForUser:searchInput withBlock:^(NSObject *result) {
-        NSLog(@"result from searchBarButtonClicked: %@", result);
-//        if (result != NULL) {
-//            NSLog(@"result: %@", result);
-//        } else {
-//            NSLog(@"user not found!");
-//        }
+        
+        if ([result valueForKey:@"error"]) {
+            NSLog(@"result with error key:\n %@", result);
+            NSString *errorText = @"Invite them to join you on SUP!";
+            UIAlertView *userNotFound = [[UIAlertView alloc]
+                                         initWithTitle:[result valueForKey:@"error"] message:errorText delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [userNotFound show];
+        } else {
+            NSLog(@"result has no error:\n %@", result);
+            [[SupAPIManager getSharedInstance] requestFriend:[result valueForKey:@"user_id"]];
+        }
     }];
 }
 
