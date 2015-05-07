@@ -109,7 +109,7 @@
     
     NSDictionary *rel = @{
                                   @"user_id": self.myId,
-                                  @"friend_id" : friend_id,
+                                  @"requested_id" : friend_id,
                                   };
     
     [self makeRequestWithError:@"POST" :urlString :rel withBlock:^(NSObject *d) {
