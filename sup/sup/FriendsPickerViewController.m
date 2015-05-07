@@ -23,7 +23,6 @@
     
     self.selectedFriends = [[NSMutableArray alloc] init];
     NSLog(@"Pick yo friends");
-    [SupAPIManager getSharedInstance].myId = @(11);
     [[SupAPIManager getSharedInstance] addObserver:self forKeyPath:@"friends" options:NSKeyValueObservingOptionInitial context:NULL];
 
 
@@ -157,7 +156,9 @@
     
     if ([[segue identifier] isEqualToString:@"PickedFriends"]) {
         NewStatusDetailViewController *statusDetailCtrl = segue.destinationViewController;
+        statusDetailCtrl.friends = [[NSMutableArray alloc]init];
         statusDetailCtrl.friends = self.selectedFriends;
+        NSLog(@"Picked Friends: %@", self.selectedFriends);
     }
     
     

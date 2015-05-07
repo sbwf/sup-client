@@ -63,12 +63,12 @@
     [super touchesBegan:touches withEvent:event];
 }
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
-    if (textField.tag == 1) {
-        self.time = (NSNumber*) textField.text;
-    }
-    else if (textField.tag == 2){
-        self.status = [[NSString alloc]initWithString:textField.text];
-    }
+//    if (textField.tag == 1) {
+//        self.time = (NSNumber*) textField.text;
+//    }
+//    else if (textField.tag == 2){
+//        self.status = [[NSString alloc]initWithString:textField.text];
+//    }
     return YES;
 }
 
@@ -80,6 +80,12 @@
 
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardDidHideNotification object:nil];
+    if (textField.tag == 1) {
+        self.time = (NSNumber*) textField.text;
+    }
+    else if (textField.tag == 2){
+        self.status = [[NSString alloc]initWithString:textField.text];
+    }
     [self.view endEditing:YES];
     return YES;
 }
@@ -99,11 +105,31 @@
     NSLog(@"LATITUDE: %f@", _userLocation.coordinate.latitude);
     NSLog(@"LONGITUDE: %f@", _userLocation.coordinate.longitude);
     NSLog(@"DURATION: %@", self.time);
-    [[SupAPIManager getSharedInstance] postStatus:_userLocation :self.friends :self.time withBlock:^{
-        NSLog(@"Posted done");
-        [self setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
-        [self dismissViewControllerAnimated:YES completion:nil];
-    }];
+    NSLog(@"Friends that were selected... %@", self.friends);
+    if (_userLocation && self.time){
+        [[SupAPIManager getSharedInstance] postStatus:_userLocation :self.friends :self.status : self.time withBlock:^{
+            NSLog(@"Posted done");
+            [self performSegueWithIdentifier:@"backToMap" sender:self];
+//            [self setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+//            [self dismissViewControllerAnimated:YES completion:nil];
+        }];
+    } else{
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle:@"Uh oh!"
+                              message:@"Your SUP wasn't entered correctly!"
+                              delegate:self
+                              cancelButtonTitle:@"Okay"
+                              otherButtonTitles:nil];
+        [alert show];
+    }
+}
+
+-(IBAction)backButtonClicked{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    MapViewController *backMap = [storyboard instantiateViewControllerWithIdentifier:@"MapView"];
+    [backMap setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+    [self presentViewController:backMap animated:YES completion:nil];
+    
 }
 
 

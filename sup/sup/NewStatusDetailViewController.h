@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *statusField;
 @property (weak, nonatomic) IBOutlet UITextField *timeField;
 @property (weak, nonatomic) IBOutlet UIButton *postButton;
+@property (weak, nonatomic) IBOutlet UIButton *backButton;
 
 
 @property (nonatomic, strong)NSString *status;
@@ -28,5 +29,6 @@
 
 +(NewStatusDetailViewController*)getSharedInstance;
 -(IBAction)postButtonClicked;
+-(IBAction)backButtonClicked;
 
 @end

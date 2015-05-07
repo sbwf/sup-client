@@ -33,7 +33,9 @@
     }
     [locationManager startUpdatingLocation];
     _mapView.myLocationEnabled = YES;
-    
+    _myLocation = [[CLLocation alloc]
+                   initWithLatitude: self.mapView.myLocation.coordinate.latitude
+                   longitude: self.mapView.myLocation.coordinate.longitude];
 //    [self.mapView addObserver:self forKeyPath:@"myLocation" options:NSKeyValueObservingOptionNew context:nil];
     
     // Do any additional setup after loading the view.
@@ -45,6 +47,7 @@
     // JUST FOR TESTING
 //    [savedUser removeObjectForKey:@"savedUser"];
     //
+    
     
     // If NO saved user is found, promt user to sign up
     if (![savedUser objectForKey:@"savedUser"]) {
@@ -60,9 +63,14 @@
         [SupAPIManager getSharedInstance].myId = [savedUser objectForKey:@"savedUser"];
         NSLog(@"Saved User: %@", [savedUser objectForKey:@"savedUser"]);
     }
+    /*
     _myLocation = [[CLLocation alloc]
                    initWithLatitude: self.mapView.myLocation.coordinate.latitude
                    longitude: self.mapView.myLocation.coordinate.longitude];
+     */
+    NSLog(@"Latitude %f", self.mapView.myLocation.coordinate.latitude);
+    NSLog(@"Longitude %f", self.mapView.myLocation.coordinate.longitude);
+    
     _mapView.camera = [GMSCameraPosition cameraWithLatitude:self.mapView.myLocation.coordinate.latitude
                                                   longitude:self.mapView.myLocation.coordinate.longitude
                                                        zoom:16];
@@ -113,7 +121,7 @@
     CLLocationCoordinate2D position = CLLocationCoordinate2DMake(lat, lng);
     GMSMarker *marker = [GMSMarker markerWithPosition:position];
     marker.title = name;
-    marker.snippet = [NSString stringWithFormat:@"Ends %@ \n\nStatus: %@?", expiresIn, message];
+    marker.snippet = [NSString stringWithFormat:@"Ends %@ \n\nStatus: %@", expiresIn, message];
     marker.userData = owner_id;
     return  marker;
 }
