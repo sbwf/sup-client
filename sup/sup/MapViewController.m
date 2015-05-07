@@ -111,6 +111,11 @@
     }];
 }
 
+- (IBAction)refreshButton{
+    [[SupAPIManager getSharedInstance] loadStatuses];
+    NSLog(@"button pressed");
+}
+
 
 - (GMSMarker*)makeMarker:(double)lat :(double)lng : (NSString*)name :(NSNumber*) expirationDate :(NSString*)message: (NSNumber*)owner_id {
     NSDate *expDate = [NSDate dateWithTimeIntervalSince1970: [expirationDate doubleValue] ];
@@ -145,6 +150,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 /*
 #pragma mark - Navigation
