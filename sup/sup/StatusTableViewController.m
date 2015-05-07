@@ -57,7 +57,13 @@
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = (UITableViewCell*) [tableView dequeueReusableCellWithIdentifier:@"status"];
-    cell.textLabel.text = [[self.statusData objectAtIndex:indexPath.row] valueForKey:@"owner_name"];
+    NSString *userName = [[self.statusData objectAtIndex:indexPath.row] valueForKey:@"owner_name"];
+    NSString *message = [[self.statusData objectAtIndex:indexPath.row] valueForKey:@"message"];
+    
+    NSString *textLabelText = [NSString stringWithFormat:@"%@\n%@", userName, message];
+   
+    NSLog(textLabelText);
+    cell.textLabel.text = textLabelText;
     double expNum = [[[self.statusData objectAtIndex:indexPath.row] valueForKey:@"expires"] doubleValue];
     NSDate *expDate = [NSDate dateWithTimeIntervalSince1970:expNum];
     YLMoment *moment = [YLMoment momentWithDate:expDate];
