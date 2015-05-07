@@ -99,7 +99,7 @@
     NSLog(@"LATITUDE: %f@", _userLocation.coordinate.latitude);
     NSLog(@"LONGITUDE: %f@", _userLocation.coordinate.longitude);
     NSLog(@"DURATION: %@", self.time);
-    [[SupAPIManager getSharedInstance] postStatus:_userLocation :self.friends :self.time withBlock:^{
+    [[SupAPIManager getSharedInstance] postStatus:_userLocation :self.friends :self.status : self.time withBlock:^{
         NSLog(@"Posted done");
         [self setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
         [self dismissViewControllerAnimated:YES completion:nil];

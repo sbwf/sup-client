@@ -42,12 +42,13 @@
 }
 
 
-- (void)postStatus:(CLLocation*)userLocation :(NSSet*)selectedFriends :(NSNumber*)duration withBlock:(void (^)(void))done{
+- (void)postStatus:(CLLocation*)userLocation :(NSSet*)selectedFriends :(NSString*)message :(NSNumber*)duration withBlock:(void (^)(void))done{
     NSDictionary *statusToAdd = @{
                                           @"owner_id": self.myId,
                                           @"latitude" : @(userLocation.coordinate.latitude),
                                           @"longitude" : @(userLocation.coordinate.longitude),
-                                          @"duration" : duration
+                                          @"duration" : duration,
+                                          @"message" : message
                                   };
     
     [self makeRequest:@"POST" :@"/status" :statusToAdd withBlock:^(NSObject *d) {
