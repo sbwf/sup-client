@@ -156,7 +156,9 @@
     
     if ([[segue identifier] isEqualToString:@"PickedFriends"]) {
         NewStatusDetailViewController *statusDetailCtrl = segue.destinationViewController;
+        statusDetailCtrl.friends = [[NSMutableArray alloc]init];
         statusDetailCtrl.friends = self.selectedFriends;
+        NSLog(@"Picked Friends: %@", self.selectedFriends);
     }
     
     

@@ -42,13 +42,15 @@
 }
 
 
-- (void)postStatus:(CLLocation*)userLocation :(NSSet*)selectedFriends :(NSString*)message :(NSNumber*)duration withBlock:(void (^)(void))done{
+- (void)postStatus:(CLLocation*)userLocation :(NSMutableArray*)selectedFriends :(NSString*)message :(NSNumber*)duration withBlock:(void (^)(void))done{
+    NSLog(@"IN POST STATUS...%@", selectedFriends);
     NSDictionary *statusToAdd = @{
                                           @"owner_id": self.myId,
                                           @"latitude" : @(userLocation.coordinate.latitude),
                                           @"longitude" : @(userLocation.coordinate.longitude),
                                           @"duration" : duration,
-                                          @"message" : message
+                                          @"message" : message,
+                                          @"selectedFriends" : selectedFriends
                                   };
     
     [self makeRequest:@"POST" :@"/status" :statusToAdd withBlock:^(NSObject *d) {
@@ -148,7 +150,7 @@
 - (void) makeRequest:(NSString *)method :(NSString *)urlPath :(NSDictionary *)dataObj withBlock:(void (^)(NSObject* d))block {
     
     // Change localhost to ip if testing on real device.
-    NSString *urlString = [@"http://localhost:3000" stringByAppendingString:urlPath];
+    NSString *urlString = [@"http://141.140.178.101:3000" stringByAppendingString:urlPath];
     NSURL *url = [NSURL URLWithString:urlString];
     
     // Make request obj with url and set request options
@@ -212,7 +214,7 @@
 - (void) makeRequestWithError:(NSString *)method :(NSString *)urlPath :(NSDictionary *)dataObj withBlock:(void (^)(NSObject* d))block {
     
     // Change localhost to ip if testing on real device.
-    NSString *urlString = [@"http://localhost:3000" stringByAppendingString:urlPath];
+    NSString *urlString = [@"http://141.140.178.101:3000" stringByAppendingString:urlPath];
     NSURL *url = [NSURL URLWithString:urlString];
     
     // Make request obj with url and set request options

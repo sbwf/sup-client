@@ -105,11 +105,13 @@
     NSLog(@"LATITUDE: %f@", _userLocation.coordinate.latitude);
     NSLog(@"LONGITUDE: %f@", _userLocation.coordinate.longitude);
     NSLog(@"DURATION: %@", self.time);
+    NSLog(@"Friends that were selected... %@", self.friends);
     if (_userLocation && self.time){
         [[SupAPIManager getSharedInstance] postStatus:_userLocation :self.friends :self.status : self.time withBlock:^{
             NSLog(@"Posted done");
-            [self setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
-            [self dismissViewControllerAnimated:YES completion:nil];
+            [self performSegueWithIdentifier:@"backToMap" sender:self];
+//            [self setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+//            [self dismissViewControllerAnimated:YES completion:nil];
         }];
     } else{
         UIAlertView *alert = [[UIAlertView alloc]
