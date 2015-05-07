@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CVY-u6-z1y">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14C2043" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CVY-u6-z1y">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -295,7 +295,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="600" height="104"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Statuses" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="btg-GT-VYg">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Statuses" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="btg-GT-VYg">
                                     <rect key="frame" x="252" y="30" width="96" height="21"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                     <color key="textColor" red="0.0" green="0.6705882353" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -311,6 +311,12 @@
                                         <action selector="backButtonClicked" destination="slY-K8-hBU" eventType="touchUpInside" id="k3z-MI-xee"/>
                                     </connections>
                                 </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZV-36-Et1">
+                                    <rect key="frame" x="552" y="26" width="40" height="40"/>
+                                    <state key="normal" image="Refresh icon.png">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                </button>
                                 <searchBar contentMode="redraw" placeholder="Enter a friend's phone number to request them" translatesAutoresizingMaskIntoConstraints="NO" id="Rio-ho-GjD">
                                     <rect key="frame" x="0.0" y="60" width="600" height="44"/>
                                     <textInputTraits key="textInputTraits"/>
@@ -323,10 +329,14 @@
                             <constraints>
                                 <constraint firstItem="btg-GT-VYg" firstAttribute="top" secondItem="RQI-2x-OXD" secondAttribute="top" constant="30" id="2sq-yf-1A6"/>
                                 <constraint firstItem="Rio-ho-GjD" firstAttribute="top" secondItem="btg-GT-VYg" secondAttribute="bottom" constant="10" id="38Z-7f-dab"/>
+                                <constraint firstItem="sOD-X2-vuk" firstAttribute="leading" secondItem="RQI-2x-OXD" secondAttribute="leadingMargin" id="9nG-UY-8Zw"/>
+                                <constraint firstItem="sOD-X2-vuk" firstAttribute="top" secondItem="RQI-2x-OXD" secondAttribute="topMargin" constant="18" id="AYJ-gs-i1b"/>
                                 <constraint firstItem="Rio-ho-GjD" firstAttribute="leading" secondItem="RQI-2x-OXD" secondAttribute="leading" id="PU6-qO-Vul"/>
                                 <constraint firstAttribute="trailing" secondItem="Rio-ho-GjD" secondAttribute="trailing" id="SFL-Mp-Why"/>
                                 <constraint firstItem="sOD-X2-vuk" firstAttribute="leading" secondItem="RQI-2x-OXD" secondAttribute="leadingMargin" constant="10" id="cin-51-lyv"/>
                                 <constraint firstAttribute="centerX" secondItem="btg-GT-VYg" secondAttribute="centerX" id="f3Z-cz-mgI"/>
+                                <constraint firstItem="yZV-36-Et1" firstAttribute="trailing" secondItem="RQI-2x-OXD" secondAttribute="trailingMargin" id="k3Z-9D-JVM"/>
+                                <constraint firstItem="yZV-36-Et1" firstAttribute="top" secondItem="RQI-2x-OXD" secondAttribute="topMargin" constant="18" id="kQx-6Z-YGH"/>
                                 <constraint firstAttribute="bottom" secondItem="Rio-ho-GjD" secondAttribute="bottom" id="nOG-Ae-k9P"/>
                                 <constraint firstItem="sOD-X2-vuk" firstAttribute="centerY" secondItem="btg-GT-VYg" secondAttribute="centerY" id="zez-tM-cVd"/>
                             </constraints>
@@ -336,6 +346,8 @@
                                 </mask>
                                 <mask key="constraints">
                                     <exclude reference="38Z-7f-dab"/>
+                                    <exclude reference="cin-51-lyv"/>
+                                    <exclude reference="zez-tM-cVd"/>
                                 </mask>
                             </variation>
                         </view>
@@ -473,7 +485,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="600" height="104"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RTx-Kr-ngi">
+                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RTx-Kr-ngi">
                                     <rect key="frame" x="18" y="26" width="31" height="30"/>
                                     <state key="normal" title="Map">
                                         <color key="titleColor" red="0.0" green="0.6705882352941176" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -483,8 +495,8 @@
                                         <segue destination="CVY-u6-z1y" kind="show" id="eAQ-Hz-VZs"/>
                                     </connections>
                                 </button>
-                                <searchBar contentMode="redraw" placeholder="Enter a friend's phone number to request them" translatesAutoresizingMaskIntoConstraints="NO" id="CQE-mq-KPb">
-                                    <rect key="frame" x="0.0" y="60" width="600" height="44"/>
+                                <searchBar contentMode="redraw" misplaced="YES" placeholder="Enter a friend's phone number to request them" translatesAutoresizingMaskIntoConstraints="NO" id="CQE-mq-KPb">
+                                    <rect key="frame" x="0.0" y="65" width="600" height="44"/>
                                     <textInputTraits key="textInputTraits"/>
                                     <connections>
                                         <outlet property="delegate" destination="4Q9-K5-fuY" id="miP-VC-7Bb"/>
@@ -496,21 +508,34 @@
                                     <color key="textColor" red="0.0" green="0.6705882352941176" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qRR-k4-xll">
+                                    <rect key="frame" x="552" y="16" width="35" height="34"/>
+                                    <state key="normal" image="Refresh icon.png">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" red="1" green="0.49803921568627452" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
+                                <constraint firstItem="RTx-Kr-ngi" firstAttribute="leading" secondItem="xvg-3K-0nH" secondAttribute="leadingMargin" id="7O2-of-Jde"/>
+                                <constraint firstAttribute="bottom" secondItem="CQE-mq-KPb" secondAttribute="bottom" id="A0a-5M-SmB"/>
                                 <constraint firstItem="RTx-Kr-ngi" firstAttribute="centerY" secondItem="XMN-uo-EPA" secondAttribute="centerY" id="Awm-xr-2As"/>
                                 <constraint firstItem="XMN-uo-EPA" firstAttribute="top" secondItem="xvg-3K-0nH" secondAttribute="top" constant="30" id="Iyi-6Q-wW2"/>
                                 <constraint firstItem="RTx-Kr-ngi" firstAttribute="leading" secondItem="xvg-3K-0nH" secondAttribute="leadingMargin" constant="10" id="RNr-Bh-14C"/>
+                                <constraint firstItem="qRR-k4-xll" firstAttribute="trailing" secondItem="xvg-3K-0nH" secondAttribute="trailingMargin" id="eTd-3s-aQ5"/>
                                 <constraint firstItem="CQE-mq-KPb" firstAttribute="top" secondItem="XMN-uo-EPA" secondAttribute="bottom" constant="10" id="eW9-KV-wxq"/>
-                                <constraint firstAttribute="bottom" secondItem="CQE-mq-KPb" secondAttribute="bottom" id="jNl-pG-rfX"/>
+                                <constraint firstItem="CQE-mq-KPb" firstAttribute="top" secondItem="qRR-k4-xll" secondAttribute="bottom" constant="5" id="flM-WM-NP1"/>
+                                <constraint firstAttribute="bottom" secondItem="CQE-mq-KPb" secondAttribute="bottom" constant="-5" id="jNl-pG-rfX"/>
+                                <constraint firstItem="XMN-uo-EPA" firstAttribute="centerY" secondItem="qRR-k4-xll" secondAttribute="centerY" id="nsD-XZ-md2"/>
                                 <constraint firstAttribute="centerX" secondItem="XMN-uo-EPA" secondAttribute="centerX" id="tlU-UE-Poq"/>
                                 <constraint firstAttribute="trailing" secondItem="CQE-mq-KPb" secondAttribute="trailing" id="uia-TB-nwv"/>
                                 <constraint firstItem="CQE-mq-KPb" firstAttribute="leading" secondItem="xvg-3K-0nH" secondAttribute="leading" id="ytE-eH-UU0"/>
                             </constraints>
                             <variation key="default">
                                 <mask key="constraints">
+                                    <exclude reference="RNr-Bh-14C"/>
                                     <exclude reference="eW9-KV-wxq"/>
+                                    <exclude reference="jNl-pG-rfX"/>
                                 </mask>
                             </variation>
                         </view>
@@ -589,6 +614,6 @@
         <image name="supbutton.png" width="75" height="75"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="YVe-4x-vgw"/>
+        <segue reference="eAQ-Hz-VZs"/>
     </inferredMetricsTieBreakers>
 </document>
