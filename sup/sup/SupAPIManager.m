@@ -112,8 +112,9 @@
                                   @"requested_id" : friend_id,
                                   };
     
-    [self makeRequestWithError:@"POST" :urlString :rel withBlock:^(NSObject *d) {
-        NSLog(@"Posted status %@", d);
+    [self makeRequestWithError:@"POST" :urlString :rel withBlock:^(NSObject *result) {
+        NSLog(@"result from requestFriend: %@", result);
+        done(result);
     }];
     
     

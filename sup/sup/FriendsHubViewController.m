@@ -172,7 +172,19 @@
             [userNotFound show];
         } else {
             NSLog(@"result has no error:\n %@", result);
-            [[SupAPIManager getSharedInstance] requestFriend:[result valueForKey:@"user_id"]];
+            NSString *friendFirstName = [result valueForKey:@"first_name"];
+            NSString *friendLastName = [result valueForKey:@"last_name"];
+            NSString *friendFullName = [NSString stringWithFormat:@"%@ %@", friendFirstName, friendLastName];
+
+            [[SupAPIManager getSharedInstance] requestFriend:[result valueForKey:@"user_id"] withBlock:^(NSObject *result) {
+                NSLog(@"requestFriends returns: %@", result);
+                    NSString *successText = [NSString stringWithFormat:@"You requested %@!", friendFullName];
+                    UIAlertView *sentRequest = [[UIAlertView alloc]
+                                                initWithTitle:successText message:nil delegate:nil
+                                                cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                    [sentRequest show];
+            }];
+
         }
     }];
 }
