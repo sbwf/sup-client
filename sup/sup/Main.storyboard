@@ -18,60 +18,94 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Cell Phone Number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k8p-5u-f5c">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Cell Phone Number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k8p-5u-f5c">
                                 <rect key="frame" x="60" y="335" width="229" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="OO9-Uy-oIF"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="UXX-Vh-BV9" id="rKg-B9-qdz"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vpr-QP-ZMD">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vpr-QP-ZMD">
                                 <rect key="frame" x="60" y="214" width="229" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="8se-3B-miM"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="UXX-Vh-BV9" id="e0o-rk-JHe"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5C5-M5-JWi">
-                                <rect key="frame" x="60" y="53" width="66" height="30"/>
-                                <state key="normal" title="Table">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome to SUP!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wYV-i7-yw7">
-                                <rect key="frame" x="33" y="125" width="282" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vOc-6i-B5d">
-                                <rect key="frame" x="135" y="415" width="78" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vOc-6i-B5d">
+                                <rect key="frame" x="135" y="415" width="184" height="71"/>
+                                <color key="backgroundColor" red="0.0" green="0.6705882352941176" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <inset key="contentEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
                                 <state key="normal" title="Sign Up!">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="signedUp:" destination="UXX-Vh-BV9" eventType="touchUpInside" id="V7G-Y9-UtL"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ll0-fG-2bP">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ll0-fG-2bP">
                                 <rect key="frame" x="60" y="272" width="229" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="hzC-vS-Ulb"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="UXX-Vh-BV9" id="iAS-nK-Wmi"/>
                                 </connections>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Time to See Ur People!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tAF-8h-ad2">
+                                <rect key="frame" x="0.0" y="20" width="600" height="147"/>
+                                <color key="backgroundColor" red="0.0" green="0.6705882353" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="vOc-6i-B5d" secondAttribute="centerX" id="1D2-s8-pU2"/>
+                            <constraint firstItem="tAF-8h-ad2" firstAttribute="leading" secondItem="7BR-Vj-PLN" secondAttribute="leading" id="4dy-fJ-lMA"/>
+                            <constraint firstItem="Ll0-fG-2bP" firstAttribute="top" secondItem="Vpr-QP-ZMD" secondAttribute="bottom" constant="30" id="8yW-fN-964"/>
+                            <constraint firstAttribute="centerY" secondItem="vOc-6i-B5d" secondAttribute="centerY" id="A13-mW-Is7"/>
+                            <constraint firstAttribute="centerX" secondItem="Vpr-QP-ZMD" secondAttribute="centerX" id="Bed-kM-opw"/>
+                            <constraint firstAttribute="centerX" secondItem="tAF-8h-ad2" secondAttribute="centerX" id="D2m-pz-EZz"/>
+                            <constraint firstAttribute="centerX" secondItem="k8p-5u-f5c" secondAttribute="centerX" id="NCa-Th-eEk"/>
+                            <constraint firstItem="vOc-6i-B5d" firstAttribute="top" secondItem="k8p-5u-f5c" secondAttribute="bottom" constant="100" id="NdB-sS-rYU"/>
+                            <constraint firstAttribute="trailing" secondItem="tAF-8h-ad2" secondAttribute="trailing" id="fnX-zP-fQt"/>
+                            <constraint firstItem="Vpr-QP-ZMD" firstAttribute="top" secondItem="tAF-8h-ad2" secondAttribute="bottom" constant="100" id="iP8-rW-Qfc"/>
+                            <constraint firstAttribute="centerY" secondItem="k8p-5u-f5c" secondAttribute="centerY" id="kQO-5R-sIa"/>
+                            <constraint firstAttribute="centerY" secondItem="Vpr-QP-ZMD" secondAttribute="centerY" id="lZd-mk-UbE"/>
+                            <constraint firstItem="tAF-8h-ad2" firstAttribute="top" secondItem="7BR-Vj-PLN" secondAttribute="top" id="mlk-uO-Sez"/>
+                            <constraint firstAttribute="centerY" secondItem="Ll0-fG-2bP" secondAttribute="centerY" id="nu5-0j-Ydk"/>
+                            <constraint firstItem="tAF-8h-ad2" firstAttribute="top" secondItem="7BR-Vj-PLN" secondAttribute="topMargin" constant="20" id="oNR-5B-fKB"/>
+                            <constraint firstItem="k8p-5u-f5c" firstAttribute="top" secondItem="Ll0-fG-2bP" secondAttribute="bottom" constant="30" id="vPT-0m-5C1"/>
+                            <constraint firstAttribute="centerX" secondItem="Ll0-fG-2bP" secondAttribute="centerX" id="xXn-JO-Q3l"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="mlk-uO-Sez"/>
+                                <exclude reference="lZd-mk-UbE"/>
+                                <exclude reference="nu5-0j-Ydk"/>
+                                <exclude reference="kQO-5R-sIa"/>
+                                <exclude reference="A13-mW-Is7"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="firstNameField" destination="Vpr-QP-ZMD" id="mQK-vR-y5i"/>
                         <outlet property="lastNameField" destination="Ll0-fG-2bP" id="fHE-46-SOi"/>
                         <outlet property="phoneNumberField" destination="k8p-5u-f5c" id="xEu-uY-3zx"/>
                         <outlet property="signUp" destination="vOc-6i-B5d" id="tzw-Vs-x5c"/>
-                        <outlet property="table" destination="5C5-M5-JWi" id="wJC-uF-mai"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xEh-Zy-LSK" userLabel="First Responder" sceneMemberID="firstResponder"/>
