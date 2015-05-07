@@ -10,6 +10,7 @@
 #import "SupAPIManager.h"
 #import "MapViewController.h"
 #import "SignUpViewController.h"
+#import "YLMoment.h"
 
 @interface StatusTableViewController ()
 @end
@@ -56,9 +57,12 @@
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = (UITableViewCell*) [tableView dequeueReusableCellWithIdentifier:@"status"];
-//    NSLog(@"request DATA for CELL: %@", [self.statusData objectAtIndex:0]);
     cell.textLabel.text = [[self.statusData objectAtIndex:indexPath.row] valueForKey:@"owner_name"];
-//    cell.detailTextLabel.text = [[self.statusData objectAtIndex:indexPath.row] valueForKey:@"duration"];
+    double expNum = [[[self.statusData objectAtIndex:indexPath.row] valueForKey:@"expires"] doubleValue];
+    NSDate *expDate = [NSDate dateWithTimeIntervalSince1970:expNum];
+    YLMoment *moment = [YLMoment momentWithDate:expDate];
+    NSString *expiresIn = [moment fromNow];
+    cell.detailTextLabel.text = expiresIn;
     return cell;
 }
 
@@ -71,6 +75,7 @@
 }
 
 -(IBAction)backButtonClicked{
+    NSLog(@"back butt");
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     MapViewController *backMap = [storyboard instantiateViewControllerWithIdentifier:@"MapView"];
     [backMap setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
