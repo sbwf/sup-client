@@ -121,7 +121,6 @@
 		69EC199F1AC8E7B0003AD53C /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		69EC19A01AC8E7B0003AD53C /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		69F263BB1AD3133C00F698FE /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		BE5FA2001AFAFDED0048E185 /* theirPin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "theirPin@2x.png"; path = "../../../../Downloads/theirPin@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,7 +192,6 @@
 			children = (
 				69D5B0371ABB956C002ED2C9 /* SupAPIManager.h */,
 				69D5B0381ABB956C002ED2C9 /* SupAPIManager.m */,
-				BE5FA2001AFAFDED0048E185 /* theirPin@2x.png */,
 				69DCAA181AB0AB7B00D6EE96 /* UsersModel.h */,
 				69DCAA191AB0AB7B00D6EE96 /* UsersModel.m */,
 				699917DA1ADB07D400EA2C2C /* FriendManager.h */,

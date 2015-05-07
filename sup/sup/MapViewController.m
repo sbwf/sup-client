@@ -121,6 +121,7 @@
     CLLocationCoordinate2D position = CLLocationCoordinate2DMake(lat, lng);
     GMSMarker *marker = [GMSMarker markerWithPosition:position];
     marker.title = name;
+    marker.icon = [UIImage imageNamed:@"theirPin"];
     marker.snippet = [NSString stringWithFormat:@"Ends %@ \n\nStatus: %@", expiresIn, message];
     marker.userData = owner_id;
     return  marker;
