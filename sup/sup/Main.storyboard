@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CVY-u6-z1y">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14C2043" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CVY-u6-z1y">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -124,18 +124,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please enter a duration" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kr6-YH-EQM">
-                                <rect key="frame" x="63" y="136" width="192" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <variation key="heightClass=regular" fixedFrame="YES">
-                                    <rect key="frame" x="124" y="144" width="192" height="30"/>
-                                </variation>
-                                <connections>
-                                    <outlet property="delegate" destination="wKY-mh-BYW" id="FUu-t2-Bts"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please enter a status" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GEK-G6-eAU">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please enter a status" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GEK-G6-eAU">
                                 <rect key="frame" x="63" y="204" width="192" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -146,19 +135,12 @@
                                     <outlet property="delegate" destination="wKY-mh-BYW" id="PeY-mi-gKe"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter the details of your SUP" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S2U-AG-7mi">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular" fixedFrame="YES">
-                                    <rect key="frame" x="109" y="54" width="222" height="21"/>
-                                </variation>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cHw-Dn-kYr">
-                                <rect key="frame" x="109" y="304" width="101" height="30"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cHw-Dn-kYr">
+                                <rect key="frame" x="109" y="304" width="146" height="30"/>
+                                <color key="backgroundColor" red="0.79411300505050497" green="0.79411300505050497" blue="0.79411300505050497" alpha="1" colorSpace="calibratedRGB"/>
+                                <inset key="contentEdgeInsets" minX="4" minY="0.0" maxX="4" maxY="0.0"/>
                                 <state key="normal" title="Post your SUP">
+                                    <color key="titleColor" red="0.0" green="0.6705882353" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="heightClass=regular" fixedFrame="YES">
@@ -169,44 +151,62 @@
                                     <segue destination="CVY-u6-z1y" kind="modal" id="YVe-4x-vgw"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lro-vu-Dpf">
-                                <rect key="frame" x="84" y="76" width="151" height="30"/>
-                                <state key="normal" title="Choose Your Friends">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lro-vu-Dpf">
+                                <rect key="frame" x="84" y="76" width="202" height="30"/>
+                                <color key="backgroundColor" red="0.84484551396316099" green="0.84484551396316099" blue="0.84484551396316099" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <inset key="contentEdgeInsets" minX="4" minY="0.0" maxX="4" maxY="0.0"/>
+                                <state key="normal" title="First, Choose Ur Friends">
+                                    <color key="titleColor" red="0.95686274510000002" green="0.60784313729999995" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="OGI-aa-2Xj" kind="presentation" id="dEW-FP-gxZ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ykv-42-qmA">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ykv-42-qmA">
                                 <rect key="frame" x="16" y="6" width="35" height="30"/>
                                 <state key="normal" title="Back">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Compose Ur SUP" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KGq-eq-Y11">
+                                <rect key="frame" x="320" y="175" width="227" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please enter a duration" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kr6-YH-EQM">
+                                <rect key="frame" x="63" y="136" width="192" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="heightClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="124" y="144" width="192" height="30"/>
+                                </variation>
+                                <connections>
+                                    <outlet property="delegate" destination="wKY-mh-BYW" id="FUu-t2-Bts"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Kr6-YH-EQM" firstAttribute="top" secondItem="Lro-vu-Dpf" secondAttribute="bottom" constant="30" id="CeW-0N-opj"/>
-                            <constraint firstItem="Kr6-YH-EQM" firstAttribute="leading" secondItem="GEK-G6-eAU" secondAttribute="leading" id="EfB-3E-mO7"/>
-                            <constraint firstItem="GEK-G6-eAU" firstAttribute="top" secondItem="Kr6-YH-EQM" secondAttribute="bottom" constant="38" id="I0H-0z-RDF"/>
-                            <constraint firstItem="Lro-vu-Dpf" firstAttribute="leading" secondItem="xoU-3c-Eqa" secondAttribute="leadingMargin" constant="68" id="LyU-yO-8WF"/>
-                            <constraint firstItem="Kr6-YH-EQM" firstAttribute="leading" secondItem="xoU-3c-Eqa" secondAttribute="leadingMargin" constant="47" id="T3d-WV-GIL"/>
-                            <constraint firstItem="Lro-vu-Dpf" firstAttribute="top" secondItem="Kef-0f-1mB" secondAttribute="bottom" constant="56" id="g3w-YJ-EDj"/>
-                            <constraint firstItem="Kr6-YH-EQM" firstAttribute="trailing" secondItem="GEK-G6-eAU" secondAttribute="trailing" id="gjn-xF-7t7"/>
-                            <constraint firstItem="Kr6-YH-EQM" firstAttribute="centerX" secondItem="Lro-vu-Dpf" secondAttribute="centerX" id="hgV-76-hrt"/>
-                            <constraint firstItem="cHw-Dn-kYr" firstAttribute="leading" secondItem="xoU-3c-Eqa" secondAttribute="leadingMargin" constant="93" id="iGi-7V-ifv"/>
-                            <constraint firstItem="cHw-Dn-kYr" firstAttribute="top" secondItem="GEK-G6-eAU" secondAttribute="bottom" constant="70" id="pi9-iM-qlG"/>
-                            <constraint firstItem="GEK-G6-eAU" firstAttribute="centerX" secondItem="cHw-Dn-kYr" secondAttribute="centerX" id="wwl-oy-Ph3"/>
+                            <constraint firstAttribute="centerX" secondItem="cHw-Dn-kYr" secondAttribute="centerX" id="4YF-OS-VsB"/>
+                            <constraint firstItem="Lro-vu-Dpf" firstAttribute="top" secondItem="Kef-0f-1mB" secondAttribute="bottom" constant="150" id="5zZ-D8-Ydb"/>
+                            <constraint firstAttribute="centerX" secondItem="GEK-G6-eAU" secondAttribute="centerX" id="Dn0-pH-h5i"/>
+                            <constraint firstItem="cHw-Dn-kYr" firstAttribute="top" secondItem="GEK-G6-eAU" secondAttribute="bottom" constant="70" id="FZa-Yz-4xr"/>
+                            <constraint firstItem="GEK-G6-eAU" firstAttribute="top" secondItem="Kr6-YH-EQM" secondAttribute="bottom" constant="50" id="RRj-TK-MoL"/>
+                            <constraint firstItem="Kr6-YH-EQM" firstAttribute="top" secondItem="Lro-vu-Dpf" secondAttribute="bottom" constant="50" id="Tt8-fi-XCb"/>
+                            <constraint firstAttribute="centerX" secondItem="KGq-eq-Y11" secondAttribute="centerX" id="V1J-uU-zm5"/>
+                            <constraint firstAttribute="centerX" secondItem="Kr6-YH-EQM" secondAttribute="centerX" id="dcy-nY-yS2"/>
+                            <constraint firstItem="Ykv-42-qmA" firstAttribute="leading" secondItem="xoU-3c-Eqa" secondAttribute="leadingMargin" id="j3F-53-vyA"/>
+                            <constraint firstAttribute="centerX" secondItem="Lro-vu-Dpf" secondAttribute="centerX" id="pDh-hk-ufD"/>
+                            <constraint firstItem="KGq-eq-Y11" firstAttribute="top" secondItem="Kef-0f-1mB" secondAttribute="bottom" constant="50" id="qlI-5F-ycC"/>
+                            <constraint firstItem="Lro-vu-Dpf" firstAttribute="top" secondItem="Kef-0f-1mB" secondAttribute="bottom" constant="100" id="suG-8N-n5B"/>
+                            <constraint firstItem="Ykv-42-qmA" firstAttribute="top" secondItem="xoU-3c-Eqa" secondAttribute="topMargin" constant="20" id="zC7-xI-EMh"/>
                         </constraints>
                         <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="S2U-AG-7mi"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=regular">
-                            <mask key="subviews">
-                                <include reference="S2U-AG-7mi"/>
+                            <mask key="constraints">
+                                <exclude reference="suG-8N-n5B"/>
                             </mask>
                         </variation>
                     </view>
@@ -295,7 +295,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="600" height="104"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Statuses" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="btg-GT-VYg">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Statuses" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="btg-GT-VYg">
                                     <rect key="frame" x="252" y="30" width="96" height="21"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                     <color key="textColor" red="0.0" green="0.6705882353" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -311,6 +311,12 @@
                                         <action selector="backButtonClicked" destination="slY-K8-hBU" eventType="touchUpInside" id="k3z-MI-xee"/>
                                     </connections>
                                 </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZV-36-Et1">
+                                    <rect key="frame" x="552" y="26" width="40" height="40"/>
+                                    <state key="normal" image="Refresh icon.png">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                </button>
                                 <searchBar contentMode="redraw" placeholder="Enter a friend's phone number to request them" translatesAutoresizingMaskIntoConstraints="NO" id="Rio-ho-GjD">
                                     <rect key="frame" x="0.0" y="60" width="600" height="44"/>
                                     <textInputTraits key="textInputTraits"/>
@@ -323,10 +329,14 @@
                             <constraints>
                                 <constraint firstItem="btg-GT-VYg" firstAttribute="top" secondItem="RQI-2x-OXD" secondAttribute="top" constant="30" id="2sq-yf-1A6"/>
                                 <constraint firstItem="Rio-ho-GjD" firstAttribute="top" secondItem="btg-GT-VYg" secondAttribute="bottom" constant="10" id="38Z-7f-dab"/>
+                                <constraint firstItem="sOD-X2-vuk" firstAttribute="leading" secondItem="RQI-2x-OXD" secondAttribute="leadingMargin" id="9nG-UY-8Zw"/>
+                                <constraint firstItem="sOD-X2-vuk" firstAttribute="top" secondItem="RQI-2x-OXD" secondAttribute="topMargin" constant="18" id="AYJ-gs-i1b"/>
                                 <constraint firstItem="Rio-ho-GjD" firstAttribute="leading" secondItem="RQI-2x-OXD" secondAttribute="leading" id="PU6-qO-Vul"/>
                                 <constraint firstAttribute="trailing" secondItem="Rio-ho-GjD" secondAttribute="trailing" id="SFL-Mp-Why"/>
                                 <constraint firstItem="sOD-X2-vuk" firstAttribute="leading" secondItem="RQI-2x-OXD" secondAttribute="leadingMargin" constant="10" id="cin-51-lyv"/>
                                 <constraint firstAttribute="centerX" secondItem="btg-GT-VYg" secondAttribute="centerX" id="f3Z-cz-mgI"/>
+                                <constraint firstItem="yZV-36-Et1" firstAttribute="trailing" secondItem="RQI-2x-OXD" secondAttribute="trailingMargin" id="k3Z-9D-JVM"/>
+                                <constraint firstItem="yZV-36-Et1" firstAttribute="top" secondItem="RQI-2x-OXD" secondAttribute="topMargin" constant="18" id="kQx-6Z-YGH"/>
                                 <constraint firstAttribute="bottom" secondItem="Rio-ho-GjD" secondAttribute="bottom" id="nOG-Ae-k9P"/>
                                 <constraint firstItem="sOD-X2-vuk" firstAttribute="centerY" secondItem="btg-GT-VYg" secondAttribute="centerY" id="zez-tM-cVd"/>
                             </constraints>
@@ -336,6 +346,8 @@
                                 </mask>
                                 <mask key="constraints">
                                     <exclude reference="38Z-7f-dab"/>
+                                    <exclude reference="cin-51-lyv"/>
+                                    <exclude reference="zez-tM-cVd"/>
                                 </mask>
                             </variation>
                         </view>
@@ -473,7 +485,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="600" height="104"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RTx-Kr-ngi">
+                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RTx-Kr-ngi">
                                     <rect key="frame" x="18" y="26" width="31" height="30"/>
                                     <state key="normal" title="Map">
                                         <color key="titleColor" red="0.0" green="0.6705882352941176" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -483,8 +495,8 @@
                                         <segue destination="CVY-u6-z1y" kind="show" id="eAQ-Hz-VZs"/>
                                     </connections>
                                 </button>
-                                <searchBar contentMode="redraw" placeholder="Enter a friend's phone number to request them" translatesAutoresizingMaskIntoConstraints="NO" id="CQE-mq-KPb">
-                                    <rect key="frame" x="0.0" y="60" width="600" height="44"/>
+                                <searchBar contentMode="redraw" misplaced="YES" placeholder="Enter a friend's phone number to request them" translatesAutoresizingMaskIntoConstraints="NO" id="CQE-mq-KPb">
+                                    <rect key="frame" x="0.0" y="65" width="600" height="44"/>
                                     <textInputTraits key="textInputTraits"/>
                                     <connections>
                                         <outlet property="delegate" destination="4Q9-K5-fuY" id="miP-VC-7Bb"/>
@@ -496,21 +508,34 @@
                                     <color key="textColor" red="0.0" green="0.6705882352941176" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qRR-k4-xll">
+                                    <rect key="frame" x="552" y="16" width="35" height="34"/>
+                                    <state key="normal" image="Refresh icon.png">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" red="1" green="0.49803921568627452" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
+                                <constraint firstItem="RTx-Kr-ngi" firstAttribute="leading" secondItem="xvg-3K-0nH" secondAttribute="leadingMargin" id="7O2-of-Jde"/>
+                                <constraint firstAttribute="bottom" secondItem="CQE-mq-KPb" secondAttribute="bottom" id="A0a-5M-SmB"/>
                                 <constraint firstItem="RTx-Kr-ngi" firstAttribute="centerY" secondItem="XMN-uo-EPA" secondAttribute="centerY" id="Awm-xr-2As"/>
                                 <constraint firstItem="XMN-uo-EPA" firstAttribute="top" secondItem="xvg-3K-0nH" secondAttribute="top" constant="30" id="Iyi-6Q-wW2"/>
                                 <constraint firstItem="RTx-Kr-ngi" firstAttribute="leading" secondItem="xvg-3K-0nH" secondAttribute="leadingMargin" constant="10" id="RNr-Bh-14C"/>
+                                <constraint firstItem="qRR-k4-xll" firstAttribute="trailing" secondItem="xvg-3K-0nH" secondAttribute="trailingMargin" id="eTd-3s-aQ5"/>
                                 <constraint firstItem="CQE-mq-KPb" firstAttribute="top" secondItem="XMN-uo-EPA" secondAttribute="bottom" constant="10" id="eW9-KV-wxq"/>
-                                <constraint firstAttribute="bottom" secondItem="CQE-mq-KPb" secondAttribute="bottom" id="jNl-pG-rfX"/>
+                                <constraint firstItem="CQE-mq-KPb" firstAttribute="top" secondItem="qRR-k4-xll" secondAttribute="bottom" constant="5" id="flM-WM-NP1"/>
+                                <constraint firstAttribute="bottom" secondItem="CQE-mq-KPb" secondAttribute="bottom" constant="-5" id="jNl-pG-rfX"/>
+                                <constraint firstItem="XMN-uo-EPA" firstAttribute="centerY" secondItem="qRR-k4-xll" secondAttribute="centerY" id="nsD-XZ-md2"/>
                                 <constraint firstAttribute="centerX" secondItem="XMN-uo-EPA" secondAttribute="centerX" id="tlU-UE-Poq"/>
                                 <constraint firstAttribute="trailing" secondItem="CQE-mq-KPb" secondAttribute="trailing" id="uia-TB-nwv"/>
                                 <constraint firstItem="CQE-mq-KPb" firstAttribute="leading" secondItem="xvg-3K-0nH" secondAttribute="leading" id="ytE-eH-UU0"/>
                             </constraints>
                             <variation key="default">
                                 <mask key="constraints">
+                                    <exclude reference="RNr-Bh-14C"/>
                                     <exclude reference="eW9-KV-wxq"/>
+                                    <exclude reference="jNl-pG-rfX"/>
                                 </mask>
                             </variation>
                         </view>
