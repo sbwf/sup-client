@@ -138,6 +138,12 @@
         alertConfirmationMessage = [NSString stringWithFormat: @"Approve %@'s [id: %@] friend request?", selectedCellText, selectedCellId];
         
         [[SupAPIManager getSharedInstance] approveFriendRequest:selectedCellId];
+        
+        NSString *youApproved = [NSString stringWithFormat:@"You approved %@'s follower request", selectedCellText];
+        UIAlertView *confirmApproval = [[UIAlertView alloc]
+                                     initWithTitle:@"Woo!" message:youApproved delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [confirmApproval show];
+        [self.tableView reloadData];
     
     //  Friends section
     } else if (indexPath.section == 1) {
@@ -178,11 +184,21 @@
 
             [[SupAPIManager getSharedInstance] requestFriend:[result valueForKey:@"user_id"] withBlock:^(NSObject *result) {
                 NSLog(@"requestFriends returns: %@", result);
+                
+                if ([result valueForKey:@"result"]) {
                     NSString *successText = [NSString stringWithFormat:@"You requested %@!", friendFullName];
                     UIAlertView *sentRequest = [[UIAlertView alloc]
                                                 initWithTitle:successText message:nil delegate:nil
                                                 cancelButtonTitle:@"OK" otherButtonTitles:nil];
                     [sentRequest show];
+                    [self.tableView reloadData];
+                    
+                } else {
+                    NSString *errorText = @"Y'all are already friends!";
+                    UIAlertView *alreadyFriends = [[UIAlertView alloc] initWithTitle:errorText message:@"Don't get too eager" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                    [alreadyFriends show];
+                }
+
             }];
 
         }
