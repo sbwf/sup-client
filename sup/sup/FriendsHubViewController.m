@@ -66,7 +66,7 @@
     if (section == 0) {
         return @"Follower Requests";
     } else if (section == 1) {
-        return @"Following";
+        return @"Followers";
     } else {
         return @"Unmarked section";
     }
