@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 //#import "FriendCell.h"
 
-@interface FriendsPickerViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface FriendsPickerViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property IBOutlet UITableView *table;
 @property (nonatomic, retain)NSArray *friendsData;
-@property (nonatomic, retain)NSMutableSet *selectedFriends;
+@property (nonatomic, retain)NSMutableArray *selectedFriends;
 
 
 @end

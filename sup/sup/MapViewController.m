@@ -89,7 +89,7 @@
     NewStatusDetailViewController *statusTable = [storyboard instantiateViewControllerWithIdentifier:@"StatusTableView"];
     [statusTable setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
     [self presentViewController:statusTable animated:YES completion:^{
-        //        NSLog(@"Did transition to status table view");
+        NSLog(@"Did transition to status table view");
     }];
 }
 
@@ -104,7 +104,7 @@
 }
 
 
-- (GMSMarker*)makeMarker:(double)lat :(double)lng : (NSString*)name :(NSNumber*) expirationDate :(NSString*)message: (NSNumber*)owner_id {
+- (GMSMarker*)makeMarker:(double)lat :(double)lng :(NSString*)name :(NSNumber*)expirationDate :(NSString*)message: (NSNumber*)owner_id {
     NSDate *expDate = [NSDate dateWithTimeIntervalSince1970: [expirationDate doubleValue] ];
     YLMoment *moment = [YLMoment momentWithDate:expDate];
     NSString *expiresIn = [moment fromNow];

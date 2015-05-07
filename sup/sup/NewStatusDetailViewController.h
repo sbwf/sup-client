@@ -21,7 +21,7 @@
 
 @property (nonatomic, strong)NSString *status;
 @property (nonatomic, strong)NSNumber *time;
-@property (nonatomic, strong)NSMutableSet *friends;
+@property (nonatomic, strong)NSMutableArray *friends;
 @property (nonatomic)CLLocation *userLocation;
 
 
