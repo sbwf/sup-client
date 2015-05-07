@@ -220,11 +220,12 @@
                         <outlet property="postButton" destination="cHw-Dn-kYr" id="KIs-Bb-kq2"/>
                         <outlet property="statusField" destination="GEK-G6-eAU" id="xsa-B8-fhW"/>
                         <outlet property="timeField" destination="Kr6-YH-EQM" id="YG3-bp-7ER"/>
+                        <segue destination="CVY-u6-z1y" kind="presentation" identifier="backToMap" id="MhM-Jz-zhV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UOp-Pm-VyE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1511" y="758"/>
+            <point key="canvasLocation" x="1490" y="752"/>
         </scene>
         <!--Friends Picker View Controller-->
         <scene sceneID="T9n-ff-HJb">
@@ -628,4 +629,7 @@
         <image name="mapbutton.png" width="40" height="40"/>
         <image name="supbutton.png" width="75" height="75"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="MhM-Jz-zhV"/>
+    </inferredMetricsTieBreakers>
 </document>
