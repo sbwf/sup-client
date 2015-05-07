@@ -40,21 +40,21 @@
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
-    NSLog(@"-------> in observeValue, KVO path %@", keyPath);
+//    NSLog(@"-------> in observeValue, KVO path %@", keyPath);
     
     if ([keyPath isEqualToString:@"friends"]){
         friendsData = [[NSArray alloc] initWithArray:[SupAPIManager getSharedInstance].friends];
-        NSLog(@"Friends Data: %@", friendsData);
+//        NSLog(@"Friends Data: %@", friendsData);
         [self.tableView reloadData];
-        NSLog(@"KVO reload friends");
+//        NSLog(@"KVO reload friends");
     }
     
     if ([keyPath isEqualToString:@"requests"]){
         requestsData = [[NSArray alloc] initWithArray:[SupAPIManager getSharedInstance].requests];
 
-        NSLog(@"Requests Data: %@", requestsData);
+//        NSLog(@"Requests Data: %@", requestsData);
         [self.tableView reloadData];
-        NSLog(@"KVO reload requests");
+//        NSLog(@"KVO reload requests");
     }
 }
 
@@ -75,11 +75,11 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
-        NSLog(@"Num Requests: %zd", requestsData.count);
+//        NSLog(@"Num Requests: %zd", requestsData.count);
         
         return requestsData.count;
     } else {
-        NSLog(@"Num friends: %zd", friendsData.count);
+//        NSLog(@"Num friends: %zd", friendsData.count);
         
         return friendsData.count;
     }
@@ -134,7 +134,6 @@
     //  Requests section
     if (indexPath.section == 0) {
         
-        NSLog(@"section 0 selected");
         selectedCellId = [self.requestsData[indexPath.row][@"user_id"] description];
         alertConfirmationMessage = [NSString stringWithFormat: @"Approve %@'s [id: %@] friend request?", selectedCellText, selectedCellId];
         
@@ -143,7 +142,6 @@
     //  Friends section
     } else if (indexPath.section == 1) {
         
-        NSLog(@"section 1 selected");
         selectedCellId = [ self.friendsData[indexPath.row][@"user_id"] description];
         alertConfirmationMessage = [NSString stringWithFormat: @"%@'s id number is %@", selectedCellText, selectedCellId];
         
@@ -163,8 +161,15 @@
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     NSString *searchInput = searchBar.text;
     
-    NSLog(@"--------> searchity search search: %@", searchInput);
-    [[SupAPIManager getSharedInstance] searchForUser:searchInput];
+//    NSLog(@"--------> searchity search search: %@", searchInput);
+    [[SupAPIManager getSharedInstance] searchForUser:searchInput withBlock:^(NSObject *result) {
+        NSLog(@"result from searchBarButtonClicked: %@", result);
+//        if (result != NULL) {
+//            NSLog(@"result: %@", result);
+//        } else {
+//            NSLog(@"user not found!");
+//        }
+    }];
 }
 
 
