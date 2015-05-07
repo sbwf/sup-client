@@ -164,9 +164,9 @@
                                     <segue destination="OGI-aa-2Xj" kind="presentation" id="dEW-FP-gxZ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ykv-42-qmA">
-                                <rect key="frame" x="16" y="6" width="35" height="30"/>
-                                <state key="normal" title="Back">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ykv-42-qmA">
+                                <rect key="frame" x="16" y="6" width="40" height="40"/>
+                                <state key="normal" image="mapbutton.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
@@ -301,9 +301,9 @@
                                     <color key="textColor" red="0.0" green="0.6705882353" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sOD-X2-vuk">
-                                    <rect key="frame" x="18" y="26" width="35" height="30"/>
-                                    <state key="normal" title="Back">
+                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sOD-X2-vuk">
+                                    <rect key="frame" x="18" y="21" width="40" height="40"/>
+                                    <state key="normal" image="mapbutton.png">
                                         <color key="titleColor" red="0.0" green="0.6705882353" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
@@ -311,7 +311,7 @@
                                         <action selector="backButtonClicked" destination="slY-K8-hBU" eventType="touchUpInside" id="k3z-MI-xee"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZV-36-Et1">
+                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZV-36-Et1">
                                     <rect key="frame" x="552" y="26" width="40" height="40"/>
                                     <state key="normal" image="Refresh icon.png">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -333,6 +333,8 @@
                                 <constraint firstItem="sOD-X2-vuk" firstAttribute="top" secondItem="RQI-2x-OXD" secondAttribute="topMargin" constant="18" id="AYJ-gs-i1b"/>
                                 <constraint firstItem="Rio-ho-GjD" firstAttribute="leading" secondItem="RQI-2x-OXD" secondAttribute="leading" id="PU6-qO-Vul"/>
                                 <constraint firstAttribute="trailing" secondItem="Rio-ho-GjD" secondAttribute="trailing" id="SFL-Mp-Why"/>
+                                <constraint firstItem="btg-GT-VYg" firstAttribute="centerY" secondItem="yZV-36-Et1" secondAttribute="centerY" id="ZCQ-ad-fTe"/>
+                                <constraint firstItem="btg-GT-VYg" firstAttribute="centerY" secondItem="sOD-X2-vuk" secondAttribute="centerY" id="cgn-2v-KPK"/>
                                 <constraint firstItem="sOD-X2-vuk" firstAttribute="leading" secondItem="RQI-2x-OXD" secondAttribute="leadingMargin" constant="10" id="cin-51-lyv"/>
                                 <constraint firstAttribute="centerX" secondItem="btg-GT-VYg" secondAttribute="centerX" id="f3Z-cz-mgI"/>
                                 <constraint firstItem="yZV-36-Et1" firstAttribute="trailing" secondItem="RQI-2x-OXD" secondAttribute="trailingMargin" id="k3Z-9D-JVM"/>
@@ -346,8 +348,10 @@
                                 </mask>
                                 <mask key="constraints">
                                     <exclude reference="38Z-7f-dab"/>
+                                    <exclude reference="AYJ-gs-i1b"/>
                                     <exclude reference="cin-51-lyv"/>
                                     <exclude reference="zez-tM-cVd"/>
+                                    <exclude reference="kQx-6Z-YGH"/>
                                 </mask>
                             </variation>
                         </view>
@@ -485,18 +489,8 @@
                             <rect key="frame" x="0.0" y="0.0" width="600" height="104"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RTx-Kr-ngi">
-                                    <rect key="frame" x="18" y="26" width="31" height="30"/>
-                                    <state key="normal" title="Map">
-                                        <color key="titleColor" red="0.0" green="0.6705882352941176" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                    <connections>
-                                        <segue destination="CVY-u6-z1y" kind="show" id="eAQ-Hz-VZs"/>
-                                    </connections>
-                                </button>
                                 <searchBar contentMode="redraw" misplaced="YES" placeholder="Enter a friend's phone number to request them" translatesAutoresizingMaskIntoConstraints="NO" id="CQE-mq-KPb">
-                                    <rect key="frame" x="0.0" y="65" width="600" height="44"/>
+                                    <rect key="frame" x="0.0" y="65" width="600" height="38"/>
                                     <textInputTraits key="textInputTraits"/>
                                     <connections>
                                         <outlet property="delegate" destination="4Q9-K5-fuY" id="miP-VC-7Bb"/>
@@ -514,14 +508,26 @@
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                 </button>
+                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RTx-Kr-ngi">
+                                    <rect key="frame" x="14" y="21" width="40" height="40"/>
+                                    <state key="normal" image="mapbutton.png">
+                                        <color key="titleColor" red="0.0" green="0.6705882352941176" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <segue destination="CVY-u6-z1y" kind="show" id="eAQ-Hz-VZs"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" red="1" green="0.49803921568627452" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstItem="RTx-Kr-ngi" firstAttribute="leading" secondItem="xvg-3K-0nH" secondAttribute="leadingMargin" id="7O2-of-Jde"/>
                                 <constraint firstAttribute="bottom" secondItem="CQE-mq-KPb" secondAttribute="bottom" id="A0a-5M-SmB"/>
                                 <constraint firstItem="RTx-Kr-ngi" firstAttribute="centerY" secondItem="XMN-uo-EPA" secondAttribute="centerY" id="Awm-xr-2As"/>
+                                <constraint firstItem="CQE-mq-KPb" firstAttribute="top" secondItem="RTx-Kr-ngi" secondAttribute="bottom" constant="5" id="CeD-pk-MXT"/>
                                 <constraint firstItem="XMN-uo-EPA" firstAttribute="top" secondItem="xvg-3K-0nH" secondAttribute="top" constant="30" id="Iyi-6Q-wW2"/>
                                 <constraint firstItem="RTx-Kr-ngi" firstAttribute="leading" secondItem="xvg-3K-0nH" secondAttribute="leadingMargin" constant="10" id="RNr-Bh-14C"/>
+                                <constraint firstItem="RTx-Kr-ngi" firstAttribute="leading" secondItem="xvg-3K-0nH" secondAttribute="leadingMargin" id="XqC-mZ-GFB"/>
                                 <constraint firstItem="qRR-k4-xll" firstAttribute="trailing" secondItem="xvg-3K-0nH" secondAttribute="trailingMargin" id="eTd-3s-aQ5"/>
                                 <constraint firstItem="CQE-mq-KPb" firstAttribute="top" secondItem="XMN-uo-EPA" secondAttribute="bottom" constant="10" id="eW9-KV-wxq"/>
                                 <constraint firstItem="CQE-mq-KPb" firstAttribute="top" secondItem="qRR-k4-xll" secondAttribute="bottom" constant="5" id="flM-WM-NP1"/>
@@ -529,13 +535,16 @@
                                 <constraint firstItem="XMN-uo-EPA" firstAttribute="centerY" secondItem="qRR-k4-xll" secondAttribute="centerY" id="nsD-XZ-md2"/>
                                 <constraint firstAttribute="centerX" secondItem="XMN-uo-EPA" secondAttribute="centerX" id="tlU-UE-Poq"/>
                                 <constraint firstAttribute="trailing" secondItem="CQE-mq-KPb" secondAttribute="trailing" id="uia-TB-nwv"/>
+                                <constraint firstItem="CQE-mq-KPb" firstAttribute="top" secondItem="RTx-Kr-ngi" secondAttribute="bottom" constant="4" id="xxG-Aw-jdY"/>
                                 <constraint firstItem="CQE-mq-KPb" firstAttribute="leading" secondItem="xvg-3K-0nH" secondAttribute="leading" id="ytE-eH-UU0"/>
                             </constraints>
                             <variation key="default">
                                 <mask key="constraints">
+                                    <exclude reference="7O2-of-Jde"/>
                                     <exclude reference="RNr-Bh-14C"/>
                                     <exclude reference="eW9-KV-wxq"/>
                                     <exclude reference="jNl-pG-rfX"/>
+                                    <exclude reference="xxG-Aw-jdY"/>
                                 </mask>
                             </variation>
                         </view>
@@ -611,6 +620,7 @@
         <image name="Listviewbutton.png" width="48" height="48"/>
         <image name="Refresh icon.png" width="40" height="40"/>
         <image name="friendsbutton.png" width="48" height="48"/>
+        <image name="mapbutton.png" width="40" height="40"/>
         <image name="supbutton.png" width="75" height="75"/>
     </resources>
     <inferredMetricsTieBreakers>

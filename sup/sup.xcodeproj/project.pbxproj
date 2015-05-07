@@ -13,6 +13,7 @@
 		03D7AD691AF55F9F0006D855 /* FriendsPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D7AD681AF55F9F0006D855 /* FriendsPickerViewController.m */; };
 		4E75D8151AFB222B0057C67C /* theirPin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E75D8141AFB222B0057C67C /* theirPin@2x.png */; };
 		4E75D8171AFB223A0057C67C /* yourPin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E75D8161AFB223A0057C67C /* yourPin@2x.png */; };
+		4E75D8191AFB2DBF0057C67C /* mapbutton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E75D8181AFB2DBF0057C67C /* mapbutton@2x.png */; };
 		4E894B1B1AFAA7A100155509 /* Listviewbutton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E894B181AFAA7A100155509 /* Listviewbutton@2x.png */; };
 		4E894B1C1AFAA7A100155509 /* post button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E894B191AFAA7A100155509 /* post button@2x.png */; };
 		4E894B1D1AFAA7A100155509 /* Refresh icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E894B1A1AFAA7A100155509 /* Refresh icon@2x.png */; };
@@ -74,6 +75,7 @@
 		03D7AD681AF55F9F0006D855 /* FriendsPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsPickerViewController.m; sourceTree = "<group>"; };
 		4E75D8141AFB222B0057C67C /* theirPin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "theirPin@2x.png"; sourceTree = "<group>"; };
 		4E75D8161AFB223A0057C67C /* yourPin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yourPin@2x.png"; sourceTree = "<group>"; };
+		4E75D8181AFB2DBF0057C67C /* mapbutton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mapbutton@2x.png"; sourceTree = "<group>"; };
 		4E894B181AFAA7A100155509 /* Listviewbutton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Listviewbutton@2x.png"; sourceTree = "<group>"; };
 		4E894B191AFAA7A100155509 /* post button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "post button@2x.png"; sourceTree = "<group>"; };
 		4E894B1A1AFAA7A100155509 /* Refresh icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Refresh icon@2x.png"; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 		6951C3D31ACB2B9400F3875C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4E75D8181AFB2DBF0057C67C /* mapbutton@2x.png */,
 				4E75D8161AFB223A0057C67C /* yourPin@2x.png */,
 				4E75D8141AFB222B0057C67C /* theirPin@2x.png */,
 				03751B761AFACA3500854623 /* supbutton@2x.png */,
@@ -406,6 +409,7 @@
 				4E894B1C1AFAA7A100155509 /* post button@2x.png in Resources */,
 				69DCAA001AB0AB1000D6EE96 /* Images.xcassets in Resources */,
 				4E894B1F1AFAA7B400155509 /* friendsbutton@2x.png in Resources */,
+				4E75D8191AFB2DBF0057C67C /* mapbutton@2x.png in Resources */,
 				69EC199E1AC8E5A2003AD53C /* GoogleMaps.bundle in Resources */,
 				03751B771AFACA3500854623 /* supbutton@2x.png in Resources */,
 				6951C3D51ACB2BC700F3875C /* get_users.json in Resources */,
