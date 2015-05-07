@@ -23,7 +23,6 @@
     
     self.selectedFriends = [[NSMutableArray alloc] init];
     NSLog(@"Pick yo friends");
-    [SupAPIManager getSharedInstance].myId = @(11);
     [[SupAPIManager getSharedInstance] addObserver:self forKeyPath:@"friends" options:NSKeyValueObservingOptionInitial context:NULL];
 
 
