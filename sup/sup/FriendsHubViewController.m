@@ -172,6 +172,7 @@
             [userNotFound show];
         } else {
             NSLog(@"result has no error:\n %@", result);
+            [[SupAPIManager getSharedInstance] requestFriend:[result valueForKey:@"user_id"]];
         }
     }];
 }
