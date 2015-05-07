@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CVY-u6-z1y">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14C2043" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CVY-u6-z1y">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -124,9 +124,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please enter a status" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GEK-G6-eAU">
-                                <rect key="frame" x="63" y="204" width="192" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Status" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GEK-G6-eAU">
+                                <rect key="frame" x="63" y="204" width="220" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="heightClass=regular" fixedFrame="YES">
                                     <rect key="frame" x="124" y="256" width="192" height="30"/>
@@ -136,9 +136,10 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cHw-Dn-kYr">
-                                <rect key="frame" x="109" y="304" width="146" height="30"/>
+                                <rect key="frame" x="109" y="276" width="282" height="58"/>
                                 <color key="backgroundColor" red="0.79411300505050497" green="0.79411300505050497" blue="0.79411300505050497" alpha="1" colorSpace="calibratedRGB"/>
-                                <inset key="contentEdgeInsets" minX="4" minY="0.0" maxX="4" maxY="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <inset key="contentEdgeInsets" minX="9" minY="3" maxX="9" maxY="3"/>
                                 <state key="normal" title="Post your SUP">
                                     <color key="titleColor" red="0.0" green="0.6705882353" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -151,10 +152,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lro-vu-Dpf">
-                                <rect key="frame" x="84" y="76" width="202" height="30"/>
+                                <rect key="frame" x="84" y="76" width="259" height="30"/>
                                 <color key="backgroundColor" red="0.84484551396316099" green="0.84484551396316099" blue="0.84484551396316099" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <inset key="contentEdgeInsets" minX="4" minY="0.0" maxX="4" maxY="0.0"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                <inset key="contentEdgeInsets" minX="7" minY="3" maxX="7" maxY="3"/>
                                 <state key="normal" title="First, Choose Ur Friends">
                                     <color key="titleColor" red="0.95686274510000002" green="0.60784313729999995" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -178,9 +179,9 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please enter a duration" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kr6-YH-EQM">
-                                <rect key="frame" x="63" y="136" width="192" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Duration" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kr6-YH-EQM">
+                                <rect key="frame" x="63" y="136" width="220" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="heightClass=regular" fixedFrame="YES">
                                     <rect key="frame" x="124" y="144" width="192" height="30"/>
@@ -201,6 +202,7 @@
                             <constraint firstAttribute="centerX" secondItem="KGq-eq-Y11" secondAttribute="centerX" id="V1J-uU-zm5"/>
                             <constraint firstAttribute="centerX" secondItem="Kr6-YH-EQM" secondAttribute="centerX" id="dcy-nY-yS2"/>
                             <constraint firstItem="Ykv-42-qmA" firstAttribute="leading" secondItem="xoU-3c-Eqa" secondAttribute="leadingMargin" id="j3F-53-vyA"/>
+                            <constraint firstItem="GEK-G6-eAU" firstAttribute="width" secondItem="Kr6-YH-EQM" secondAttribute="width" id="oJ1-0f-HF6"/>
                             <constraint firstAttribute="centerX" secondItem="Lro-vu-Dpf" secondAttribute="centerX" id="pDh-hk-ufD"/>
                             <constraint firstItem="KGq-eq-Y11" firstAttribute="top" secondItem="Kef-0f-1mB" secondAttribute="bottom" constant="50" id="qlI-5F-ycC"/>
                             <constraint firstItem="Lro-vu-Dpf" firstAttribute="top" secondItem="Kef-0f-1mB" secondAttribute="bottom" constant="100" id="suG-8N-n5B"/>
