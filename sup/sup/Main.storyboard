@@ -124,18 +124,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please enter a duration" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kr6-YH-EQM">
-                                <rect key="frame" x="63" y="136" width="192" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <variation key="heightClass=regular" fixedFrame="YES">
-                                    <rect key="frame" x="124" y="144" width="192" height="30"/>
-                                </variation>
-                                <connections>
-                                    <outlet property="delegate" destination="wKY-mh-BYW" id="FUu-t2-Bts"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please enter a status" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GEK-G6-eAU">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please enter a status" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GEK-G6-eAU">
                                 <rect key="frame" x="63" y="204" width="192" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -146,19 +135,12 @@
                                     <outlet property="delegate" destination="wKY-mh-BYW" id="PeY-mi-gKe"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter the details of your SUP" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S2U-AG-7mi">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular" fixedFrame="YES">
-                                    <rect key="frame" x="109" y="54" width="222" height="21"/>
-                                </variation>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cHw-Dn-kYr">
-                                <rect key="frame" x="109" y="304" width="101" height="30"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cHw-Dn-kYr">
+                                <rect key="frame" x="109" y="304" width="146" height="30"/>
+                                <color key="backgroundColor" red="0.79411300505050497" green="0.79411300505050497" blue="0.79411300505050497" alpha="1" colorSpace="calibratedRGB"/>
+                                <inset key="contentEdgeInsets" minX="4" minY="0.0" maxX="4" maxY="0.0"/>
                                 <state key="normal" title="Post your SUP">
+                                    <color key="titleColor" red="0.0" green="0.6705882353" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="heightClass=regular" fixedFrame="YES">
@@ -169,44 +151,62 @@
                                     <segue destination="CVY-u6-z1y" kind="modal" id="YVe-4x-vgw"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lro-vu-Dpf">
-                                <rect key="frame" x="84" y="76" width="151" height="30"/>
-                                <state key="normal" title="Choose Your Friends">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lro-vu-Dpf">
+                                <rect key="frame" x="84" y="76" width="202" height="30"/>
+                                <color key="backgroundColor" red="0.84484551396316099" green="0.84484551396316099" blue="0.84484551396316099" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <inset key="contentEdgeInsets" minX="4" minY="0.0" maxX="4" maxY="0.0"/>
+                                <state key="normal" title="First, Choose Ur Friends">
+                                    <color key="titleColor" red="0.95686274510000002" green="0.60784313729999995" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="OGI-aa-2Xj" kind="presentation" id="dEW-FP-gxZ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ykv-42-qmA">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ykv-42-qmA">
                                 <rect key="frame" x="16" y="6" width="35" height="30"/>
                                 <state key="normal" title="Back">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Compose Ur SUP" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KGq-eq-Y11">
+                                <rect key="frame" x="320" y="175" width="227" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please enter a duration" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kr6-YH-EQM">
+                                <rect key="frame" x="63" y="136" width="192" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="heightClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="124" y="144" width="192" height="30"/>
+                                </variation>
+                                <connections>
+                                    <outlet property="delegate" destination="wKY-mh-BYW" id="FUu-t2-Bts"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Kr6-YH-EQM" firstAttribute="top" secondItem="Lro-vu-Dpf" secondAttribute="bottom" constant="30" id="CeW-0N-opj"/>
-                            <constraint firstItem="Kr6-YH-EQM" firstAttribute="leading" secondItem="GEK-G6-eAU" secondAttribute="leading" id="EfB-3E-mO7"/>
-                            <constraint firstItem="GEK-G6-eAU" firstAttribute="top" secondItem="Kr6-YH-EQM" secondAttribute="bottom" constant="38" id="I0H-0z-RDF"/>
-                            <constraint firstItem="Lro-vu-Dpf" firstAttribute="leading" secondItem="xoU-3c-Eqa" secondAttribute="leadingMargin" constant="68" id="LyU-yO-8WF"/>
-                            <constraint firstItem="Kr6-YH-EQM" firstAttribute="leading" secondItem="xoU-3c-Eqa" secondAttribute="leadingMargin" constant="47" id="T3d-WV-GIL"/>
-                            <constraint firstItem="Lro-vu-Dpf" firstAttribute="top" secondItem="Kef-0f-1mB" secondAttribute="bottom" constant="56" id="g3w-YJ-EDj"/>
-                            <constraint firstItem="Kr6-YH-EQM" firstAttribute="trailing" secondItem="GEK-G6-eAU" secondAttribute="trailing" id="gjn-xF-7t7"/>
-                            <constraint firstItem="Kr6-YH-EQM" firstAttribute="centerX" secondItem="Lro-vu-Dpf" secondAttribute="centerX" id="hgV-76-hrt"/>
-                            <constraint firstItem="cHw-Dn-kYr" firstAttribute="leading" secondItem="xoU-3c-Eqa" secondAttribute="leadingMargin" constant="93" id="iGi-7V-ifv"/>
-                            <constraint firstItem="cHw-Dn-kYr" firstAttribute="top" secondItem="GEK-G6-eAU" secondAttribute="bottom" constant="70" id="pi9-iM-qlG"/>
-                            <constraint firstItem="GEK-G6-eAU" firstAttribute="centerX" secondItem="cHw-Dn-kYr" secondAttribute="centerX" id="wwl-oy-Ph3"/>
+                            <constraint firstAttribute="centerX" secondItem="cHw-Dn-kYr" secondAttribute="centerX" id="4YF-OS-VsB"/>
+                            <constraint firstItem="Lro-vu-Dpf" firstAttribute="top" secondItem="Kef-0f-1mB" secondAttribute="bottom" constant="150" id="5zZ-D8-Ydb"/>
+                            <constraint firstAttribute="centerX" secondItem="GEK-G6-eAU" secondAttribute="centerX" id="Dn0-pH-h5i"/>
+                            <constraint firstItem="cHw-Dn-kYr" firstAttribute="top" secondItem="GEK-G6-eAU" secondAttribute="bottom" constant="70" id="FZa-Yz-4xr"/>
+                            <constraint firstItem="GEK-G6-eAU" firstAttribute="top" secondItem="Kr6-YH-EQM" secondAttribute="bottom" constant="50" id="RRj-TK-MoL"/>
+                            <constraint firstItem="Kr6-YH-EQM" firstAttribute="top" secondItem="Lro-vu-Dpf" secondAttribute="bottom" constant="50" id="Tt8-fi-XCb"/>
+                            <constraint firstAttribute="centerX" secondItem="KGq-eq-Y11" secondAttribute="centerX" id="V1J-uU-zm5"/>
+                            <constraint firstAttribute="centerX" secondItem="Kr6-YH-EQM" secondAttribute="centerX" id="dcy-nY-yS2"/>
+                            <constraint firstItem="Ykv-42-qmA" firstAttribute="leading" secondItem="xoU-3c-Eqa" secondAttribute="leadingMargin" id="j3F-53-vyA"/>
+                            <constraint firstAttribute="centerX" secondItem="Lro-vu-Dpf" secondAttribute="centerX" id="pDh-hk-ufD"/>
+                            <constraint firstItem="KGq-eq-Y11" firstAttribute="top" secondItem="Kef-0f-1mB" secondAttribute="bottom" constant="50" id="qlI-5F-ycC"/>
+                            <constraint firstItem="Lro-vu-Dpf" firstAttribute="top" secondItem="Kef-0f-1mB" secondAttribute="bottom" constant="100" id="suG-8N-n5B"/>
+                            <constraint firstItem="Ykv-42-qmA" firstAttribute="top" secondItem="xoU-3c-Eqa" secondAttribute="topMargin" constant="20" id="zC7-xI-EMh"/>
                         </constraints>
                         <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="S2U-AG-7mi"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=regular">
-                            <mask key="subviews">
-                                <include reference="S2U-AG-7mi"/>
+                            <mask key="constraints">
+                                <exclude reference="suG-8N-n5B"/>
                             </mask>
                         </variation>
                     </view>
@@ -614,6 +614,6 @@
         <image name="supbutton.png" width="75" height="75"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="eAQ-Hz-VZs"/>
+        <segue reference="YVe-4x-vgw"/>
     </inferredMetricsTieBreakers>
 </document>
