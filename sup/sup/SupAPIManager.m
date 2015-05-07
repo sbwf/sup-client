@@ -103,7 +103,7 @@
     }];
 }
 
--(void)requestFriend:(NSString *)friend_id {
+-(void)requestFriend:(NSString *)friend_id withBlock:(void (^)(NSObject* d))done {
     NSLog(@"making a friend request");
     NSString *urlString = [NSString stringWithFormat:@"/requests"];
     
