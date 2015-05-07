@@ -103,16 +103,27 @@
     }];
 }
 
--(void)searchForUser: (NSString*)phone {
-    NSLog(@"searching for user with phone #: %@", phone);
+-(void)searchForUser: (NSString*)phone withBlock:(void (^)(NSObject* d))done {
+//    NSLog(@"searching for user with phone #: %@", phone);
     NSString *urlString = [NSString stringWithFormat:@"/users?phone=%@", phone];
-    NSLog(@"%@", urlString);
+//    NSLog(@"%@", urlString);
     
     [self makeRequest:@"GET" :urlString :nil withBlock:^(NSObject *d) {
-        NSLog(@"Searched for user!");
+        NSDictionary *result = [[NSDictionary alloc]init];
+        NSLog(@"hello!!!!!!!!!!");
+        NSLog(@"d = %@", d);
         
-        NSObject *user = [d valueForKey:@"user"];
-        NSLog(@"d: %@\n user: %@", d, user);
+        if ([d valueForKey:@"user"]) {
+            result = [d valueForKey:@"user"];
+        } else {
+            NSLog(@"in else");
+            NSString *errorMessage = [NSString stringWithFormat:@"User with phone number %@ not found!", phone];
+            result = @{
+                       @"error": errorMessage
+                       };
+        }
+        NSLog(@"finished searchForUser with result: %@", result);
+        done(result);
     }];
 }
 

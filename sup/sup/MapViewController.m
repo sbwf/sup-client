@@ -122,7 +122,7 @@
     NSLog(@"Updating");
     for (GMSMarker *marker in self.statusMarkers) {
         if ([marker.userData intValue] == [[SupAPIManager getSharedInstance].myId intValue] ){
-            marker.icon = [GMSMarker markerImageWithColor:[UIColor blueColor]];
+            marker.icon = [UIImage imageNamed:@"yourPin"];
         }
         marker.map = _mapView;
     }
