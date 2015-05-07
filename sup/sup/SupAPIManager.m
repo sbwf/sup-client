@@ -104,7 +104,7 @@
     }];
 }
 
--(void)requestFriend:(NSString *)friend_id {
+-(void)requestFriend:(NSString *)friend_id withBlock:(void (^)(NSObject* d))done {
     NSLog(@"making a friend request");
     NSString *urlString = [NSString stringWithFormat:@"/requests"];
     
@@ -113,8 +113,9 @@
                                   @"requested_id" : friend_id,
                                   };
     
-    [self makeRequestWithError:@"POST" :urlString :rel withBlock:^(NSObject *d) {
-        NSLog(@"Posted status %@", d);
+    [self makeRequestWithError:@"POST" :urlString :rel withBlock:^(NSObject *result) {
+        NSLog(@"result from requestFriend: %@", result);
+        done(result);
     }];
     
     

@@ -26,6 +26,6 @@
 - (void)postStatus: (CLLocation*)userLocation :(NSSet*)selectedFriends :(NSString*)message :(NSNumber*)duration withBlock:(void (^)(void))done;
 - (void)loadRequests;
 - (void)approveFriendRequest: (NSString*)requester_id;
-- (void)requestFriend: (NSString*)friend_id;
+- (void)requestFriend: (NSString*)friend_id withBlock:(void (^)(NSObject* d))done;
 - (void)searchForUser: (NSString*)phone withBlock:(void (^)(NSObject* d))done;
 @end
