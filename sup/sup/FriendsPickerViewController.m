@@ -21,17 +21,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSLog(@"Pick yo friends");
-    //[SupAPIManager getSharedInstance].myId = @(2);
-    [[SupAPIManager getSharedInstance] addObserver:self forKeyPath:@"friends" options:0 context:NULL];
-
     self.selectedFriends = [[NSMutableArray alloc] init];
+    NSLog(@"Pick yo friends");
+    [SupAPIManager getSharedInstance].myId = @(11);
+    [[SupAPIManager getSharedInstance] addObserver:self forKeyPath:@"friends" options:NSKeyValueObservingOptionInitial context:NULL];
+
+
     [[SupAPIManager getSharedInstance] loadFriends];
     
     
 //    [NSThread sleepForTimeInterval:5];
     
-    NSLog(@"My Id is: %@", [SupAPIManager getSharedInstance].myId);
+//    NSLog(@"My Id is: %@", [SupAPIManager getSharedInstance].myId);
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -44,9 +45,8 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
     if ([keyPath isEqualToString:@"friends"]){
         friendsData = [[NSArray alloc] initWithArray:[SupAPIManager getSharedInstance].friends];
-//        NSLog(@"Friends Data: %@", friendsData);
-        [table reloadData];
         NSLog(@"KVO reload friends");
+        [self.tableView reloadData];
     }
 }
 
@@ -68,44 +68,49 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 //#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    NSLog(@"Num Friends: %zd", friendsData.count);
+//    NSLog(@"Num Friends: %zd", friendsData.count);
     return friendsData.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSLog(@"Making cell");
-    static NSString *CellId = @"FriendCell";
-//    FriendCell *cell = (FriendCell*) [tableView dequeueReusableCellWithIdentifier:CellId];
-//    
-//    if (cell == nil){
-//        NSArray *nib = [[NSBundle mainBundle]loadNibNamed:CellId owner:self options:nil];
-//        cell = [nib objectAtIndex:0];
-//        NSLog(@"Null cell");
-//    }
-//    
-////    friendsData = [[NSArray alloc]initWithArray:[data objectForKey:@"friends"]];
-//    NSLog(@"Friends DATA for CELL: %@", friendsData);
-//    cell.firstname.text = [NSString stringWithString:[[friendsData objectAtIndex:indexPath.row] objectForKey:@"first_name"]];
-//    cell.lastname.text = [NSString stringWithString:[[friendsData objectAtIndex:indexPath.row] objectForKey:@"last_name"]];
-//    cell.friend_Id = [[friendsData objectAtIndex:indexPath.row] objectForKey:@"user_id"];
-//    NSLog(@"after setting cell labels");
-    return nil;
-}
-
-
-- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
-//    FriendCell *cell = (FriendCell*)[tableView cellForRowAtIndexPath:indexPath];
-//    if ([self.selectedFriends containsObject:cell.friend_Id]) {
-//        [self.selectedFriends removeObject:cell.friend_Id];
-//        [cell setBackgroundColor:[UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0]];
-//    } else {
-//        [self.selectedFriends addObject:cell.friend_Id];
-//        [cell setBackgroundColor:[UIColor colorWithRed:0.8 green:0.2 blue:0.2 alpha:0.6]];
-//    }
+    UITableViewCell *cell = (UITableViewCell*) [tableView dequeueReusableCellWithIdentifier:@"friend"];
+    NSLog(@"friend DATA for CELL: %@", [self.friendsData objectAtIndex:indexPath.row]);
     
+    NSString *firstName = [self.friendsData[indexPath.row][@"first_name"] description];
+    NSString *lastName = [self.friendsData[indexPath.row][@"last_name"] description];
+    NSString *fullName = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
+    
+    cell.textLabel.text = fullName;
+    return cell;
 }
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    NSNumber *selectedID = [[self.friendsData objectAtIndex:indexPath.row] valueForKey:@"user_id"];
+    UIColor *blue = [[UIColor alloc] initWithRed:255 green:127 blue:0 alpha:1];
+    if ([self.selectedFriends containsObject:selectedID]) {
+        [self.selectedFriends removeObject:selectedID];
+        cell.backgroundColor = [UIColor whiteColor];
+    } else {
+        [self.selectedFriends addObject:selectedID];
+        cell.backgroundColor = [UIColor blueColor];
+    }
+    NSLog(@"Selected Users: %@", self.selectedFriends);
+}
+
+
+//- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+//    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+//    NSNumber *selectedID = [[self.friendsData objectAtIndex:indexPath.row] valueForKey:@"user_id"];
+//    if (self.selectedFriends containsObject:selectedID) {
+//        
+//    }
+//    [self.selectedFriends removeObject:selectedFriends];
+//    NSLog(@"Selected Users: %@", self.selectedFriends);
+//}
 
 /*
 // Override to support conditional editing of the table view.
